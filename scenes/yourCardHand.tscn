@@ -20,6 +20,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = SubResource("Theme_mi2yk")
 
 [node name="PanelContainer" type="PanelContainer" parent="YourCardHandNode"]
@@ -38,15 +40,19 @@ alignment = 1
 script = ExtResource("2_4xnr4")
 
 [node name="CardControl" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+visible = false
 layout_mode = 2
 
 [node name="CardControl2" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+visible = false
 layout_mode = 2
 
 [node name="CardControl3" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+visible = false
 layout_mode = 2
 
 [node name="CardControl4" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+visible = false
 layout_mode = 2
 
 [node name="CardControl" parent="." instance=ExtResource("2_8fthn")]

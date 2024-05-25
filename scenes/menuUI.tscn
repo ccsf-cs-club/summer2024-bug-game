@@ -1,3 +1,138 @@
-[gd_scene format=3 uid="uid://dsp37cd2wijm5"]
+[gd_scene load_steps=3 format=3 uid="uid://dsp37cd2wijm5"]
 
-[node name="MenuUi" type="Node2D"]
+[ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="1_6h7qw"]
+[ext_resource type="Script" path="res://scenes/menuUI.gd" id="1_m4exc"]
+
+[node name="MenuUi" type="CanvasLayer"]
+script = ExtResource("1_m4exc")
+
+[node name="StartMenuNode" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenuNode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -523.0
+offset_right = 523.0
+offset_bottom = 251.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="StartMenuNode/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_6h7qw")
+theme_override_font_sizes/font_size = 250
+text = "Bug Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="StartMenuNode"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -62.0
+offset_right = 312.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenuNode/PanelContainer"]
+layout_mode = 2
+
+[node name="StartButtonContainer" type="HBoxContainer" parent="StartMenuNode/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartGameButton" type="Button" parent="StartMenuNode/PanelContainer/VBoxContainer/StartButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_6h7qw")
+theme_override_font_sizes/font_size = 30
+text = "Start Game"
+
+[node name="SettingsButtonContainer" type="HBoxContainer" parent="StartMenuNode/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SettingsMenuButton" type="Button" parent="StartMenuNode/PanelContainer/VBoxContainer/SettingsButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_6h7qw")
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="QuitButtonContainer" type="HBoxContainer" parent="StartMenuNode/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitGameButton" type="Button" parent="StartMenuNode/PanelContainer/VBoxContainer/QuitButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_6h7qw")
+theme_override_font_sizes/font_size = 30
+text = "Quit Game"
+
+[node name="SettingsMenuNode" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingsMenuNode"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -60.0
+offset_right = 312.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenuNode/PanelContainer"]
+layout_mode = 2
+
+[node name="DisplayModeContainer" type="HBoxContainer" parent="SettingsMenuNode/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsMenuNode/PanelContainer/VBoxContainer/DisplayModeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_6h7qw")
+theme_override_font_sizes/font_size = 30
+text = "Display Mode"
+
+[node name="DisplayModeButton" type="OptionButton" parent="SettingsMenuNode/PanelContainer/VBoxContainer/DisplayModeContainer"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenuNode/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="SettingsMenuNode/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"

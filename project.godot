@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Player="*res://scripts/player.gd"
+
 [dotnet]
 
 project/assembly_name="Summer 2024-bug-game"

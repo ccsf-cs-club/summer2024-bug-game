@@ -22,6 +22,8 @@ script = ExtResource("1_ogom7")
 
 [node name="YourCardHand" parent="CombatScene" instance=ExtResource("6_l757w")]
 
+[node name="Delete_Hide_This_Later" type="Node" parent="CombatScene/YourCardHand"]
+
 [node name="Tabletop" parent="CombatScene" instance=ExtResource("5_x7ftj")]
 
 [node name="MapScene" parent="." instance=ExtResource("5_u5vsj")]

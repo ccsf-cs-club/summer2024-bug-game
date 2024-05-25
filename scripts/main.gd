@@ -8,7 +8,9 @@ func _ready():
 
 	var card_list_scene = preload("res://scenes/yourCardHand.tscn")
 	var card_list = card_list_scene.instantiate()
-	add_child(card_list)
+	
+	# Adds the card list child!! Make sure to hid existing one
+	$CombatScene.add_child(card_list)
 
 	card_list.add_cards(Player.cardsArray) # FIXME: eventually create randomized starting hand out of cards in PlayerInventory?
 

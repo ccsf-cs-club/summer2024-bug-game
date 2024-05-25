@@ -5,12 +5,12 @@ extends Control
 
 
 # Function to set the card and update the display
-func set_card(card: Card):
-	if card.cardArt != "":
-		var card_texture = load(card.cardArt)
+func set_card(card_inst: Card):
+	if card_inst.cardArt != "":
+		var card_texture = load(card_inst.cardArt)
 		card_art.texture = card_texture
-	if card.loreString != "":
-		text_lore.text = card.loreString
+	if card_inst.loreString != "":
+		text_lore.text = card_inst.loreString
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

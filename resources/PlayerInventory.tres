@@ -5,16 +5,16 @@
 [ext_resource type="Resource" uid="uid://ib4eqntg5ixq" path="res://resources/AntWithSpear.tres" id="3_v05xg"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_b63lt"]
 
-[sub_resource type="Resource" id="Resource_tcgdd"]
+[sub_resource type="Resource" id="Resource_hxejr"]
 script = ExtResource("2_dklt8")
 card = ExtResource("1_exnh8")
 amt = 3
 
-[sub_resource type="Resource" id="Resource_a1g4n"]
+[sub_resource type="Resource" id="Resource_cfn3h"]
 script = ExtResource("2_dklt8")
 card = ExtResource("3_v05xg")
 amt = 2
 
 [resource]
 script = ExtResource("4_b63lt")
-cards = Array[ExtResource("2_dklt8")]([SubResource("Resource_tcgdd"), SubResource("Resource_a1g4n")])
+card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_hxejr"), SubResource("Resource_cfn3h")])

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var hbox: HBoxContainer
+# Handles functions for manipulating the player's current hand
 
 # Function to add cards to the HBoxContainer
 func add_cards(cards: Array[CardAndAmt]):

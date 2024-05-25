@@ -10,7 +10,7 @@ func _ready():
 	var card_list = card_list_scene.instantiate()
 	add_child(card_list)
 
-	card_list.add_cards(card_inventory.cards)
+	card_list.add_cards(card_inventory.card_hand)# FIXME: eventually create randomized starting hand out of cards in PlayerInventory?
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

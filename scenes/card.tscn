@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://blsdayu0ykgoc"]
+[gd_scene load_steps=5 format=3 uid="uid://blsdayu0ykgoc"]
 
 [ext_resource type="Texture2D" uid="uid://chca38pawejnw" path="res://assets/antguy.png" id="1_1e1xr"]
-[ext_resource type="Texture2D" uid="uid://p62n0veheap3" path="res://icon.svg" id="2_7avh8"]
+[ext_resource type="Script" path="res://scenes/cardControl.gd" id="1_lre77"]
+[ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="3_bvm5u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eonmm"]
 
-[node name="Control" type="Control"]
-custom_minimum_size = Vector2(100, 200)
+[node name="CardControl" type="Control" node_paths=PackedStringArray("card_art", "text_lore")]
+custom_minimum_size = Vector2(150, 300)
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -100.0
-offset_right = 50.0
-offset_bottom = 100.0
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_lre77")
+card_art = NodePath("Card/Panel/CardArt")
+text_lore = NodePath("Card/Panel/TextLore")
 
 [node name="Card" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -28,12 +28,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 ratio = 0.5
+stretch_mode = 1
 
 [node name="Panel" type="Panel" parent="Card"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_eonmm")
 
-[node name="TextureRect" type="TextureRect" parent="Card/Panel"]
+[node name="CardArt" type="TextureRect" parent="Card/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,9 +42,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_1e1xr")
-expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="Card/Panel"]
+[node name="TextLore" type="RichTextLabel" parent="Card/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.095679
@@ -53,6 +54,9 @@ anchor_bottom = 0.833333
 offset_top = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_7avh8")
-expand_mode = 1
+theme_override_fonts/normal_font = ExtResource("3_bvm5u")
+theme_override_font_sizes/normal_font_size = 20
+text = "MEOW Test"
+fit_content = true
+scroll_active = false
 metadata/_edit_use_anchors_ = true

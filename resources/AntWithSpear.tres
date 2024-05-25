@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://ib4eqntg5ixq"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_upw0m"]
+
+[resource]
+script = ExtResource("1_upw0m")
+bigManaAmt = 0
+smallManaAmt = 0
+attack = 4
+defence = 4
+type = 0
+costBigManaAmt = 0
+costSmallManaAmt = 0
+loreString = "He's a cool ant with a spear!"
+cardArt = "res://assets/antguyspear.png"

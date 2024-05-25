@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://blsdayu0ykgoc"]
+
+[ext_resource type="Texture2D" uid="uid://chca38pawejnw" path="res://assets/antguy.png" id="1_1e1xr"]
+[ext_resource type="Texture2D" uid="uid://p62n0veheap3" path="res://icon.svg" id="2_7avh8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eonmm"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 0.5
+
+[node name="Panel" type="Panel" parent="Card"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_eonmm")
+
+[node name="TextureRect" type="TextureRect" parent="Card/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1e1xr")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Card/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.095679
+anchor_top = 0.575617
+anchor_right = 0.904321
+anchor_bottom = 0.833333
+offset_top = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7avh8")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true

@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://btt8n2bivimgl"]
+[gd_scene load_steps=3 format=3 uid="uid://btt8n2bivimgl"]
+
+[ext_resource type="Script" path="res://scenes/yourCardHand.gd" id="1_b8ky5"]
+[ext_resource type="PackedScene" uid="uid://blsdayu0ykgoc" path="res://scenes/card.tscn" id="2_8fthn"]
 
 [node name="YourCardHand" type="Node2D"]
+script = ExtResource("1_b8ky5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 16.0
+
+[node name="Card" parent="Control/HBoxContainer" instance=ExtResource("2_8fthn")]
+layout_mode = 2
+
+[node name="Card2" parent="Control/HBoxContainer" instance=ExtResource("2_8fthn")]
+layout_mode = 2
+
+[node name="Card3" parent="Control/HBoxContainer" instance=ExtResource("2_8fthn")]
+layout_mode = 2
+
+[node name="Card4" parent="Control/HBoxContainer" instance=ExtResource("2_8fthn")]
+layout_mode = 2
+
+[node name="Card5" parent="Control/HBoxContainer" instance=ExtResource("2_8fthn")]
+layout_mode = 2

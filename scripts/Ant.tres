@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://bve626hhjnhwl"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_6syua"]
+
+[resource]
+script = ExtResource("1_6syua")
+bigManaAmt = 0
+smallManaAmt = 2
+attack = 0
+defence = 0
+type = 0
+costBigManaAmt = 0
+costSmallManaAmt = 2
+loreString = "A cool ant"
+cardArt = "res://assets/antguy.png"

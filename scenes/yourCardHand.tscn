@@ -25,7 +25,7 @@ theme = SubResource("Theme_mi2yk")
 [node name="PanelContainer" type="PanelContainer" parent="YourCardHandNode"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.5
+anchor_top = 0.717593
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -34,23 +34,21 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CardListHBox" type="HBoxContainer" parent="YourCardHandNode/PanelContainer"]
 layout_mode = 2
-size_flags_vertical = 8
 alignment = 1
 script = ExtResource("2_4xnr4")
 
-[node name="Testing" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Testing2" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
-visible = false
+[node name="CardControl" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
 layout_mode = 2
 
-[node name="Testing3" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
-visible = false
+[node name="CardControl2" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
 layout_mode = 2
 
-[node name="Testing4" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
-visible = false
+[node name="CardControl3" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
 layout_mode = 2
+
+[node name="CardControl4" parent="YourCardHandNode/PanelContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+layout_mode = 2
+
+[node name="CardControl" parent="." instance=ExtResource("2_8fthn")]
+offset_top = -163.0
+offset_bottom = -15.0

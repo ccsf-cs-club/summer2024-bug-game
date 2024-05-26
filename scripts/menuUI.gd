@@ -1,13 +1,13 @@
 extends CanvasLayer
 
+# Add exports for other two buttons
+@export var start_button: Button
+@export var start_settings_button: Button
+@export var start_quit_button: Button
+
 func _ready():
-	var start_button = get_node("StartMenuNode/PanelContainer/VBoxContainer/StartButtonContainer/StartGameButton")
 	start_button.button_up.connect(start_game)
-	
-	var start_settings_button = get_node("StartMenuNode/PanelContainer/VBoxContainer/SettingsButtonContainer/SettingsMenuButton")
 	start_settings_button.button_up.connect(switch_to_settings_menu)
-	
-	var start_quit_button = get_node("StartMenuNode/PanelContainer/VBoxContainer/QuitButtonContainer/QuitGameButton")
 	start_quit_button.button_up.connect(close_game)
 	
 	var settings_display_mode_button = get_node("SettingsMenuNode/PanelContainer/VBoxContainer/DisplayModeContainer/DisplayModeButton")

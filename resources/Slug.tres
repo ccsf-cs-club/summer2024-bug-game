@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://bei2jftqglta2"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_fkfjl"]
+
+[resource]
+script = ExtResource("1_fkfjl")
+bigManaAmt = 2
+smallManaAmt = 0
+attack = 2
+defence = 3
+cardName = "Slug"
+type = 0
+costBigManaAmt = 2
+costSmallManaAmt = 1
+loreString = "I may be small but for you I'd give it my all"
+cardArt = "res://assets/slug.png"

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Player="*res://scripts/player.gd"
 Gs="*res://scripts/gameState.gd"
+Em="*res://scripts/entityManager.gd"
 
 [dotnet]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsp37cd2wijm5"]
 
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="1_6h7qw"]
-[ext_resource type="Script" path="res://scenes/menuUI.gd" id="1_m4exc"]
+[ext_resource type="Script" path="res://scripts/menuUI.gd" id="1_m4exc"]
 [ext_resource type="Texture2D" uid="uid://c0sv8viisxd77" path="res://assets/mainMenuBG.png" id="2_lsjvh"]
 
 [node name="MenuUi" type="CanvasLayer"]
@@ -25,22 +25,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_lsjvh")
-
-[node name="mainMenuBG" type="PanelContainer" parent="MainBG"]
-visible = false
-clip_contents = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -512.0
-offset_top = -384.0
-offset_right = 512.0
-offset_bottom = 384.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="StartMenuNode" type="Control" parent="."]
 layout_mode = 3

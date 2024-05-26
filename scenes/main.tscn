@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ogom7"]
 [ext_resource type="PackedScene" uid="uid://vvsenribpq0e" path="res://scenes/combatScene.tscn" id="2_nkoi4"]
-[ext_resource type="Script" path="res://scenes/combatLoop.gd" id="3_180ed"]
+[ext_resource type="Script" path="res://scripts/combatLoop.gd" id="3_180ed"]
 [ext_resource type="PackedScene" uid="uid://bpba4bu1avk8h" path="res://scenes/combatUI.tscn" id="3_njpqy"]
 [ext_resource type="PackedScene" uid="uid://cxrli4cp1k6yl" path="res://scenes/enemyCardHand.tscn" id="4_vd4hd"]
 [ext_resource type="PackedScene" uid="uid://cu71qyilgsjgc" path="res://scenes/mapScene.tscn" id="5_u5vsj"]

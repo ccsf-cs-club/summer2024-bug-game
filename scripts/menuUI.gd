@@ -10,9 +10,6 @@ func _ready():
 	var start_quit_button = get_node("StartMenuNode/PanelContainer/VBoxContainer/QuitButtonContainer/QuitGameButton")
 	start_quit_button.button_up.connect(close_game)
 	
-	
-	
-	
 	var settings_display_mode_button = get_node("SettingsMenuNode/PanelContainer/VBoxContainer/DisplayModeContainer/DisplayModeButton")
 	settings_display_mode_button.item_selected.connect(change_display_mode)
 	
@@ -29,6 +26,7 @@ func start_game():
 	$SettingsMenuNode.visible = false
 	$MainBG.visible = false
 	Gs.GAME_HAS_STARTED = true
+	Gs.GAME_START.emit()
 
 func switch_to_settings_menu():
 	if Gs.GAME_HAS_STARTED == false:

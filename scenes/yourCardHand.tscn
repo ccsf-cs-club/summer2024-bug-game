@@ -1,17 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://btt8n2bivimgl"]
 
-[ext_resource type="Script" path="res://scenes/yourCardHand.gd" id="1_b8ky5"]
-[ext_resource type="Script" path="res://scenes/HBoxContainer.gd" id="2_4xnr4"]
+[ext_resource type="Script" path="res://scripts/yourCardHand.gd" id="1_xy8a7"]
 [ext_resource type="PackedScene" uid="uid://blsdayu0ykgoc" path="res://scenes/card.tscn" id="2_8fthn"]
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="2_t11rx"]
-[ext_resource type="Script" path="res://scenes/CardSelected.gd" id="5_jpiau"]
+[ext_resource type="Script" path="res://scripts/CardSelected.gd" id="4_66jsq"]
 
 [sub_resource type="Theme" id="Theme_mi2yk"]
 default_font = ExtResource("2_t11rx")
 default_font_size = 10
 
+[sub_resource type="GDScript" id="GDScript_ebprm"]
+script/source = "extends HBoxContainer
+
+"
+
 [node name="YourCardHandLayer" type="CanvasLayer" node_paths=PackedStringArray("cardPlayed", "hbox")]
-script = ExtResource("1_b8ky5")
+script = ExtResource("1_xy8a7")
 cardPlayed = NodePath("CardSelected")
 hbox = NodePath("YourCardHandNode/PanelContainer/MarginContainer/CardListHBox")
 
@@ -46,7 +50,7 @@ theme_override_constants/margin_bottom = 10
 [node name="CardListHBox" type="HBoxContainer" parent="YourCardHandNode/PanelContainer/MarginContainer"]
 layout_mode = 2
 alignment = 1
-script = ExtResource("2_4xnr4")
+script = SubResource("GDScript_ebprm")
 
 [node name="CardControl" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("2_8fthn")]
 visible = false
@@ -74,4 +78,4 @@ offset_top = 92.0
 offset_right = 301.0
 offset_bottom = 128.0
 allow_reselect = true
-script = ExtResource("5_jpiau")
+script = ExtResource("4_66jsq")

@@ -1,4 +1,5 @@
 extends Node
+# This is auto loaded and stores playerstate!!
 
 var card_inventory: CardInventory = null # The resource defining the inventory
 var cardsArray: Array[Card] # Holds all cards

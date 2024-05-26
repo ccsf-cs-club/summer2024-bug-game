@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-var game_started: bool = false
-
 func _ready():
 	var start_button = get_node("StartMenuNode/PanelContainer/VBoxContainer/StartButtonContainer/StartGameButton")
 	start_button.button_up.connect(start_game)
@@ -29,10 +27,11 @@ func _input(_event):
 func start_game():
 	$StartMenuNode.visible = false
 	$SettingsMenuNode.visible = false
-	game_started = true
+	$MainBG.visible = false
+	Gs.GAME_HAS_STARTED = true
 
 func switch_to_settings_menu():
-	if game_started == false:
+	if Gs.GAME_HAS_STARTED == false:
 		$StartMenuNode.visible = not $StartMenuNode.visible
 		$SettingsMenuNode.visible = not $SettingsMenuNode.visible
 	else:

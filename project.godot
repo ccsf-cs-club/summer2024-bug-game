@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Player="*res://scripts/player.gd"
+Gs="*res://scripts/gameState.gd"
 
 [dotnet]
 

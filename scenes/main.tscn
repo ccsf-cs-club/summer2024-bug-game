@@ -14,9 +14,8 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ogom7")
 
-[node name="CombatScene" parent="." node_paths=PackedStringArray("cardHandLayer") instance=ExtResource("2_nkoi4")]
+[node name="CombatScene" parent="." instance=ExtResource("2_nkoi4")]
 script = ExtResource("3_180ed")
-cardHandLayer = NodePath("")
 
 [node name="CombatUi" parent="CombatScene" instance=ExtResource("3_njpqy")]
 

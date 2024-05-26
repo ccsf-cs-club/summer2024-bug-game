@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl4u5ryw6u6lo"]
+[gd_scene load_steps=12 format=3 uid="uid://dl4u5ryw6u6lo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ogom7"]
 [ext_resource type="PackedScene" uid="uid://vvsenribpq0e" path="res://scenes/combatScene.tscn" id="2_nkoi4"]
+[ext_resource type="Script" path="res://scenes/combatLoop.gd" id="3_180ed"]
 [ext_resource type="PackedScene" uid="uid://bpba4bu1avk8h" path="res://scenes/combatUI.tscn" id="3_njpqy"]
 [ext_resource type="PackedScene" uid="uid://cxrli4cp1k6yl" path="res://scenes/enemyCardHand.tscn" id="4_vd4hd"]
 [ext_resource type="PackedScene" uid="uid://cu71qyilgsjgc" path="res://scenes/mapScene.tscn" id="5_u5vsj"]
@@ -14,7 +15,9 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ogom7")
 
-[node name="CombatScene" parent="." instance=ExtResource("2_nkoi4")]
+[node name="CombatScene" parent="." node_paths=PackedStringArray("cardHandLayer") instance=ExtResource("2_nkoi4")]
+script = ExtResource("3_180ed")
+cardHandLayer = NodePath("YourCardHandLayer")
 
 [node name="CombatUi" parent="CombatScene" instance=ExtResource("3_njpqy")]
 
@@ -23,6 +26,7 @@ script = ExtResource("1_ogom7")
 [node name="Tabletop" parent="CombatScene" instance=ExtResource("5_x7ftj")]
 
 [node name="YourCardHandLayer" parent="CombatScene" instance=ExtResource("6_l757w")]
+visible = false
 
 [node name="Delete this later" type="Node" parent="CombatScene/YourCardHandLayer"]
 

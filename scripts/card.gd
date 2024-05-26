@@ -1,6 +1,8 @@
 extends Resource
 class_name Card
 
+@export var cardName: String = ""
+
 @export_enum("Unit", "Spell") var type: int
 @export var costBigManaAmt: int
 @export var costSmallManaAmt: int

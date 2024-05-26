@@ -8,6 +8,7 @@ bigManaAmt = 0
 smallManaAmt = 0
 attack = 4
 defence = 4
+cardName = "Ant With Spear"
 type = 0
 costBigManaAmt = 0
 costSmallManaAmt = 0

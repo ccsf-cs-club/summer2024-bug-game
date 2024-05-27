@@ -23,8 +23,10 @@ Em="*res://scripts/entityManager.gd"
 
 [display]
 
-window/size/viewport_width=1120
-window/size/viewport_height=630
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="viewport"
 
 [dotnet]
@@ -44,3 +46,4 @@ Escape={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/screen_space_roughness_limiter/enabled=false

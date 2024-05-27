@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EnemyList" load_steps=3 format=3 uid="uid://j8ygo5cmlvo7"]
+
+[ext_resource type="Resource" uid="uid://tepi8bpncwdo" path="res://resources/BananaSlugBoss.tres" id="1_sn7hr"]
+[ext_resource type="Script" path="res://scripts/enemyList.gd" id="1_vo5so"]
+
+[resource]
+script = ExtResource("1_vo5so")
+enemies = Array[Resource("res://scripts/entity.gd")]([ExtResource("1_sn7hr")])

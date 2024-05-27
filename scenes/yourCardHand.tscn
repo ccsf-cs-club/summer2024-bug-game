@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://btt8n2bivimgl"]
+[gd_scene load_steps=8 format=3 uid="uid://btt8n2bivimgl"]
 
 [ext_resource type="Script" path="res://scripts/yourCardHand.gd" id="1_xy8a7"]
 [ext_resource type="PackedScene" uid="uid://blsdayu0ykgoc" path="res://scenes/card.tscn" id="2_8fthn"]
@@ -13,6 +13,9 @@ default_font_size = 10
 script/source = "extends HBoxContainer
 
 "
+
+[sub_resource type="Theme" id="Theme_ed0hq"]
+default_font = ExtResource("2_t11rx")
 
 [node name="YourCardHandLayer" type="CanvasLayer" node_paths=PackedStringArray("cardPlayed", "hbox")]
 script = ExtResource("1_xy8a7")
@@ -73,9 +76,10 @@ visible = false
 layout_mode = 2
 
 [node name="CardSelected" type="OptionButton" parent="."]
-offset_left = 135.0
-offset_top = 92.0
-offset_right = 301.0
-offset_bottom = 128.0
+offset_left = 22.0
+offset_top = 184.0
+offset_right = 188.0
+offset_bottom = 220.0
+theme = SubResource("Theme_ed0hq")
 allow_reselect = true
 script = ExtResource("4_66jsq")

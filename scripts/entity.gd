@@ -7,3 +7,6 @@ class_name Entity
 @export var cardInventory: CardInventory
 
 @export_file("*.png") var entityArt	# size tbd
+
+func isAlive():
+	return healthPool == 0

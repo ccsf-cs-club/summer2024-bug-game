@@ -1,12 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl4u5ryw6u6lo"]
+[gd_scene load_steps=8 format=3 uid="uid://dl4u5ryw6u6lo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ogom7"]
 [ext_resource type="PackedScene" uid="uid://vvsenribpq0e" path="res://scenes/combatScene.tscn" id="2_nkoi4"]
 [ext_resource type="Script" path="res://scripts/combatLoop.gd" id="3_180ed"]
-[ext_resource type="PackedScene" uid="uid://bpba4bu1avk8h" path="res://scenes/combatUI.tscn" id="3_njpqy"]
-[ext_resource type="PackedScene" uid="uid://cxrli4cp1k6yl" path="res://scenes/enemyCardHand.tscn" id="4_vd4hd"]
 [ext_resource type="PackedScene" uid="uid://cu71qyilgsjgc" path="res://scenes/mapScene.tscn" id="5_u5vsj"]
-[ext_resource type="PackedScene" uid="uid://c07yjapxopbap" path="res://scenes/tabletop.tscn" id="5_x7ftj"]
 [ext_resource type="PackedScene" uid="uid://pmlpt5jgromu" path="res://scenes/map.tscn" id="6_2c6tf"]
 [ext_resource type="PackedScene" uid="uid://coc0hfjx81uox" path="res://scenes/mapUI.tscn" id="7_s0iyx"]
 [ext_resource type="PackedScene" uid="uid://dsp37cd2wijm5" path="res://scenes/menuUI.tscn" id="8_nrmxb"]
@@ -16,12 +13,6 @@ script = ExtResource("1_ogom7")
 
 [node name="CombatScene" parent="." instance=ExtResource("2_nkoi4")]
 script = ExtResource("3_180ed")
-
-[node name="CombatUi" parent="CombatScene" instance=ExtResource("3_njpqy")]
-
-[node name="EnemyCardHand" parent="CombatScene" instance=ExtResource("4_vd4hd")]
-
-[node name="Tabletop" parent="CombatScene" instance=ExtResource("5_x7ftj")]
 
 [node name="MapScene" parent="." instance=ExtResource("5_u5vsj")]
 

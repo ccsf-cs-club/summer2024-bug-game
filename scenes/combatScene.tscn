@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://vvsenribpq0e"]
+[gd_scene load_steps=3 format=3 uid="uid://vvsenribpq0e"]
+
+[ext_resource type="PackedScene" uid="uid://bpba4bu1avk8h" path="res://scenes/combatUI.tscn" id="1_ma0lt"]
+[ext_resource type="PackedScene" uid="uid://cxrli4cp1k6yl" path="res://scenes/enemyCardHand.tscn" id="2_tnnes"]
 
 [node name="Combat" type="Node2D"]
+
+[node name="CombatUi" parent="." instance=ExtResource("1_ma0lt")]
+
+[node name="EnemyCardHand" parent="." instance=ExtResource("2_tnnes")]

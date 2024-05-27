@@ -15,10 +15,22 @@ func gameStarted():
 	card_list = card_list_scene.instantiate()
 	print("Card_list has been instantiated")
 	
-	# FIXME: eventually create randomized starting hand out of cards in PlayerInventory?
-	# Adds the card list child!! Make sure to hid existing one
+	# later gotta check if it already exists then remove it!
+	# Make sure to hid existing one
+	# Eventually create randomized starting hand out of PlayerInv
+	
+	# Add the card list/hand to the scene
+	
+	print("Tabletop: ", $CombatScene.find_child("Tabletop"))
+	
 	$CombatScene.add_child(card_list)
-	card_list.add_cards(Player.cardsArray) 
+	card_list.name = "CardList"
+	# $CombatScene.move_child(card_list, 2) not useful rn but mb later
+	
+	# Add cards to the card list
+	card_list.add_cards(Player.cardsArray)
+	
+	# Set up signal connection
 	$CombatScene.setCardListSignal(card_list)
 
 

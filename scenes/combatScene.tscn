@@ -6,6 +6,7 @@
 [node name="Combat" type="Node2D"]
 
 [node name="CombatUi" parent="." instance=ExtResource("1_ma0lt")]
+editor_description = "This will basically be like health bar displays for you and your enemy!!! Stuff like that"
 
 [node name="EnemyCardHand" parent="." instance=ExtResource("2_tnnes")]
 

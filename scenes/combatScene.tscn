@@ -8,3 +8,5 @@
 [node name="CombatUi" parent="." instance=ExtResource("1_ma0lt")]
 
 [node name="EnemyCardHand" parent="." instance=ExtResource("2_tnnes")]
+
+[node name="Tabletop" type="Node2D" parent="."]

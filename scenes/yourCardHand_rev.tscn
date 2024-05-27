@@ -15,10 +15,10 @@ card_container = NodePath("HandContainer")
 [node name="HandContainer" type="Node2D" parent="."]
 
 [node name="CardSelected_TEMP_TILL_DRAG" type="OptionButton" parent="."]
-offset_left = 33.0
-offset_top = 202.0
-offset_right = 199.0
-offset_bottom = 238.0
+offset_left = 37.0
+offset_top = 197.0
+offset_right = 203.0
+offset_bottom = 233.0
 theme = SubResource("Theme_lukbi")
 allow_reselect = true
 script = ExtResource("3_ewjq5")

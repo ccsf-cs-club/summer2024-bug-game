@@ -7,6 +7,7 @@ func changeBoss():
 	print("RAJASLKJALKH RA BOSS CHANGED TEXTURE")
 	$Tabletop/BossSpriteLoc.texture = Em.currentBoss.getEntityTexture()
 	
+	print("Boss hp: ", Em.currentBoss.healthPool)
 	# = Em.currentBoss.
 	pass
 
@@ -17,13 +18,17 @@ func cardPlayed(card: Card):
 	# uhhh delete the card when it's played later :)
 	
 	if card is UnitCard:
-		doSelfDamage(card.attack)
+		doSelfDamage(card.attack) # testing
+		doBossDamage(card.attack)
 		
-	print(Player.healthPool)
+	print("Player hp: ", Player.healthPool)
+	print("Boss hp: ", Em.currentBoss.healthPool)
 	
 func doSelfDamage(damage: int):
 	Player.decrease_health(damage)
 
+func doBossDamage(damage: int):
+	Em.currentBoss.decrease_health(damage)
 
 func setCardListSignal(card_list: Node2D):
 	print("Trying to get cardlist")

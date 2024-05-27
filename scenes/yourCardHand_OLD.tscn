@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://btt8n2bivimgl"]
 
-[ext_resource type="Script" path="res://scripts/yourCardHand.gd" id="1_xy8a7"]
-[ext_resource type="PackedScene" uid="uid://blsdayu0ykgoc" path="res://scenes/card.tscn" id="2_8fthn"]
-[ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="2_t11rx"]
-[ext_resource type="Script" path="res://scripts/CardSelected.gd" id="4_66jsq"]
+[ext_resource type="Script" path="res://scripts/yourCardHand.gd" id="1_a1drg"]
+[ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="2_8x3mv"]
+[ext_resource type="PackedScene" uid="uid://blsdayu0ykgoc" path="res://scenes/card.tscn" id="3_qt3xb"]
+[ext_resource type="Script" path="res://scripts/CardSelected.gd" id="4_mdg7b"]
 
 [sub_resource type="Theme" id="Theme_mi2yk"]
-default_font = ExtResource("2_t11rx")
+default_font = ExtResource("2_8x3mv")
 default_font_size = 10
 
 [sub_resource type="GDScript" id="GDScript_ebprm"]
@@ -15,10 +15,10 @@ script/source = "extends HBoxContainer
 "
 
 [sub_resource type="Theme" id="Theme_ed0hq"]
-default_font = ExtResource("2_t11rx")
+default_font = ExtResource("2_8x3mv")
 
 [node name="YourCardHandLayer" type="CanvasLayer" node_paths=PackedStringArray("cardPlayed", "hbox")]
-script = ExtResource("1_xy8a7")
+script = ExtResource("1_a1drg")
 cardPlayed = NodePath("CardSelected")
 hbox = NodePath("YourCardHandNode/PanelContainer/MarginContainer/CardListHBox")
 
@@ -55,23 +55,23 @@ layout_mode = 2
 alignment = 1
 script = SubResource("GDScript_ebprm")
 
-[node name="CardControl" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+[node name="CardControl" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("3_qt3xb")]
 visible = false
 layout_mode = 2
 
-[node name="CardControl2" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+[node name="CardControl2" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("3_qt3xb")]
 visible = false
 layout_mode = 2
 
-[node name="CardControl3" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+[node name="CardControl3" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("3_qt3xb")]
 visible = false
 layout_mode = 2
 
-[node name="CardControl4" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+[node name="CardControl4" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("3_qt3xb")]
 visible = false
 layout_mode = 2
 
-[node name="CardControl5" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("2_8fthn")]
+[node name="CardControl5" parent="YourCardHandNode/PanelContainer/MarginContainer/CardListHBox" instance=ExtResource("3_qt3xb")]
 visible = false
 layout_mode = 2
 
@@ -82,4 +82,4 @@ offset_right = 188.0
 offset_bottom = 220.0
 theme = SubResource("Theme_ed0hq")
 allow_reselect = true
-script = ExtResource("4_66jsq")
+script = ExtResource("4_mdg7b")

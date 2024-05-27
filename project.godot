@@ -21,6 +21,12 @@ Player="*res://scripts/player.gd"
 Gs="*res://scripts/gameState.gd"
 Em="*res://scripts/entityManager.gd"
 
+[display]
+
+window/size/viewport_width=1120
+window/size/viewport_height=630
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="Summer 2024-bug-game"

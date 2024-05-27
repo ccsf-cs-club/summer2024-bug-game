@@ -6,7 +6,12 @@ class_name Entity
 @export var name: String
 @export var cardInventory: CardInventory
 
-@export_file("*.png") var entityArt	# size tbd
+@export_file("*.png") var entityArtPath	# size tbd
 
-func isAlive():
-	return healthPool == 0
+func isAlive() -> bool:
+	return healthPool > 0
+
+func getEntityTexture() -> Texture:
+	if entityArtPath != "":
+		return load(entityArtPath)
+	return null

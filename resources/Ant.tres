@@ -13,4 +13,4 @@ type = 0
 costBigManaAmt = 0
 costSmallManaAmt = 2
 loreString = "A cool ant"
-cardArt = "res://assets/antguy.png"
+cardArtPath = "res://assets/antguy.png"

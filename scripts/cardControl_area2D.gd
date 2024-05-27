@@ -6,8 +6,10 @@ extends Node2D
 
 # Function to set the card and update the display
 func set_card(card_inst: Card):
-	if card_inst.cardArt != "":
-		var card_texture = load(card_inst.cardArt)
+	### SOMEONE CHANGE THIS, GET TEXTURE FUNCTION IMPLIMENTED
+	
+	if card_inst.cardArtPath != "":
+		var card_texture = load(card_inst.cardArtPath)
 		card_art.texture = card_texture
 	
 	

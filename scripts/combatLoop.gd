@@ -3,7 +3,12 @@ class_name CombatLoop
 
 @export var cardHandLayer: CanvasLayer
 
-
+func changeBoss():
+	print("RAJASLKJALKH RA BOSS CHANGED TEXTURE")
+	$Tabletop/BossSpriteLoc.texture = Em.currentBoss.getEntityTexture()
+	
+	# = Em.currentBoss.
+	pass
 
 # who plays what card
 func cardPlayed(card: Card):
@@ -26,6 +31,8 @@ func setCardListSignal(card_list: Node2D):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Em.bossChanged.connect(changeBoss)
+	changeBoss() # inital setting of boss
 	pass # Replace with function body.
 
 

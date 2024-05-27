@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl4u5ryw6u6lo"]
+[gd_scene load_steps=7 format=3 uid="uid://dl4u5ryw6u6lo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ogom7"]
 [ext_resource type="PackedScene" uid="uid://vvsenribpq0e" path="res://scenes/combatScene.tscn" id="2_nkoi4"]
-[ext_resource type="Script" path="res://scripts/combatLoop.gd" id="3_180ed"]
 [ext_resource type="PackedScene" uid="uid://cu71qyilgsjgc" path="res://scenes/mapScene.tscn" id="5_u5vsj"]
 [ext_resource type="PackedScene" uid="uid://pmlpt5jgromu" path="res://scenes/map.tscn" id="6_2c6tf"]
 [ext_resource type="PackedScene" uid="uid://coc0hfjx81uox" path="res://scenes/mapUI.tscn" id="7_s0iyx"]
@@ -12,7 +11,6 @@
 script = ExtResource("1_ogom7")
 
 [node name="CombatScene" parent="." instance=ExtResource("2_nkoi4")]
-script = ExtResource("3_180ed")
 
 [node name="MapScene" parent="." instance=ExtResource("5_u5vsj")]
 

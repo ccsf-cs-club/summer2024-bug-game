@@ -19,4 +19,4 @@ script = ExtResource("4_j35vt")
 healthPool = 15
 name = "Banana Queen"
 cardInventory = SubResource("Resource_a8e3m")
-entityArt = "res://assets/BananaQueen.png"
+entityArtPath = "res://assets/BananaQueen.png"

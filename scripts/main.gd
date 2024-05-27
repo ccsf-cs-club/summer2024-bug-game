@@ -11,7 +11,7 @@ func _ready():
 func gameStarted():
 	print("Game Started!!!")
 	
-	var card_list_scene = preload("res://scenes/yourCardHand.tscn")
+	var card_list_scene = preload("res://scenes/yourCardHand_rev.tscn")
 	card_list = card_list_scene.instantiate()
 	print("Card_list has been instantiated")
 	
@@ -19,7 +19,7 @@ func gameStarted():
 	# Adds the card list child!! Make sure to hid existing one
 	$CombatScene.add_child(card_list)
 	card_list.add_cards(Player.cardsArray) 
-	$CombatScene.setCardListSignal(card_list) 
+	$CombatScene.setCardListSignal(card_list)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

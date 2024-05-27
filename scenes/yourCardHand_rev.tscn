@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://oqo5vvvlbmex"]
+
+[ext_resource type="Script" path="res://scenes/yourCardHand_rev.gd" id="1_uwmc4"]
+
+[node name="yourCardHand" type="Node2D" node_paths=PackedStringArray("card_container")]
+script = ExtResource("1_uwmc4")
+card_container = NodePath("HandContainer")
+
+[node name="HandContainer" type="Node2D" parent="."]

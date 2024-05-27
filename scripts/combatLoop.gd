@@ -20,7 +20,7 @@ func doSelfDamage(damage: int):
 	Player.decrease_health(damage)
 
 
-func setCardListSignal(card_list: CanvasLayer):
+func setCardListSignal(card_list: Node2D):
 	print("Trying to get cardlist")
 	get_parent().card_list.cardPlayedSignal.connect(cardPlayed)
 

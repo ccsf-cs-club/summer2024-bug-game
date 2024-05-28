@@ -8,6 +8,7 @@ var instatniated_card_hand = null
 func _ready():
 	Gs.GAME_START.connect(gameStarted)
 
+# Called when the "Start Game" button is clicked
 func gameStarted():
 	print("Game Started!!!")
 	var card_hand_scene = preload("res://scenes/yourCardHand_rev.tscn")
@@ -20,6 +21,11 @@ func gameStarted():
 	instatniated_card_hand.add_cards(Player.cardsArray)
 	# Set up signal connection
 	$CombatScene.setCardListSignal(instatniated_card_hand)
+	
+	# Set gamestate to tutorial.
+		# TODO tutorial
+	# Set the gamestate to start the players turn after tutorial
+	Gs.PLAYER_TURN_STARTED.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

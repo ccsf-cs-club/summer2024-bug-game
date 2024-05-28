@@ -23,7 +23,7 @@ func make_hand():
 
 # zoinks we need the card object
 func getIndexRelativeCard(selected_item: int):
-	print("Meowmeowmeomeowmoewmoew    ", selected_item)
+	print("Selected card has index:    ", selected_item)
 	cardPlayedSignal.emit(Player.cardsArray[selected_item])
 
 # Function to add cards to the HandContainer node2D

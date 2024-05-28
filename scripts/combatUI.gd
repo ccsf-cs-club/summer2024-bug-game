@@ -15,7 +15,7 @@ func _process(delta):
 	pass
 
 func playerHpUpdate():
-	$PlayerHpUiElement.text = str(Player.healthPool)
+	$PlayerHpUiElement.text = "[center]" + str(Player.healthPool) + "[/center]"
 	
 func bossHpUpdate():
 	$BossHpUiElement.text = "[center]" + str(Em.currentBoss.healthPool) + "[/center]"

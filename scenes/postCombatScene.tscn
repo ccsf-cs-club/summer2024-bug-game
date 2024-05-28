@@ -3,6 +3,7 @@
 [node name="PostCombatScene" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -7
 
 [node name="Background" type="Control" parent="CanvasLayer"]
 layout_mode = 3

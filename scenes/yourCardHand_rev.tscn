@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpgml8pgm3hge"]
+[gd_scene load_steps=5 format=3 uid="uid://dpgml8pgm3hge"]
 
 [ext_resource type="Script" path="res://scripts/yourCardHand_rev.gd" id="1_8nvfs"]
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="2_4iybf"]
 [ext_resource type="Script" path="res://scripts/CardSelected.gd" id="3_ewjq5"]
-[ext_resource type="Texture2D" uid="uid://chca38pawejnw" path="res://assets/antguy.png" id="4_tih65"]
 
 [sub_resource type="Theme" id="Theme_lukbi"]
 default_font = ExtResource("2_4iybf")
@@ -23,12 +22,3 @@ offset_bottom = 233.0
 theme = SubResource("Theme_lukbi")
 allow_reselect = true
 script = ExtResource("3_ewjq5")
-
-[node name="DevCardAction" type="TextureRect" parent="."]
-offset_left = 470.0
-offset_top = 198.0
-offset_right = 534.0
-offset_bottom = 326.0
-texture = ExtResource("4_tih65")
-
-[connection signal="gui_input" from="DevCardAction" to="." method="_on_dev_card_action_gui_input"]

@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var card_art: TextureRect
-@export var text_lore: RichTextLabel
+@export var text_lore: RichTextLabel #Use this later!~
 var card_index: int
 
 # Function to set the card and update the display
@@ -11,6 +11,7 @@ func set_card(card_inst: Card, index):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Connects the ui input signal!
 	card_art.gui_input.connect(_on_card_art_gui_input)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

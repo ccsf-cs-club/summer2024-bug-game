@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/yourCardHand_rev.gd" id="1_8nvfs"]
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="2_4iybf"]
-[ext_resource type="Script" path="res://scripts/CardSelected.gd" id="3_ewjq5"]
+[ext_resource type="Script" path="res://scripts/cardSelected.gd" id="3_wdgba"]
 
 [sub_resource type="Theme" id="Theme_lukbi"]
 default_font = ExtResource("2_4iybf")
@@ -21,4 +21,4 @@ offset_right = 203.0
 offset_bottom = 233.0
 theme = SubResource("Theme_lukbi")
 allow_reselect = true
-script = ExtResource("3_ewjq5")
+script = ExtResource("3_wdgba")

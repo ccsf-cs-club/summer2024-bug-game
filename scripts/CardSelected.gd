@@ -1,5 +1,4 @@
 extends OptionButton
-#signal item_selected(selected_item)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

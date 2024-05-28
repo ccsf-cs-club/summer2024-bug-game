@@ -34,9 +34,10 @@ func add_cards(cards: Array[Card]):
 	if Player.cardsArray.size() > 1:
 		angle = 0.05 * Player.cardsArray.size()
 		
-	for card_entry in cards:
+	for card_index in cards.size():
+		var card_entry = cards[card_index]
 		var card_display = card_display_scene.instantiate()
-		card_display.set_card(card_entry)
+		card_display.set_card(card_entry, card_index)
 		card_container.add_child(card_display)
 		set_hand_position(card_display)
 		angle -= 0.15 #changes angle for next card
@@ -61,3 +62,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_dev_card_action_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == 1 and event.pressed:
+			#print(event) # Replace with function body.
+			getIndexRelativeCard(2)

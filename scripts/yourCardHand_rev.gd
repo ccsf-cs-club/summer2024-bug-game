@@ -16,7 +16,7 @@ const default_card_angle = (PI / 2)
 @onready var angle = 0
 @onready var OvalAngleVector = Vector2.ZERO
 
-# will rework this function once cardsHand is implemented
+# will rework this function once cardsHand is implemented - Pink
 func make_hand():
 	for card in Player.cardsHand:
 		while card == null:

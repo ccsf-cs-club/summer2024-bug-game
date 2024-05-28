@@ -9,7 +9,7 @@ func changeBossTexture():
 	$Tabletop/BossSpriteLoc.texture = Em.currentBoss.getEntityTexture()
 
 func removePlayedCard(cardToRemove: Card):
-	pass #impliment later
+	pass #impliment later - Vena
 
 # Called when the player plays a card through a signal
 func playerCardPlayed(card: Card):

@@ -7,9 +7,9 @@ extends Node
 
 var card_inventory: CardInventory = null # The resource defining the inventory
 var cardsArray: Array[Card] # Holds all cards
+var cardsHand: Array[Card] # Array of cards in your hand
 var healthPool: int = 20 # 20 for now?
-const handSize: int = 5
-# const deckSize: int = TBD LATER
+var maxCardHand: int = 5
 signal health_increased # Sent when health increases (UI effect?)
 signal health_decreased # Sent when health decreases (Again effect?)
 signal health_zero # Sent when health gets to zero (Use for game loss?)

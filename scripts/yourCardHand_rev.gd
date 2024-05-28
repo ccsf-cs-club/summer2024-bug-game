@@ -16,6 +16,11 @@ const default_card_angle = (PI / 2)
 @onready var angle = 0
 @onready var OvalAngleVector = Vector2.ZERO
 
+# will rework this function once cardsHand is implemented
+func make_hand():
+	for card in Player.cardsHand:
+		while card == null:
+			card = Player.cardsArray.pick_random()
 
 # zoinks we need the card object
 func getIndexRelativeCard(selected_item: int):

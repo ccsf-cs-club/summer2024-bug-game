@@ -1,15 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://e5w0lalvgwi3"]
+[gd_scene load_steps=4 format=3 uid="uid://blsdayu0ykgoc"]
 
-[ext_resource type="Texture2D" uid="uid://chca38pawejnw" path="res://assets/antguy.png" id="1_1e1xr"]
-[ext_resource type="Script" path="res://scripts/cardControl.gd" id="1_f2rgo"]
-[ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="3_bvm5u"]
+[ext_resource type="Script" path="res://scripts/cardControl.gd" id="1_r6xgj"]
+[ext_resource type="Texture2D" uid="uid://chca38pawejnw" path="res://assets/antguy.png" id="2_btc61"]
+[ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="3_0c13w"]
 
 [node name="CardControl" type="Control" node_paths=PackedStringArray("card_art", "text_lore")]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_f2rgo")
+script = ExtResource("1_r6xgj")
 card_art = NodePath("PanelContainer/MarginContainer/CardArt")
 text_lore = NodePath("PanelContainer/MarginContainer/TextLore")
 
@@ -29,13 +29,13 @@ theme_override_constants/margin_right = 10
 
 [node name="CardArt" type="TextureRect" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_1e1xr")
+texture = ExtResource("2_btc61")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="TextLore" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("3_bvm5u")
+theme_override_fonts/normal_font = ExtResource("3_0c13w")
 theme_override_font_sizes/normal_font_size = 20
 text = "MEOW Test"
 fit_content = true

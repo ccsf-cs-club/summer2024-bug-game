@@ -1,5 +1,5 @@
 extends Node2D
-class_name main
+
  # Meowdy
 
 var card_list = null

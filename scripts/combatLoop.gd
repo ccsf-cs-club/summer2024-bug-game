@@ -3,22 +3,22 @@ class_name CombatLoop
 
 @export var cardHandLayer: CanvasLayer
 
-func changeBoss():
-	print("RAJASLKJALKH RA BOSS CHANGED TEXTURE")
+# This changes the currently displayed boss sprite
+func changeBossTexture():
+	print("Boss Texture was Changed")
 	$Tabletop/BossSpriteLoc.texture = Em.currentBoss.getEntityTexture()
-	
-	print("Boss hp: ", Em.currentBoss.healthPool)
-	# = Em.currentBoss.
-	pass
 
-# who plays what card
-func cardPlayed(card: Card):
+func removePlayedCard(cardToRemove: Card):
+	pass #impliment later - Vena
+
+# Called when the player plays a card through a signal
+func playerCardPlayed(card: Card):
 	# next in game loop or whatever
-	print("RARARARARARARARARAR: ", card.cardName)
+	print("Player played card: ", card.cardName)
 	# uhhh delete the card when it's played later :)
 	
 	if card is UnitCard:
-		doSelfDamage(card.attack) # testing
+		#doSelfDamage(card.attack) # testing
 		doBossDamage(card.attack)
 		
 	print("Player hp: ", Player.healthPool)
@@ -32,12 +32,12 @@ func doBossDamage(damage: int):
 
 func setCardListSignal(card_list: Node2D):
 	print("Trying to get cardlist")
-	get_parent().card_list.cardPlayedSignal.connect(cardPlayed)
+	get_parent().card_list.cardPlayedSignal.connect(playerCardPlayed)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Em.bossChanged.connect(changeBoss)
-	changeBoss() # inital setting of boss
+	Em.bossChanged.connect(changeBossTexture)
+	changeBossTexture() # inital setting of boss
 	pass # Replace with function body.
 
 

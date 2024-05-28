@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://wl3w05iheuuy"]
+
+[node name="PostCombatScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -7
+
+[node name="Background" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TempBG" type="ColorRect" parent="CanvasLayer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.164706, 0.172549, 1)
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Reward" type="Node2D" parent="."]
+
+[node name="CardPackReward" type="Node2D" parent="Reward"]
+editor_description = "A pack of 5 cards, of which you can pick 3 to add to your deck"
+
+[node name="Shop" type="Node2D" parent="."]
+
+[node name="PayToRemoveCard" type="Node2D" parent="Shop"]
+
+[node name="DisplayCardInventory" type="Node2D" parent="."]

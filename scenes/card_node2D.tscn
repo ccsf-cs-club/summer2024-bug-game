@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqo48rphsjgwg"]
+[gd_scene load_steps=3 format=3 uid="uid://bxb5xa2v0ef3r"]
 
 [ext_resource type="Script" path="res://scripts/cardControl_area2D.gd" id="1_esjot"]
 [ext_resource type="Texture2D" uid="uid://chca38pawejnw" path="res://assets/antguy.png" id="2_2v700"]

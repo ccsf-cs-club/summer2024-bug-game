@@ -2,6 +2,7 @@ extends Node2D
 
 @export var card_art: TextureRect
 @export var text_lore: RichTextLabel #Use this later!~
+signal indexOfSelectedCard(int)
 var card_index: int
 
 # Function to set the card and update the display
@@ -23,4 +24,9 @@ func _on_card_art_gui_input(event):
 		if event.button_index == 1 and event.pressed:
 			#print(event)
 			print("Card with index %d clicked" % card_index)
+			
+			# Vena -> I just added this signal, capture it and reemit it
+			# in yourCardHand_rev so that the click has an effect!
+			# I have to impliment other stuff
+			indexOfSelectedCard.emit(card_index)
 			#emit_signal("item_selected", card_index)

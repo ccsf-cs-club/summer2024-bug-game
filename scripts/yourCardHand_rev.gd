@@ -5,7 +5,6 @@ extends Node2D
 
 signal cardPlayedSignal(int)
 
-
 const default_card_angle = (PI / 2)
 
 # Plots line that cards propogate on
@@ -29,11 +28,14 @@ func getIndexRelativeCard(selected_item: int):
 
 # Function to add cards to the HandContainer node2D
 func add_cards(cards: Array[Card]):
+	# This loads our "default" card scene!!
 	var card_display_scene = preload("res://scenes/card_node2D.tscn")
 	var angle_step = 0
 	if Player.cardsArray.size() > 1:
 		angle = 0.05 * Player.cardsArray.size()
-		
+	
+	# This instantiates the default card scene and updates it with the
+	#		correct information for all cards!
 	for card_index in cards.size():
 		var card_entry = cards[card_index]
 		var card_display = card_display_scene.instantiate()

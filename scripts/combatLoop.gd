@@ -1,6 +1,5 @@
 extends Node2D
 class_name CombatLoop
-
 @export var cardHandLayer: CanvasLayer
 
 # This changes the currently displayed boss sprite
@@ -15,12 +14,9 @@ func removePlayedCard(cardToRemove: Card):
 func playerCardPlayed(card: Card):
 	# next in game loop or whatever
 	print("Player played card: ", card.cardName)
-	# uhhh delete the card when it's played later :)
-	
 	if card is UnitCard:
 		#doSelfDamage(card.attack) # testing
 		doBossDamage(card.attack)
-		
 	print("Player hp: ", Player.healthPool)
 	print("Boss hp: ", Em.currentBoss.healthPool)
 	
@@ -30,17 +26,11 @@ func doSelfDamage(damage: int):
 func doBossDamage(damage: int):
 	Em.currentBoss.decrease_health(damage)
 
-func setCardListSignal(card_list: Node2D):
+func setCardListSignal(instatniated_card_hand: Node2D):
 	print("Trying to get cardlist")
-	get_parent().card_list.cardPlayedSignal.connect(playerCardPlayed)
+	get_parent().instatniated_card_hand.cardPlayedSignal.connect(playerCardPlayed)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Em.bossChanged.connect(changeBossTexture)
 	changeBossTexture() # inital setting of boss
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

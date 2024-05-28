@@ -2,7 +2,7 @@ extends Node2D
 
  # Meowdy
 
-var card_list = null
+var instatniated_card_hand = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,29 +10,16 @@ func _ready():
 
 func gameStarted():
 	print("Game Started!!!")
+	var card_hand_scene = preload("res://scenes/yourCardHand_rev.tscn")
+	instatniated_card_hand = card_hand_scene.instantiate()
+		# Later: Check if cardlist has been instantiated before instatiating
 	
-	var card_list_scene = preload("res://scenes/yourCardHand_rev.tscn")
-	card_list = card_list_scene.instantiate()
-	print("Card_list has been instantiated")
-	
-	# later gotta check if it already exists then remove it!
-	# Make sure to hid existing one
-	# Eventually create randomized starting hand out of PlayerInv
-	
-	# Add the card list/hand to the scene
-	
-	print("Tabletop: ", $CombatScene.find_child("Tabletop"))
-	
-	$CombatScene.add_child(card_list)
-	card_list.name = "CardList"
-	# $CombatScene.move_child(card_list, 2) not useful rn but mb later
-	
+	# Adds and instance of the playable card hand!
+	$CombatScene.add_child(instatniated_card_hand)
 	# Add cards to the card list
-	card_list.add_cards(Player.cardsArray)
-	
+	instatniated_card_hand.add_cards(Player.cardsArray)
 	# Set up signal connection
-	$CombatScene.setCardListSignal(card_list)
-
+	$CombatScene.setCardListSignal(instatniated_card_hand)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

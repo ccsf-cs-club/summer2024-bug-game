@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsp37cd2wijm5"]
+[gd_scene load_steps=6 format=3 uid="uid://dsp37cd2wijm5"]
 
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="1_6h7qw"]
 [ext_resource type="Script" path="res://scripts/menuUI.gd" id="1_m4exc"]
 [ext_resource type="Texture2D" uid="uid://c0sv8viisxd77" path="res://assets/mainMenuBG.png" id="2_lsjvh"]
+[ext_resource type="Texture2D" uid="uid://bqaarpoc7fq6r" path="res://assets/eyepede.png" id="3_n4y2q"]
 
 [sub_resource type="Theme" id="Theme_27g7r"]
 default_font = ExtResource("1_6h7qw")
@@ -29,9 +30,30 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -114.0
+offset_right = 32.0
+offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_lsjvh")
+
+[node name="Eyepede" type="Sprite2D" parent="MainBG"]
+position = Vector2(358, 504)
+rotation = -0.523598
+texture = ExtResource("3_n4y2q")
+
+[node name="Label" type="Label" parent="MainBG"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 435.0
+offset_right = 399.0
+offset_bottom = 486.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6h7qw")
+theme_override_font_sizes/font_size = 50
+text = "Now with
+       Eyepede:"
 
 [node name="StartMenuNode" type="Control" parent="."]
 layout_mode = 3

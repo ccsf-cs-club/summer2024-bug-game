@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/yourCardHand.gd" id="1_a1drg"]
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="2_8x3mv"]
-[ext_resource type="PackedScene" uid="uid://blsdayu0ykgoc" path="res://scenes/card.tscn" id="3_qt3xb"]
+[ext_resource type="PackedScene" uid="uid://blsdayu0ykgoc" path="res://scenes/card_OLD.tscn" id="3_qt3xb"]
 [ext_resource type="Script" path="res://scripts/CardSelected.gd" id="4_mdg7b"]
 
 [sub_resource type="Theme" id="Theme_mi2yk"]

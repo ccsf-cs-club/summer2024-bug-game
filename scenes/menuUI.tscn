@@ -7,11 +7,10 @@
 [sub_resource type="Theme" id="Theme_27g7r"]
 default_font = ExtResource("1_6h7qw")
 
-[node name="MenuUi" type="CanvasLayer" node_paths=PackedStringArray("start_button", "start_settings_button", "start_credits_button", "start_quit_button")]
+[node name="MenuUi" type="CanvasLayer" node_paths=PackedStringArray("start_button", "start_settings_button", "start_quit_button")]
 script = ExtResource("1_m4exc")
 start_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/StartGameButton")
 start_settings_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/SettingsMenuButton")
-start_credits_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/CreditsButton")
 start_quit_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/QuitGameButton")
 
 [node name="MainBG" type="Control" parent="."]
@@ -107,11 +106,6 @@ theme_override_fonts/font = ExtResource("1_6h7qw")
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
-[node name="CreditsButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Credits"
-
 [node name="QuitGameButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -173,48 +167,3 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back"
-
-[node name="CreditsMenuNode" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CreditsContainer" type="PanelContainer" parent="CreditsMenuNode"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 64.0
-offset_right = 794.0
-offset_bottom = 469.0
-
-[node name="Label" type="Label" parent="CreditsMenuNode/CreditsContainer"]
-layout_mode = 2
-text = "Bug Game by CS CLUB CCSF
-
-Vena, John, Jesse, Jason, Val, "
-horizontal_alignment = 1
-
-[node name="Line" type="Label" parent="CreditsMenuNode/CreditsContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 8.63
-horizontal_alignment = 1
-text_direction = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenuNode/CreditsContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="GridContainer" type="GridContainer" parent="CreditsMenuNode/CreditsContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="BackButton2" type="Button" parent="CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 8
-size_flags_stretch_ratio = 0.0
-text = "Back"
-
-[node name="CreditRollButton" type="Button" parent="CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-text = "Credits Roll"

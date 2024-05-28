@@ -3,7 +3,7 @@ class_name CardInventory
 # A class that define what a draw deck is and contains, for both the player and opponent
 
 # keyvalue pair where key = cardType AND value = cardAmt
-@export var card_hand: Array[CardAndAmt]
+@export var card_hand: Array[CardAndAmt] # TODO Maybe rename this for clarity
 
 # function to add a card to the inventory
 func add_card(added_card: Card, added_amount: int):

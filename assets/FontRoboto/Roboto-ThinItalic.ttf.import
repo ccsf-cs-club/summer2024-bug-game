@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Roboto-ThinItalic.ttf-72c70196468e3f96efe3d4d
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8

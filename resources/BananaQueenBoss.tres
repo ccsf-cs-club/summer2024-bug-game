@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BossEntity" load_steps=7 format=3 uid="uid://tepi8bpncwdo"]
+[gd_resource type="Resource" script_class="BossEntity" load_steps=7 format=3 uid="uid://jus40sjat3l7"]
 
 [ext_resource type="Resource" uid="uid://bei2jftqglta2" path="res://resources/Slug.tres" id="1_hhxal"]
 [ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_6wpiv"]
@@ -16,7 +16,7 @@ card_hand = Array[ExtResource("2_6wpiv")]([SubResource("Resource_3rdfb")])
 
 [resource]
 script = ExtResource("4_j35vt")
-healthPool = 15
+healthPool = 16
 name = "Banana Queen"
 cardInventory = SubResource("Resource_a8e3m")
 entityArtPath = "res://assets/BananaQueen.png"

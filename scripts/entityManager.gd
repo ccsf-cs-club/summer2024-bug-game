@@ -6,7 +6,7 @@ extends Node
 
 var entityList: Array[Entity]
 var entityDictionary: Dictionary
-var currentBoss: BossEntity	# key val pairs, key = name, val = entity
+var currentBoss 	# key val pairs, key = name, val = entity
 signal bossChanged
 
 # Called when the node enters the scene tree for the first time.

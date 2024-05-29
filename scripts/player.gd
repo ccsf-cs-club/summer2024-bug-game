@@ -11,8 +11,11 @@ var cardsHand: Array[Card] # Array of cards in your hand - will use later!!
 var healthPool: int = 20 # 20 for now?
 var maxCardHand: int = 5
 
-var smallMana = 0	# updated for every card used
-var bigMana = 0
+var smallManaHeld = 0	# updated for every card used
+var bigManaHeld = 0
+
+var currentAttack = 0
+var currentDefence = 0
 
 signal health_increased # Sent when health increases (UI effect?)
 signal health_decreased # Sent when health decreases (Again effect?)

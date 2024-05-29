@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_6syua")
-bigManaAmt = 0
+bigManaAmt = 1
 smallManaAmt = 2
 attack = 1
 defence = 2
@@ -14,3 +14,4 @@ costBigManaAmt = 0
 costSmallManaAmt = 2
 loreString = "A cool ant"
 cardArtPath = "res://assets/antguy.png"
+cardArtPathFullSize = ""

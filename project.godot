@@ -33,6 +33,12 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Summer 2024-bug-game"
 
+[file_customization]
+
+folder_colors={
+"res://assets/Themes/": "pink"
+}
+
 [input]
 
 Escape={

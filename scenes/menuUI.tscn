@@ -2,23 +2,24 @@
 
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="1_6h7qw"]
 [ext_resource type="Script" path="res://scripts/menuUI.gd" id="1_m4exc"]
-[ext_resource type="Texture2D" uid="uid://c0sv8viisxd77" path="res://assets/mainMenuBG.png" id="2_lsjvh"]
-[ext_resource type="Texture2D" uid="uid://bqaarpoc7fq6r" path="res://assets/eyepede.png" id="3_n4y2q"]
-[ext_resource type="Texture2D" uid="uid://ccunm8r8cqq76" path="res://assets/mainMenuBG2Eyepede.png" id="3_s6w1e"]
-[ext_resource type="Texture2D" uid="uid://57j45250tp6h" path="res://assets/mainMenuBG2.png" id="4_imnq4"]
-[ext_resource type="Texture2D" uid="uid://dpejy4qsmm0fx" path="res://assets/mainMenuBG2Experiment.png" id="7_l4iw6"]
+[ext_resource type="Texture2D" uid="uid://c0sv8viisxd77" path="res://assets/Ui_elements/mainMenuBG_OLD.png" id="2_oqfjg"]
+[ext_resource type="Texture2D" path="res://assets/eyepede.png" id="3_n4y2q"]
+[ext_resource type="Texture2D" uid="uid://ccunm8r8cqq76" path="res://assets/Ui_elements/mainMenuBG2Eyepede.png" id="3_vhdp4"]
+[ext_resource type="Texture2D" uid="uid://dpejy4qsmm0fx" path="res://assets/Ui_elements/mainMenuBG2Experiment.png" id="4_p6ign"]
+[ext_resource type="Texture2D" uid="uid://57j45250tp6h" path="res://assets/Ui_elements/mainMenuBG2.png" id="5_jrq7d"]
+[ext_resource type="Theme" uid="uid://diailjkqmen15" path="res://assets/Themes/DefaultUITheme.tres" id="8_o4mm6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x38hf"]
 
-[sub_resource type="Theme" id="Theme_27g7r"]
-default_font = ExtResource("1_6h7qw")
-
-[node name="MenuUi" type="CanvasLayer" node_paths=PackedStringArray("start_button", "start_settings_button", "start_credits_button", "start_quit_button")]
+[node name="MenuUi" type="CanvasLayer" node_paths=PackedStringArray("start_button", "start_settings_button", "start_credits_button", "start_quit_button", "credits_back_button", "settings_display_mode_button", "settings_back_button")]
 script = ExtResource("1_m4exc")
 start_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/StartGameButton")
 start_settings_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/SettingsMenuButton")
 start_credits_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/CreditsButton")
 start_quit_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/QuitGameButton")
+credits_back_button = NodePath("CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer/BackButton2")
+settings_display_mode_button = NodePath("SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayModeButton")
+settings_back_button = NodePath("SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/BackButton")
 
 [node name="MainBG" type="Control" parent="."]
 layout_mode = 3
@@ -42,7 +43,7 @@ offset_right = 32.0
 offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_lsjvh")
+texture = ExtResource("2_oqfjg")
 
 [node name="MainMenuBG_Secret!" type="TextureRect" parent="MainBG"]
 visible = false
@@ -52,13 +53,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_s6w1e")
+texture = ExtResource("3_vhdp4")
 
 [node name="MainMenuBGExperiment" type="TextureRect" parent="MainBG"]
 layout_mode = 0
 offset_right = 960.0
 offset_bottom = 540.0
-texture = ExtResource("7_l4iw6")
+texture = ExtResource("4_p6ign")
 
 [node name="MainMenuBG" type="TextureRect" parent="MainBG"]
 visible = false
@@ -68,7 +69,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_imnq4")
+texture = ExtResource("5_jrq7d")
 
 [node name="Eyepede" type="Sprite2D" parent="MainBG"]
 visible = false
@@ -98,6 +99,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("8_o4mm6")
 
 [node name="MarginContainer" type="MarginContainer" parent="StartMenuNode"]
 layout_mode = 1
@@ -144,7 +146,6 @@ color = Color(0.54902, 0.298039, 0.243137, 0.341176)
 
 [node name="MarginContainer" type="MarginContainer" parent="StartMenuNode/PanelContainer"]
 layout_mode = 2
-theme = SubResource("Theme_27g7r")
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -156,27 +157,20 @@ layout_mode = 2
 [node name="StartGameButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_6h7qw")
-theme_override_font_sizes/font_size = 30
 text = "Start Game"
 
 [node name="SettingsMenuButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_6h7qw")
-theme_override_font_sizes/font_size = 30
 text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
 text = "Credits"
 
 [node name="QuitGameButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_6h7qw")
-theme_override_font_sizes/font_size = 30
 text = "Quit Game"
 
 [node name="SettingsMenuNode" type="Control" parent="."]
@@ -189,6 +183,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("8_o4mm6")
 
 [node name="PanelContainer" type="PanelContainer" parent="SettingsMenuNode"]
 layout_mode = 1
@@ -197,27 +192,34 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -312.0
-offset_top = -60.0
-offset_right = 312.0
-offset_bottom = 60.0
+offset_left = -228.0
+offset_top = -61.0
+offset_right = 228.0
+offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenuNode/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenuNode/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenuNode/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="DisplayModeContainer" type="HBoxContainer" parent="SettingsMenuNode/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SettingsMenuNode/PanelContainer/VBoxContainer/DisplayModeContainer"]
+[node name="Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_6h7qw")
 theme_override_font_sizes/font_size = 30
 text = "Display Mode"
 
-[node name="DisplayModeButton" type="OptionButton" parent="SettingsMenuNode/PanelContainer/VBoxContainer/DisplayModeContainer"]
+[node name="DisplayModeButton" type="OptionButton" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 item_count = 2
 selected = 0
@@ -226,20 +228,17 @@ popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenuNode/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="SettingsMenuNode/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="BackButton" type="Button" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back"
 
 [node name="CreditsMenuNode" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("8_o4mm6")
 
 [node name="CreditsContainer" type="PanelContainer" parent="CreditsMenuNode"]
 layout_mode = 0

@@ -7,6 +7,9 @@ extends CanvasLayer
 @export var start_credits_button: Button
 @export var start_quit_button: Button
 
+@export var credits_back_button: Button
+@export var settings_display_mode_button: Button
+@export var settings_back_button: Button
 
 func _ready():
 
@@ -14,21 +17,9 @@ func _ready():
 	start_settings_button.button_up.connect(switch_to_settings_menu)
 	start_quit_button.button_up.connect(close_game)
 	start_credits_button.button_up.connect(switch_to_creditsroll)
-#	line = get_node("CreditsMenuNode/CreditsContainer/Line")
-	
-	#Credits button declarations
-	var credits_back_button = get_node("CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer/BackButton2")
 	credits_back_button.button_up.connect(switch_to_creditsroll)
-	
-#	var credits_play_button = get_node("CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer/CreditRollButton")
-#	credits_play_button.button_up.connect(process)
-	
-	var settings_display_mode_button = get_node("SettingsMenuNode/PanelContainer/VBoxContainer/DisplayModeContainer/DisplayModeButton")
 	settings_display_mode_button.item_selected.connect(change_display_mode)
-	
-	var settings_back_button = get_node("SettingsMenuNode/PanelContainer/VBoxContainer/HBoxContainer/BackButton")
 	settings_back_button.button_up.connect(switch_to_settings_menu)
-	
 
 func _input(_event):
 	if Input.is_action_just_pressed("Escape") and $StartMenuNode.visible == false:

@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsp37cd2wijm5"]
+[gd_scene load_steps=9 format=3 uid="uid://dsp37cd2wijm5"]
 
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="1_6h7qw"]
 [ext_resource type="Script" path="res://scripts/menuUI.gd" id="1_m4exc"]
 [ext_resource type="Texture2D" uid="uid://c0sv8viisxd77" path="res://assets/Ui_elements/mainMenuBG_OLD.png" id="2_oqfjg"]
-[ext_resource type="Texture2D" path="res://assets/eyepede.png" id="3_n4y2q"]
 [ext_resource type="Texture2D" uid="uid://ccunm8r8cqq76" path="res://assets/Ui_elements/mainMenuBG2Eyepede.png" id="3_vhdp4"]
 [ext_resource type="Texture2D" uid="uid://dpejy4qsmm0fx" path="res://assets/Ui_elements/mainMenuBG2Experiment.png" id="4_p6ign"]
 [ext_resource type="Texture2D" uid="uid://57j45250tp6h" path="res://assets/Ui_elements/mainMenuBG2.png" id="5_jrq7d"]
@@ -70,12 +69,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_jrq7d")
-
-[node name="Eyepede" type="Sprite2D" parent="MainBG"]
-visible = false
-position = Vector2(358, 504)
-rotation = -0.523598
-texture = ExtResource("3_n4y2q")
 
 [node name="Label" type="Label" parent="MainBG"]
 layout_mode = 0

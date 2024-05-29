@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardInventory" load_steps=5 format=3 uid="uid://bnxv6ya0em0uf"]
+[gd_resource type="Resource" script_class="CardInventory" load_steps=6 format=3 uid="uid://bnxv6ya0em0uf"]
 
 [ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_dklt8"]
 [ext_resource type="Resource" uid="uid://bve626hhjnhwl" path="res://resources/Ant.tres" id="3_4v8wk"]
@@ -9,6 +9,10 @@ script = ExtResource("2_dklt8")
 card = ExtResource("3_4v8wk")
 amt = 2
 
+[sub_resource type="Resource" id="Resource_lmmiu"]
+script = ExtResource("2_dklt8")
+amt = 0
+
 [resource]
 script = ExtResource("4_b63lt")
-card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_k1mnr")])
+card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_k1mnr"), SubResource("Resource_lmmiu")])

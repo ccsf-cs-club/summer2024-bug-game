@@ -40,8 +40,7 @@ func _on_game_state_changed(state):
 func _player_card_played():
 	var card = cardQueue.peek()
 	print("Player played card: ", cardQueue.peek().cardName)
-	
-	_enough_mana_for(card)
+	print("Enough mana? Vibe boom sound effect: ", _enough_mana_for(card))
 	
 	# Check if it's for pitching or attacking here
 	if Gs.current_state == Gs.GameState.PL_WAITING_FOR_CARD:
@@ -50,16 +49,23 @@ func _player_card_played():
 		elif card.type == Card.CardType.Spell:
 			Gs.set_state(Gs.GameState.PL_RESOLVING_SPELL_CARD)
 	elif Gs.current_state == Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS:
-		Gs.current_state == Gs.GameState.PL_RESOLVING_PITCHED_CARDS
+		Gs.set_state(Gs.GameState.PL_RESOLVING_PITCHED_CARDS)
 
 func _resolve_attack_card():
+	var attackingCard: Card = cardQueue.dequeue()
+	print_rich("[color=#b44c02]Trying to attack with: ", attackingCard.cardName)
+	Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 	
 	pass
 
 func _resolve_spell_card():
+	Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
+	
 	pass
 
 func _resolve_pitch_cards():
+	print("mewomeowmeowmeowmeowmwomewomeowme")
+	
 	pass
 
 # This function should check if it possible for the player to have
@@ -72,15 +78,23 @@ func _enough_mana_for(card: Card) -> bool:
 	var totalPossibleBigMana = 0
 	var totalPossibleSmallMana = 0
 	
+	# sum up total possible mana
 	for cardInHand in Player.cardsInHand:
 		if cardInHand.type == Card.CardType.Unit:
 			totalPossibleBigMana += cardInHand.bigManaAmt
 			totalPossibleSmallMana += cardInHand.smallManaAmt
+	# subtract mana from current card (obv can't pitch played card)
+	totalPossibleBigMana -= card.bigManaAmt
+	totalPossibleSmallMana -= card.smallManaAmt
 	
 	print("Total Possible Big Mana: ", totalPossibleBigMana)
 	print("Total Possible Small Mana: ", totalPossibleSmallMana)
 	
-	return true
+	if totalPossibleBigMana >= card.costBigManaAmt and \
+		totalPossibleSmallMana >= card.costSmallManaAmt:
+		return true
+	else:
+		return false
 
 func addCardToPlayerQueue(card: Card):
 	cardQueue.enqueue(card)

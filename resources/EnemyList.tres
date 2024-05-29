@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyList" load_steps=3 format=3 uid="uid://j8ygo5cmlvo7"]
 
-[ext_resource type="Resource" uid="uid://tepi8bpncwdo" path="res://resources/BananaQueenBoss.tres" id="1_sn7hr"]
+[ext_resource type="Resource" uid="uid://jus40sjat3l7" path="res://resources/BananaQueenBoss.tres" id="1_sn7hr"]
 [ext_resource type="Script" path="res://scripts/enemyList.gd" id="1_vo5so"]
 
 [resource]

@@ -8,7 +8,7 @@ func _ready():
 	selected = -1
 
 func populate_option_button():
-	for card in Player.cardsArray:
+	for card in Player.cardsInHand:
 		add_item(card.cardName)
 
 # signal function

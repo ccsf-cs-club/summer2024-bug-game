@@ -72,7 +72,7 @@ func _enough_mana_for(card: Card) -> bool:
 	var totalPossibleBigMana = 0
 	var totalPossibleSmallMana = 0
 	
-	for cardInHand in Player.cardsArray:
+	for cardInHand in Player.cardsInHand:
 		if cardInHand.type == Card.CardType.Unit:
 			totalPossibleBigMana += cardInHand.bigManaAmt
 			totalPossibleSmallMana += cardInHand.smallManaAmt

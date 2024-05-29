@@ -20,6 +20,6 @@ func setupCardHandScene():
 	# Later: Check if cardlist has been instantiated before instatiating	
 	
 	$CombatScene.add_child(instatniated_card_hand) # Adds and instance of the playable card hand!
-	instatniated_card_hand.add_cards(Player.cardsArray) # Add cards to the card list
+	instatniated_card_hand.add_cards(Player.cardsInHand) # Add cards to the card list
 	$CombatScene.setCardListSignal(instatniated_card_hand) # Set up signal connection
 

@@ -33,22 +33,22 @@ func _update_viewport_variables():
 
 # will rework this function once cardsHand is implemented - Pink
 func make_hand():
-	for card in Player.cardsHand:
+	for card in Player.cardsInHand:
 		while card == null:
-			card = Player.cardsArray.pick_random()
+			card = Player.cardsInDeck.pick_random()
 
 # zoinks we need the card object
 func getIndexRelativeCard(selected_item: int):
 	print("Selected card has index:    ", selected_item)
-	cardPlayedSignal.emit(Player.cardsArray[selected_item])
+	cardPlayedSignal.emit(Player.cardsInHand[selected_item])
 
 # Function to add cards to the HandContainer node2D
 func add_cards(cards: Array[Card]):
 	# This loads our "default" card scene!!
 	var card_display_scene = preload("res://scenes/card_node2D.tscn")
 	var angle_step = 0
-	if Player.cardsArray.size() > 1:
-		angle = 0.05 * Player.cardsArray.size()
+	if Player.cardsInHand.size() > 1:
+		angle = 0.05 * Player.cardsInHand.size()
 	
 	# This instantiates the default card scene and updates it with the
 	#		correct information for all cards!

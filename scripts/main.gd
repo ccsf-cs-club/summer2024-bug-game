@@ -4,13 +4,12 @@ var instatniated_card_hand = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	startGame()
+	Gs.GAME_START.connect(startGame)
 
 # Called when the "Start Game" button is clicked
 func startGame():
 	print("Game Started!!!")
 	setupCardHandScene()
-	Gs.start_game()
 
 	# Set gamestate to tutorial. # TODO tutorial
 	# Set the gamestate to start the players turn after tutorial

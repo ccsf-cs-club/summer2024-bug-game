@@ -39,8 +39,8 @@ func start_game():
 	$StartMenuNode.visible = false
 	$SettingsMenuNode.visible = false
 	$MainBG.visible = false
-	Gs.GAME_HAS_STARTED = true
-	Gs.GAME_START.emit()
+	# Set the states to start!
+	Gs.start_game()
 
 func switch_to_settings_menu():
 	if Gs.GAME_HAS_STARTED == false:

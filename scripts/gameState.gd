@@ -4,6 +4,7 @@ extends Node
 
 # dunno if I'll use this probably
 enum GameState {
+	GS_WAITING_FOR_GAME_START,
 	PL_WAITING_FOR_CARD,
 	PL_WAITING_FOR_PITCHED_CARDS,
 	PL_RESOLVING_CARD_EFFECT,
@@ -17,7 +18,7 @@ enum GameState {
 }
 
 var GAME_HAS_STARTED: bool = false
-var current_state = GameState.PL_WAITING_FOR_CARD
+var current_state = GameState.GS_WAITING_FOR_GAME_START
 signal GAME_START
 signal PLAYER_TURN_STARTED
 signal ENEMY_TURN_STARTED
@@ -29,6 +30,10 @@ func start_game():
 	GAME_START.emit()
 	PLAYER_TURN_STARTED.emit()
 	STATE_CHANGED.emit(current_state)
+
+func set_state(new_state: GameState):
+	current_state = new_state
+	STATE_CHANGED.emit(new_state)
 
 #	PLAYER_TURN_STARTED:
 #		LOOP:

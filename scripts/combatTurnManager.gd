@@ -7,7 +7,6 @@ var cardQueue: Queue
 func _ready():
 	# Initalizing the queue
 	cardQueue = Queue.new()
-	
 	# Connecting start turn from Gamestate
 	Gs.PLAYER_TURN_STARTED.connect(_on_player_turn_start)
 

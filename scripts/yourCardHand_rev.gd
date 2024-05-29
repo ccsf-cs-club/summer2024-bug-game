@@ -9,11 +9,27 @@ const default_card_angle = (PI / 2)
 
 # Plots line that cards propogate on
 # FIXME: messes up if you resize window before pushing the start game button
-@onready var CardOval_centerPos = Vector2(get_viewport().size) * Vector2(0.5, 1.25)
-@onready var H_radius = get_viewport().size.x * 0.45
-@onready var V_radius = get_viewport().size.y * 0.4
-@onready var angle = 0
+@onready var CardOval_centerPos = 0.0
+@onready var H_radius = 0.0
+@onready var V_radius = 0.0
+@onready var angle = 0.0
 @onready var OvalAngleVector = Vector2.ZERO
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	_update_viewport_variables()
+	# DON'T GET RID OF THIS SIGNAL!!
+	cardPlayed.item_selected.connect(getIndexRelativeCard)
+
+func _update_viewport_variables():
+	CardOval_centerPos = Vector2(960, 540) * Vector2(0.5, 1.25)
+	H_radius = 960 * 0.45 #get_viewport().size.x * 0.45
+	V_radius = 540 * 0.4 #get_viewport().size.y * 0.4
+	
+	#print("view.x: ", get_viewport().size.x, " view.y: ", get_viewport().size.y)
+	#print("CardOval_centerPos: ", CardOval_centerPos)
+	#print("get_viewport().size: ", get_viewport().size)
+	#print("Vector2(get_viewport().size) * Vector2(0.5, 1.25): ", Vector2(get_viewport().size) * Vector2(0.5, 1.25))
 
 # will rework this function once cardsHand is implemented - Pink
 func make_hand():
@@ -65,15 +81,9 @@ func set_hand_position(card: Node2D):
 	# math wizardry for rotation
 	card.set_rotation(- atan2(V_radius ** 2 * OvalAngleVector.x, H_radius ** 2 * OvalAngleVector.y) + PI)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	# DON'T GET RID OF THIS SIGNAL!!
-	cardPlayed.item_selected.connect(getIndexRelativeCard)
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
 
 func _on_dev_card_action_gui_input(event):
 	if event is InputEventMouseButton:

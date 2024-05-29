@@ -18,6 +18,10 @@ func _on_game_state_changed(state):
 	match state:
 		Gs.GameState.PL_WAITING_FOR_CARD:
 			print("Waiting for the player to choose a card.")
+		Gs.GameState.PL_RESOLVING_ATTACK_CARD:
+			print("Resolving Attack Card")
+		Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS:
+			print("Waiting for the player to choose cards to pitch.")
 		_:
 			print("\t\tUNHANDLED GAMESTATE!!!")
 
@@ -30,7 +34,13 @@ func _on_player_turn_start():
 func _player_card_played():
 	var card = cardQueue.peek()
 	print("Player played card: ", cardQueue.peek().cardName)
+	
 	if(card.type == Card.CardType.Unit):
+		Gs.set_state(Gs.GameState.PL_RESOLVING_ATTACK_CARD)
+	elif(card.type == Card.CardType.Spell):
+		Gs.set_state
+	
+	if(card.type == Card.CardType.Unit and card.hasManaCost()):
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 
 func _can_player_play_a_card() -> bool:

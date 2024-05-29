@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chca38pawejnw"
-path="res://.godot/imported/antguy.png-e4348193b59f9a8001bfe8db8e329926.ctex"
+uid="uid://c420832d5ggyc"
+path="res://.godot/imported/spear_ant.png-e65afc8a72e8e1261b8c194b0615d101.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/antguy.png"
-dest_files=["res://.godot/imported/antguy.png-e4348193b59f9a8001bfe8db8e329926.ctex"]
+source_file="res://assets/Card_art/spear_ant.png"
+dest_files=["res://.godot/imported/spear_ant.png-e65afc8a72e8e1261b8c194b0615d101.ctex"]
 
 [params]
 

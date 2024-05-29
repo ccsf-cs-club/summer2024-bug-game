@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqaarpoc7fq6r"
-path="res://.godot/imported/eyepede.png-516a5b1cd9759b7802e48ed21c403539.ctex"
+uid="uid://dfg250a2tl0mq"
+path="res://.godot/imported/butterfly_Niko.png-f4e9ed4c4e1cc90f47e90296787d46f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/eyepede.png"
-dest_files=["res://.godot/imported/eyepede.png-516a5b1cd9759b7802e48ed21c403539.ctex"]
+source_file="res://assets/Boss_art/butterfly_Niko.png"
+dest_files=["res://.godot/imported/butterfly_Niko.png-f4e9ed4c4e1cc90f47e90296787d46f5.ctex"]
 
 [params]
 

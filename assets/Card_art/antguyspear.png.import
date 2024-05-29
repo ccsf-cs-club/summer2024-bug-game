@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq4dg0kn8lfjf"
-path="res://.godot/imported/antguyspear.png-e96ddffe7f73ed23ec52970fb1f84107.ctex"
+path="res://.godot/imported/antguyspear.png-7088c6bd66efae2aac03679ec0ce5113.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/antguyspear.png"
-dest_files=["res://.godot/imported/antguyspear.png-e96ddffe7f73ed23ec52970fb1f84107.ctex"]
+source_file="res://assets/Card_art/antguyspear.png"
+dest_files=["res://.godot/imported/antguyspear.png-7088c6bd66efae2aac03679ec0ce5113.ctex"]
 
 [params]
 

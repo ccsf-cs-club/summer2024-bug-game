@@ -13,5 +13,5 @@ type = 0
 costBigManaAmt = 0
 costSmallManaAmt = 0
 loreString = ""
-cardArtPath = "res://assets/Eyepede_Small.png"
-cardArtPathFullSize = "res://assets/Eyepede.png"
+cardArtPath = "res://assets/Card_art/Eyepede.png"
+cardArtPathFullSize = "res://assets/Card_art/Eyepede_Small.png"

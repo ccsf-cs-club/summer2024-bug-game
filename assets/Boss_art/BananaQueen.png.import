@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bikdn382ufjfj"
-path="res://.godot/imported/BananaQueen.png-cde858274f11ad25b0807b838b8d5775.ctex"
+path="res://.godot/imported/BananaQueen.png-85dae209d1349d20d447afbcf2a1d86a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/BananaQueen.png"
-dest_files=["res://.godot/imported/BananaQueen.png-cde858274f11ad25b0807b838b8d5775.ctex"]
+source_file="res://assets/Boss_art/BananaQueen.png"
+dest_files=["res://.godot/imported/BananaQueen.png-85dae209d1349d20d447afbcf2a1d86a.ctex"]
 
 [params]
 

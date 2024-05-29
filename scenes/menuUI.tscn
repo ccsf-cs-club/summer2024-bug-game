@@ -234,6 +234,7 @@ size_flags_horizontal = 3
 text = "Back"
 
 [node name="CreditsMenuNode" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

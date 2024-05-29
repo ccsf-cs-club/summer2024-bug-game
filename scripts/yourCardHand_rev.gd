@@ -43,6 +43,16 @@ func add_cards(cards: Array[Card]):
 		card_container.add_child(card_display)
 		set_hand_position(card_display)
 		angle -= 0.15 #changes angle for next card
+		
+		# Connect the card signal to the getIndexRelativeCard
+		card_display.indexOfSelectedCard.connect(getIndexRelativeCard)
+
+# Might lead to a memory leak if we don't disconnect so better call this to remove
+func remove_card(card_display):
+	if card_display and card_display.get_parent() == card_container:
+		card_display.indexOfSelectedCard.disconnect(getIndexRelativeCard)
+		# later free it from the card hand queue
+		card_display.queue_free()
 
 func set_hand_position(card: Node2D):
 	# Positions card along plotted angle
@@ -59,7 +69,6 @@ func set_hand_position(card: Node2D):
 func _ready():
 	# DON'T GET RID OF THIS SIGNAL!!
 	cardPlayed.item_selected.connect(getIndexRelativeCard)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

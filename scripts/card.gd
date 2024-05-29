@@ -3,6 +3,11 @@ class_name Card
 
 @export var cardName: String = ""
 
+enum CardType {
+	Unit,
+	Spell
+}
+
 @export_enum("Unit", "Spell") var type: int
 @export var costBigManaAmt: int
 @export var costSmallManaAmt: int

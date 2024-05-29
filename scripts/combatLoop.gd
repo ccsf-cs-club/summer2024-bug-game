@@ -20,7 +20,7 @@ func removePlayedCard(cardToRemove: Card):
 
 # Called when the player plays a card through a signal
 func playerCardPlayed(card: Card):
-	combat_turn_manager._player_card_played(card) #not sure what to put here
+	combat_turn_manager.addCardToPlayerQueue(card) #not sure what to put here
 	
 	if card is UnitCard:
 		#doSelfDamage(card.attack) # testing

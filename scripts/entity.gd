@@ -22,13 +22,13 @@ func getEntityTexture() -> Texture:
 	
 func decrease_health(amount: int):
 	healthPool -= amount
-	emit_signal("health_increased")
-	emit_signal("health_change")
 	if healthPool <= 0:
 		healthPool = 0
 		emit_signal("health_zero")
+	emit_signal("health_decreased")
+	emit_signal("health_change")
 
 func increase_health(amount: int):
 	healthPool += amount
-	emit_signal("health_decreased")
+	emit_signal("health_increased")
 	emit_signal("health_change")

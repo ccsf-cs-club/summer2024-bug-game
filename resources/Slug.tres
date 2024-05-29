@@ -13,5 +13,5 @@ type = 0
 costBigManaAmt = 2
 costSmallManaAmt = 1
 loreString = "I may be small but for you I'd give it my all"
-cardArtPath = "res://assets/Card_art/antguyspear.png"
+cardArtPath = "res://assets/Card_art/slug.png"
 cardArtPathFullSize = ""

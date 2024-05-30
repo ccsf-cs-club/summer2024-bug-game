@@ -8,47 +8,53 @@ extends CanvasLayer
 @export var start_quit_button: Button
 
 @export var credits_back_button: Button
+
 @export var settings_display_mode_button: Button
 @export var settings_back_button: Button
-@export var main_manu_button: Button
+@export var main_menu_button: Button
 
 func _ready():
 
 	start_button.button_up.connect(start_game)
-	start_settings_button.button_up.connect(switch_to_settings_menu)
+	start_settings_button.button_up.connect(toggle_settings_menu)
 	start_quit_button.button_up.connect(close_game)
-	start_credits_button.button_up.connect(switch_to_creditsroll)
-	credits_back_button.button_up.connect(switch_to_creditsroll)
+	start_credits_button.button_up.connect(toggle_creditsroll)
+	
+	credits_back_button.button_up.connect(toggle_creditsroll)
+	
 	settings_display_mode_button.item_selected.connect(change_display_mode)
-	settings_back_button.button_up.connect(switch_to_settings_menu)
+	settings_back_button.button_up.connect(toggle_settings_menu)
+	main_menu_button.button_up.connect(return_to_main_menu)
 
 func _input(_event):
 	if Input.is_action_just_pressed("Escape") and $StartMenuNode.visible == false:
-		switch_to_settings_menu()
+		toggle_settings_menu()
 
 
 func start_game():
 	$StartMenuNode.visible = false
 	$SettingsMenuNode.visible = false
 	$MainBG.visible = false
+	main_menu_button.visible = true
 	# Set the states to start!
 	Gs.start_game()
 
-func switch_to_settings_menu():
+func toggle_settings_menu():
+	$SettingsMenuNode.visible = not $SettingsMenuNode.visible
 	if Gs.GAME_HAS_STARTED == false:
 		$StartMenuNode.visible = not $StartMenuNode.visible
-		$SettingsMenuNode.visible = not $SettingsMenuNode.visible
-
-	else:
-		$SettingsMenuNode.visible = not $SettingsMenuNode.visible
 
 
-func switch_to_creditsroll():
-	if Gs.GAME_HAS_STARTED ==false:
+func toggle_creditsroll():
+	$CreditsMenuNode.visible = not $CreditsMenuNode.visible
+	if Gs.GAME_HAS_STARTED == false:
 		$StartMenuNode.visible = not $StartMenuNode.visible
-		$CreditsMenuNode.visible = not $CreditsMenuNode.visible
-	else:
-		$CreditsMenuNode.visible = not $CreditsMenuNode.visible		
+
+func return_to_main_menu():
+	$StartMenuNode.visible = true
+	$SettingsMenuNode.visible = false
+	$MainBG.visible = true
+	main_menu_button.visible = false
 
 func close_game():
 	get_tree().quit()

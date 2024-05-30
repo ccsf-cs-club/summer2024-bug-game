@@ -10,6 +10,7 @@ extends CanvasLayer
 @export var credits_back_button: Button
 @export var settings_display_mode_button: Button
 @export var settings_back_button: Button
+@export var main_manu_button: Button
 
 func _ready():
 

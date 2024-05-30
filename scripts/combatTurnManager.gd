@@ -39,7 +39,7 @@ func _on_game_state_changed(state):
 # Gets called when a card is selected
 func _player_card_played():
 	var card = cardQueue.peek()
-	print("Player played card: ", cardQueue.peek().cardName)
+	print("Player played card on queue: ", cardQueue.peek().cardName)
 	print("Enough mana? Vibe boom sound effect: ", _enough_mana_for(card))
 	
 	# Check if it's for pitching or attacking here

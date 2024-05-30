@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://vvsenribpq0e"]
 
 [ext_resource type="Script" path="res://scripts/combatLoop.gd" id="1_e17cm"]
-[ext_resource type="PackedScene" path="res://scenes/cardInspector_node2D.tscn" id="2_6of2c"]
+[ext_resource type="PackedScene" uid="uid://c20p7rgfp812b" path="res://scenes/cardInspector_node2D.tscn" id="2_6of2c"]
 [ext_resource type="PackedScene" uid="uid://cxrli4cp1k6yl" path="res://scenes/enemyCardHand.tscn" id="2_tnnes"]
 [ext_resource type="Script" path="res://scripts/combatUI.gd" id="2_yieo8"]
 [ext_resource type="FontFile" uid="uid://btey4qndck0lw" path="res://assets/FontRoboto/Roboto-Black.ttf" id="3_l755p"]

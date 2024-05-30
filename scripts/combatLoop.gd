@@ -30,11 +30,11 @@ func playerCardPlayed(card: Card):
 	print("Player hp: ", Player.healthPool)
 	print("Boss hp: ", Em.currentBoss.healthPool)
 
-func playerCardHovered(index: int):
-	if index < 0:
+func playerCardHovered(cardID: int):
+	if cardID < 0:
 		$CardInspector.visible = false
 	else:
-		var card: Card = Player.cardsInHand[index]
+		var card: Card = Player.getCardInHandByID(cardID)
 		$CardInspector.visible = true
 		$CardInspector.set_card(card)
 	

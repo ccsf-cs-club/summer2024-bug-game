@@ -81,6 +81,45 @@ func drawRandomCards(amt: int):
 			cant_draw_to_full.emit()
 			break
 
+# Adds a card and returns the index it was added at
+func addCardToHand(card: Card) -> int:
+	for i in range(cardsInHand.size()):
+		if cardsInHand[i] == null:
+			cardsInHand[i]= card
+			card_added_to_hand.emit(card, i)
+			return i
+	cardsInHand.append(card) # no empty slots
+	card_added_to_hand.emit(card, cardsInHand.size() - 1)
+	return cardsInHand.size()
+
+func removeCardAtIndexFromHand(index: int):
+	if index >= 0 and index < cardsInHand.size():
+		cardsInHand[index] = null
+		card_removed_from_hand.emit(index)
+func removeCardWithIDFromHand(cardID: int):
+	for index in range(cardsInHand.size()):
+		if cardsInHand[index].cardID == cardID:
+			cardsInHand[index] = null
+			card_removed_from_hand.emit(index)
+			return
+	print("Card with ID ", cardID, " not found in hand.")
+
+func getCardByID(cardID: int, source_array: Array[Card]) -> Card:
+	for card in source_array:
+		if card.cardID == cardID:
+			return card
+	return null
+func getCardInHandByID(cardID: int) -> Card:
+	for card in cardsInHand:
+		if card.cardID == cardID:
+			return card
+	return null
+func getCardInDeckByID(cardID: int) -> Card:
+	for card in cardsInDeck:
+		if card.cardID == cardID:
+			return card
+	return null
+
 func decrease_health(amount: int):
 	healthPool -= amount
 	if healthPool <= 0:
@@ -93,36 +132,10 @@ func increase_health(amount: int):
 	healthPool += amount
 	emit_signal("health_increased")
 	emit_signal("health_change")
-
-# Adds a card and returns the index it was added at
-func addCardToHand(card: Card) -> int:
-	for i in range(cardsInHand.size()):
-		if cardsInHand[i] == null:
-			cardsInHand[i]= card
-			card_added_to_hand.emit(card, i)
-			return i
-	cardsInHand.append(card) # no empty slots
-	card_added_to_hand.emit(card, cardsInHand.size() - 1)
-	return cardsInHand.size()
-	
-func removeCardAtIndexFromHand(index: int):
-	if index >= 0 and index < cardsInHand.size():
-		cardsInHand[index] = null
-		card_removed_from_hand.emit(index)
-
-func removeCardWithIDFromHand(cardID: int):
-	for index in range(cardsInHand.size()):
-		if cardsInHand[index].cardID == cardID:
-			cardsInHand[index] = null
-			card_removed_from_hand.emit(index)
-			return
-	print("Card with ID ", cardID, " not found in hand.")
-		
 func money_increase(amount: int):
 	money += amount
 	emit_signal("increased_money")
 	emit_signal("moeny_change")
-	
 func moeny_decrease(amount: int):
 	money += amount
 	if money <=0:

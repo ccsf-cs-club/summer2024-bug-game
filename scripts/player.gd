@@ -33,6 +33,7 @@ signal cant_draw_to_full
 func _ready():
 	randomize() # Seed random
 	card_inventory = load("res://resources/PlayerInventory.tres") as CardInventory
+	Card.next_cardID = 1 # Reset ID counter after loading reouces
 	
 	# pulls all cards from the inventory into the array
 	for card_entry in card_inventory.card_hand:

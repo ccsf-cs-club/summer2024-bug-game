@@ -6,7 +6,7 @@ extends Node
 # Queue for deck
 
 var card_inventory: CardInventory = null # The resource defining the inventory
-var cardsInDeck: Array[Card] # Holds all cards
+var cardsInDeck: Array[Card] # Holds all cards in deck (HAND IS NOT INCLUDED)
 var cardsInHand: Array[Card] # Array of cards in your hand - will use later!!
 # Remember! CardInHand keeps track of it's location. Once a card is in a location
 #		in cardInHand, it should not move untill it is deleted because we use its index
@@ -27,18 +27,48 @@ signal health_zero # Sent when health gets to zero (Use for game loss?)
 signal health_change
 signal card_added_to_hand(Card, index) # Lil Scuffed, Later impiment a visual card array!!
 signal card_removed_from_hand(int)
+signal cant_draw_to_full
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize() # Seed random
 	card_inventory = load("res://resources/PlayerInventory.tres") as CardInventory
 	
 	# pulls all cards from the inventory into the array
 	for card_entry in card_inventory.card_hand:
 		for i_card in range(card_entry.amt):
-			
-			# For now we fill the hand with all cards in inventory, change later
-			cardsInHand.append(card_entry.card)
 			cardsInDeck.append(card_entry.card)
+	
+	# Draws 4 random cards at the beginning!
+	drawRandomCards(4)
+
+func drawAllCardsInDeck():
+	var i = 0
+	while i < cardsInDeck.size():
+		var card = cardsInDeck[i]
+		if _condition_to_draw(card): 
+			cardsInHand.append(card)
+			cardsInDeck.remove_at(i)
+		else:
+			i += 1 # increment if no card is removed
+
+func _condition_to_draw(card: Card) -> bool:
+	return true # can add condition later
+
+func drawRandomCards(amt: int):
+	for i in range(amt):
+		if cardsInDeck.size() > 0:
+			var random_index = randi() % cardsInDeck.size() # Get random index!
+			var card = cardsInDeck[random_index]
+			
+			print_rich("[color=red] Random index: ", random_index)
+			
+			addCardToHand(card) # lets see if this works eep, might render diff
+			cardsInDeck.remove_at(random_index)
+		else:
+			print_rich("[color=red][b]Not enough cards in the deck to draw to full.")
+			cant_draw_to_full.emit()
+			break
 
 func decrease_health(amount: int):
 	healthPool -= amount
@@ -68,5 +98,7 @@ func removeCardAtIndexFromHand(index: int):
 	if index >= 0 and index < cardsInHand.size():
 		cardsInHand[index] = null
 		card_removed_from_hand.emit(index)
+
+
 
 # VENA ADD SIGNAL WHEN CARDS ADDED / TAKEN AWAY!!!

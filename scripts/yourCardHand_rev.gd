@@ -33,12 +33,6 @@ func _update_viewport_variables():
 	#print("get_viewport().size: ", get_viewport().size)
 	#print("Vector2(get_viewport().size) * Vector2(0.5, 1.25): ", Vector2(get_viewport().size) * Vector2(0.5, 1.25))
 
-# will rework this function once cardsHand is implemented - Pink
-func make_hand():
-	for card in Player.cardsInHand:
-		while card == null:
-			card = Player.cardsInDeck.pick_random()
-
 # zoinks we need the card object
 func getIndexRelativeCard(selected_item: int):
 	print("Selected card has index:    ", selected_item)

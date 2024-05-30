@@ -22,7 +22,7 @@ var currentlyHoveredCardID: int = -1 # -1 means no card is hovered
 func _ready():
 	_update_viewport_variables()
 	# DON'T GET RID OF THIS SIGNAL!!
-	cardPlayed.item_selected.connect(getCardIDRelativeCard)
+	cardPlayed.card_selected.connect(getCardIDRelativeCard)
 	Player.card_added_to_hand.connect(_on_card_added_to_hand)
 	Player.card_removed_from_hand.connect(_on_card_removed_from_hand)
 

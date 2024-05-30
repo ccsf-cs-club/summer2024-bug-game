@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://c7ruw02hy6u5r"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_g1ee0"]
+
+[resource]
+script = ExtResource("1_g1ee0")
+bigManaAmt = 1
+smallManaAmt = 2
+attack = 2
+defence = 3
+cardName = "Fire Fly"
+type = 0
+costBigManaAmt = 3
+costSmallManaAmt = 0
+loreString = "Follower of the tempting grace of the pale lady"
+cardArtPath = "res://assets/Card_art/Fire_fly_small.png"
+cardArtPathFullSize = "res://assets/Card_art/Fire_fly.png"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://dpqkus1h8v65a"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_asm10"]
+
+[resource]
+script = ExtResource("1_asm10")
+bigManaAmt = 3
+smallManaAmt = 2
+attack = 0
+defence = 4
+cardName = "Pill Bug"
+type = 0
+costBigManaAmt = 1
+costSmallManaAmt = 2
+loreString = "The sleeping dragon"
+cardArtPath = "res://assets/Card_art/pill_bug_small.png"
+cardArtPathFullSize = "res://assets/Card_art/pill_bug.png"

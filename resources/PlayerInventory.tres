@@ -1,24 +1,24 @@
 [gd_resource type="Resource" script_class="CardInventory" load_steps=9 format=3 uid="uid://bnxv6ya0em0uf"]
 
+[ext_resource type="Resource" path="res://resources/Ant_guy_new.tres" id="1_foi2g"]
 [ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_dklt8"]
-[ext_resource type="Resource" uid="uid://bve626hhjnhwl" path="res://resources/Ant.tres" id="3_4v8wk"]
-[ext_resource type="Resource" uid="uid://bei2jftqglta2" path="res://resources/Slug.tres" id="3_68nux"]
+[ext_resource type="Resource" path="res://resources/Eyepede_new.tres" id="3_ub3cc"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_b63lt"]
-[ext_resource type="Resource" uid="uid://ib4eqntg5ixq" path="res://resources/AntWithSpear.tres" id="4_k3bb1"]
+[ext_resource type="Resource" path="res://resources/Footsoldier_fly.tres" id="4_f3qk8"]
 
 [sub_resource type="Resource" id="Resource_k1mnr"]
 script = ExtResource("2_dklt8")
-card_template = ExtResource("3_4v8wk")
+card_template = ExtResource("1_foi2g")
 amt = 1
 
 [sub_resource type="Resource" id="Resource_lmmiu"]
 script = ExtResource("2_dklt8")
-card_template = ExtResource("3_68nux")
+card_template = ExtResource("3_ub3cc")
 amt = 1
 
 [sub_resource type="Resource" id="Resource_g0fjf"]
 script = ExtResource("2_dklt8")
-card_template = ExtResource("4_k3bb1")
+card_template = ExtResource("4_f3qk8")
 amt = 1
 
 [resource]

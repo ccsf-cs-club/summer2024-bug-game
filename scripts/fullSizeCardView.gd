@@ -4,4 +4,4 @@ extends Node2D
 
 # Function to set the card and update the display
 func set_card(card: Card):
-	card_art.set_texture(card.getCardTexture()) # TODO: use full-size art!!
+	card_art.set_texture(card.getCardTexture(true)) # TODO: use full-size art!!

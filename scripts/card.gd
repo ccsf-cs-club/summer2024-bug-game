@@ -23,9 +23,12 @@ func _init():
 	cardID = Card.next_cardID
 	Card.next_cardID += 1
 
-func getCardTexture() -> Texture:
+func getCardTexture(big: bool = false) -> Texture:
 	if cardArtPath != "":
-		return load(cardArtPath)
+		if !big:
+			return load(cardArtPath)
+		else:
+			return load(cardArtPathFullSize)
 	return null
 
 func hasManaCost() -> bool:

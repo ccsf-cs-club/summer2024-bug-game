@@ -77,15 +77,30 @@ func _on_card_added_to_hand(card: Card, index: int):
 	update_card_positions()
 
 func _on_card_removed_from_hand(index: int):
+	if index < 0 or index >= Player.cardsInHand.size():
+		return
+		
+	Player.cardsInHand.remove_at(index)
+	
 	var card_display = card_container.get_child(index)
 	if card_display:
 		card_display.indexOfSelectedCard.disconnect(getIndexRelativeCard)
 		card_display.cardHovered.disconnect(onCardHovered)
 		card_display.queue_free()
-		
-	for i in range(index, Player.cardsInHand.size() - 1):
-		var remaining_card_display = card_container.get_child(i)
-		remaining_card_display.set_card(Player.cardsInHand[i + 1], i + 1)
+	
+	update_card_positions()
+	
+	#rebuild_card_displays()
+
+func rebuild_card_displays():
+	var card_display_scene = preload("res://scenes/card_node2D.tscn")
+	for i in range(Player.cardsInHand.size()):
+		var card = Player.cardsInHand[i]
+		var card_display = card_display_scene.instantiate()
+		card_display.set_card(card, i)
+		card_container.add_child(card_display)
+		card_display.indexOfSelectedCard.connect(getIndexRelativeCard)
+		card_display.cardHovered.connect(onCardHovered)
 	update_card_positions()
 
 func update_hand_angles():
@@ -94,13 +109,22 @@ func update_hand_angles():
 	else:
 		angle = 0.0
 
-
 func update_card_positions():
 	var total_cards = Player.cardsInHand.size()
-	for i in range(total_cards):
+	var total_displayed = card_container.get_child_count()
+	var display_index = 0
+
+	for i in range(total_displayed):
 		var card_display = card_container.get_child(i)
-		if card_display:
-			set_hand_position(card_display, i, total_cards)
+		
+		if card_display and not card_display.is_queued_for_deletion():
+			print_rich("[color=green]\tcard_display: ", card_display, " display_index: ", display_index, " total_cards: ", total_cards)
+			set_hand_position(card_display, display_index, total_cards)
+			display_index += 1
+		
+		if display_index >= total_cards:
+			break
+		
 	update_hand_angles()
 
 func update_card_positionsTrash():
@@ -167,6 +191,7 @@ func set_hand_position(card: Node2D, position_index: int, total_cards: int):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# update_card_positions()
 	pass
 
 func _on_dev_card_action_gui_input(event):

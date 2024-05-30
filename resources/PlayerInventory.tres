@@ -7,12 +7,12 @@
 
 [sub_resource type="Resource" id="Resource_k1mnr"]
 script = ExtResource("2_dklt8")
-card = ExtResource("3_4v8wk")
+card_template = ExtResource("3_4v8wk")
 amt = 2
 
 [sub_resource type="Resource" id="Resource_lmmiu"]
 script = ExtResource("2_dklt8")
-card = ExtResource("3_68nux")
+card_template = ExtResource("3_68nux")
 amt = 1
 
 [resource]

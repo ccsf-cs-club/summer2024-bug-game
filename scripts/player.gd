@@ -36,8 +36,11 @@ func _ready():
 	
 	# pulls all cards from the inventory into the array
 	for card_entry in card_inventory.card_hand:
-		for i_card in range(card_entry.amt):
-			cardsInDeck.append(card_entry.card)
+		var card_instances = card_entry.instantiate_cards()
+		cardsInDeck += card_instances
+		
+	#	for i_card in range(card_entry.amt):
+	#		cardsInDeck.append(card_entry.card_template)
 	
 	# Draws 4 random cards at the beginning!
 	drawRandomCards(4)
@@ -98,7 +101,3 @@ func removeCardAtIndexFromHand(index: int):
 	if index >= 0 and index < cardsInHand.size():
 		cardsInHand[index] = null
 		card_removed_from_hand.emit(index)
-
-
-
-# VENA ADD SIGNAL WHEN CARDS ADDED / TAKEN AWAY!!!

@@ -1,13 +1,15 @@
 extends Resource
 class_name Card
 
-@export var cardName: String = ""
+static var next_cardID: int = 1
+var cardID: int
 
 enum CardType {
 	Unit,
 	Spell
 }
 
+@export var cardName: String = ""
 @export_enum("Unit", "Spell") var type: int
 @export var costBigManaAmt: int
 @export var costSmallManaAmt: int
@@ -15,6 +17,11 @@ enum CardType {
 
 @export_file("*.png") var cardArtPath: String	# size 64 x 104 small
 @export_file("*.png") var cardArtPathFullSize: String # size 120 x 195 big
+
+# Sequential IDs for each card object
+func _init():
+	cardID = Card.next_cardID
+	Card.next_cardID += 1
 
 func getCardTexture() -> Texture:
 	if cardArtPath != "":

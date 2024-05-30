@@ -42,9 +42,6 @@ func _player_card_played():
 	print("Player played card: ", cardQueue.peek().cardName)
 	print("Enough mana? Vibe boom sound effect: ", _enough_mana_for(card))
 	
-	var aCard = load("res://resources/AntWithSpear.tres")
-	Player.addCardToHand(aCard)
-	
 	# Check if it's for pitching or attacking here
 	if Gs.current_state == Gs.GameState.PL_WAITING_FOR_CARD:
 		if card.type == Card.CardType.Unit:
@@ -56,6 +53,8 @@ func _player_card_played():
 
 func _resolve_attack_card():
 	var attackingCard: Card = cardQueue.dequeue()
+	#Player.removeCardAtIndexFromHand()
+	
 	print_rich("[color=#b44c02]Trying to attack with: ", attackingCard.cardName)
 	Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 	
@@ -69,6 +68,11 @@ func _resolve_spell_card():
 func _resolve_pitch_cards():
 	#if it's not enough, cycle the queue again and get another card
 	
+	
+	
+	
+	#var aCard = load("res://resources/AntWithSpear.tres")
+	#Player.addCardToHand(aCard)
 	
 	
 	print("mewomeowmeowmeowmeowmwomewomeowme")

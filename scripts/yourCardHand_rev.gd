@@ -4,6 +4,7 @@ extends Node2D
 @export var card_container: Node2D
 
 signal cardPlayedSignal(int)
+signal cardHovered(int)
 
 const default_card_angle = (PI / 2)
 
@@ -14,6 +15,8 @@ const default_card_angle = (PI / 2)
 @onready var V_radius = 0.0
 @onready var angle = 0.0
 @onready var OvalAngleVector = Vector2.ZERO
+
+var currentlyHoveredCardIndex: int = -1 # -1 means no card is hovered
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,23 +41,20 @@ func getIndexRelativeCard(selected_item: int):
 	print("Selected card has index:    ", selected_item)
 	cardPlayedSignal.emit(Player.cardsInHand[selected_item])
 
-# Function to add cards to the HandContainer node2D
-func add_cards(cards: Array[Card]):
-	# This loads our "default" card scene!!
-	var card_display_scene = preload("res://scenes/card_node2D.tscn")
-	if Player.cardsInHand.size() > 1:
-		angle = 0.05 * Player.cardsInHand.size()
+# when a card is hovered, display a popup-view of it
+func onCardHovered(index: int, isHovered: bool):
+	var card: Card = Player.cardsInHand[index]
+	if isHovered:
+		currentlyHoveredCardIndex = index
+	elif currentlyHoveredCardIndex == index:
+		currentlyHoveredCardIndex = -1
 	
-	# This instantiates the default card scene and updates it with the
-	#		correct information for all cards!
+	cardHovered.emit(currentlyHoveredCardIndex)
+
+# Function to batch-add multiple cards at once
+func add_cards(cards: Array[Card]):
 	for card_index in cards.size():
-		var card_entry = cards[card_index]
-		var card_display = card_display_scene.instantiate()
-		card_display.set_card(card_entry, card_index)
-		card_container.add_child(card_display)
-		# Connect the card to the signal that a card was added
-		card_display.indexOfSelectedCard.connect(getIndexRelativeCard)
-	update_card_positions()
+		_on_card_added_to_hand(cards[card_index], card_index)
 
 # Might lead to a memory leak if we don't disconnect so better call this to remove
 func remove_card(card_display): # NOT USED CURRENTLY, DISCONNECTED IN _on_card_removed_from_hand
@@ -73,12 +73,14 @@ func _on_card_added_to_hand(card: Card, index: int):
 	card_container.add_child(card_display)
 	# Connect the card to the signal that a card was added
 	card_display.indexOfSelectedCard.connect(getIndexRelativeCard)
+	card_display.cardHovered.connect(onCardHovered)
 	update_card_positions()
 
 func _on_card_removed_from_hand(index: int):
 	var card_display = card_container.get_child(index)
 	if card_display:
 		card_display.indexOfSelectedCard.disconnect(getIndexRelativeCard)
+		card_display.cardHovered.disconnect(onCardHovered)
 		card_display.queue_free()
 	for i in range(index, Player.cardInHand.size()):
 		var remaining_card_display = card_container.get_child(i)
@@ -97,6 +99,7 @@ func update_card_positions():
 		var card_display = card_container.get_child(i)
 		if card_display:
 			set_hand_position(card_display, i, total_cards)
+	update_hand_angles()
 
 func set_hand_position(card: Node2D, position_index: int, total_cards: int):
 	# Positions card along plotted angle

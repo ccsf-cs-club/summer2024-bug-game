@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://caft61fwspuf2"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_mfb61"]
+
+[resource]
+script = ExtResource("1_mfb61")
+bigManaAmt = 2
+smallManaAmt = 1
+attack = 4
+defence = 1
+cardName = "Crazed Axe Fly"
+type = 0
+costBigManaAmt = 2
+costSmallManaAmt = 2
+loreString = "Heeeeeere's AXE FLY!"
+cardArtPath = "res://assets/Card_art/crazed_axe_fly_small.png"
+cardArtPathFullSize = "res://assets/Card_art/crazed_axe_fly.png"

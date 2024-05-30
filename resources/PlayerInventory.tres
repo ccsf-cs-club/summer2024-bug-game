@@ -1,20 +1,26 @@
-[gd_resource type="Resource" script_class="CardInventory" load_steps=7 format=3 uid="uid://bnxv6ya0em0uf"]
+[gd_resource type="Resource" script_class="CardInventory" load_steps=9 format=3 uid="uid://bnxv6ya0em0uf"]
 
 [ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_dklt8"]
 [ext_resource type="Resource" uid="uid://bve626hhjnhwl" path="res://resources/Ant.tres" id="3_4v8wk"]
 [ext_resource type="Resource" uid="uid://bei2jftqglta2" path="res://resources/Slug.tres" id="3_68nux"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_b63lt"]
+[ext_resource type="Resource" uid="uid://ib4eqntg5ixq" path="res://resources/AntWithSpear.tres" id="4_k3bb1"]
 
 [sub_resource type="Resource" id="Resource_k1mnr"]
 script = ExtResource("2_dklt8")
 card_template = ExtResource("3_4v8wk")
-amt = 2
+amt = 1
 
 [sub_resource type="Resource" id="Resource_lmmiu"]
 script = ExtResource("2_dklt8")
 card_template = ExtResource("3_68nux")
 amt = 1
 
+[sub_resource type="Resource" id="Resource_g0fjf"]
+script = ExtResource("2_dklt8")
+card_template = ExtResource("4_k3bb1")
+amt = 1
+
 [resource]
 script = ExtResource("4_b63lt")
-card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_k1mnr"), SubResource("Resource_lmmiu")])
+card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_k1mnr"), SubResource("Resource_lmmiu"), SubResource("Resource_g0fjf")])

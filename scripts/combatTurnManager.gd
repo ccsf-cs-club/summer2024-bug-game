@@ -53,12 +53,13 @@ func _player_card_played():
 
 func _resolve_attack_card():
 	var attackingCard: Card = cardQueue.dequeue()
-	#Player.removeCardAtIndexFromHand()
+	Player.removeCardWithIDFromHand(attackingCard.cardID)
 	
 	print_rich("[color=#b44c02]Trying to attack with: ", attackingCard.cardName)
 	Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
-	
-	pass
+
+
+
 
 func _resolve_spell_card():
 	Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
@@ -91,7 +92,9 @@ func _enough_mana_for(card: Card) -> bool:
 	
 	# sum up total possible mana
 	for cardInHand in Player.cardsInHand:
-		if cardInHand.type == Card.CardType.Unit:
+		if cardInHand == null:
+			continue
+		elif cardInHand.type == Card.CardType.Unit:
 			totalPossibleBigMana += cardInHand.bigManaAmt
 			totalPossibleSmallMana += cardInHand.smallManaAmt
 	# subtract mana from current card (obv can't pitch played card)

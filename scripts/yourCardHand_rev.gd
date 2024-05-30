@@ -80,9 +80,10 @@ func _on_card_removed_from_hand(index: int):
 	if card_display:
 		card_display.indexOfSelectedCard.disconnect(getIndexRelativeCard)
 		card_display.queue_free()
-	for i in range(index, Player.cardInHand.size()):
+		
+	for i in range(index, Player.cardsInHand.size() - 1):
 		var remaining_card_display = card_container.get_child(i)
-		remaining_card_display.set_card(Player.cardsInHand[i], i)
+		remaining_card_display.set_card(Player.cardsInHand[i + 1], i + 1)
 	update_card_positions()
 
 func update_hand_angles():
@@ -91,12 +92,61 @@ func update_hand_angles():
 	else:
 		angle = 0.0
 
+
 func update_card_positions():
 	var total_cards = Player.cardsInHand.size()
 	for i in range(total_cards):
 		var card_display = card_container.get_child(i)
 		if card_display:
 			set_hand_position(card_display, i, total_cards)
+	update_hand_angles()
+
+func update_card_positionsTrash():
+	var total_cards = Player.cardsInHand.size()
+	var total_nulls = count_nulls_in_hand()
+	
+	var nullsNotRendered = 0
+	for i in range(total_cards):
+		if Player.cardsInHand[i] == null:
+			i -= 1
+			nullsNotRendered += 1
+			continue
+		
+		
+		
+		var card_display = card_container.get_child(i)
+		
+		print_rich("[color=green]\ti: ", i, " nullsNotRendered: ", nullsNotRendered, " Rendering: ", card_display.name)
+		print_rich("i + nullsNotRendered: ", i - nullsNotRendered)
+		
+		if card_display:
+			set_hand_position(card_display, i - nullsNotRendered, total_cards - total_nulls)
+	update_hand_angles()
+
+func update_card_positionsBROKEN():
+	var visual_index = 0  # This will keep track of the index in the UI for visible cards
+	for card in Player.cardsInHand:
+		if card != null:
+			if visual_index < card_container.get_child_count():
+				var card_display = card_container.get_child(visual_index)
+				set_hand_position(card_display, visual_index, Player.cardsInHand.size() - count_nulls_in_hand())
+				visual_index += 1
+		else:
+			continue
+	remove_unused_card_displays(visual_index)
+
+func count_nulls_in_hand() -> int:
+	var null_count = 0
+	for card in Player.cardsInHand:
+		if card == null:
+			null_count += 1
+	return null_count
+
+func remove_unused_card_displays(start_index):
+	#for i in range(start_index, card_container.get_child_count()):
+	#	var extra_card_display = card_container.get_child(i)
+	#	extra_card_display.visible = false
+	pass
 
 func set_hand_position(card: Node2D, position_index: int, total_cards: int):
 	# Positions card along plotted angle

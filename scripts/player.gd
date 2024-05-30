@@ -102,3 +102,11 @@ func removeCardAtIndexFromHand(index: int):
 	if index >= 0 and index < cardsInHand.size():
 		cardsInHand[index] = null
 		card_removed_from_hand.emit(index)
+
+func removeCardWithIDFromHand(cardID: int):
+	for index in range(cardsInHand.size()):
+		if cardsInHand[index].cardID == cardID:
+			cardsInHand[index] = null
+			card_removed_from_hand.emit(index)
+			return
+	print("Card with ID ", cardID, " not found in hand.")

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://b3iglerk5e0kq"]
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://b71iru4be7cfu"]
 
 [ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_rvxut"]
 
@@ -8,7 +8,7 @@ bigManaAmt = 3
 smallManaAmt = 1
 attack = 1
 defence = 2
-cardName = ""
+cardName = "Magic Worm"
 type = 0
 costBigManaAmt = 2
 costSmallManaAmt = 1

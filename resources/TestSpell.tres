@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpellCard" load_steps=2 format=3 uid="uid://bdweywab86mdf"]
+
+[ext_resource type="Script" path="res://scripts/spellCard.gd" id="1_xpbp1"]
+
+[resource]
+script = ExtResource("1_xpbp1")
+cardName = "Test Spell Card Bcost1"
+type = 1
+costBigManaAmt = 1
+costSmallManaAmt = 0
+loreString = ""
+cardArtPath = "res://assets/Boss_art/butterfly_Niko.png"
+cardArtPathFullSize = ""

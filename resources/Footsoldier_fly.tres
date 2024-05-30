@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://dhq6w7308dvy6"]
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://57wa7cx8hti7"]
 
 [ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_4kjpj"]
 
@@ -8,7 +8,7 @@ bigManaAmt = 3
 smallManaAmt = 1
 attack = 1
 defence = 3
-cardName = ""
+cardName = "Footsoldier Fly"
 type = 0
 costBigManaAmt = 2
 costSmallManaAmt = 1

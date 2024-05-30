@@ -3,6 +3,7 @@ extends Node
 class_name combatTurnManager
 
 var cardQueue: Queue
+var currentlyResolvingCard: Card
 
 func _ready():
 	# Initalizing the queue
@@ -53,6 +54,7 @@ func _player_card_played():
 
 func _resolve_attack_card():
 	var attackingCard: Card = cardQueue.dequeue()
+	currentlyResolvingCard = attackingCard
 	Player.removeCardWithIDFromHand(attackingCard.cardID)
 	
 	print_rich("[color=#b44c02]Trying to attack with: ", attackingCard.cardName)
@@ -68,17 +70,40 @@ func _resolve_spell_card():
 
 func _resolve_pitch_cards():
 	#if it's not enough, cycle the queue again and get another card
+	print("Enough mana for: ", currentlyResolvingCard.cardName, "?")
+	var enoughMana: bool = _enough_mana_for(currentlyResolvingCard)
+	
+	print("\t\t\t\tYou tried pitching: ", cardQueue.peek().cardName)
+	
+	var bigManaPayed = 0
+	var smallManaPayed = 0
+	
+	if enoughMana:
+		print("You have enough mana for ", currentlyResolvingCard.cardName)
+		
+		# Now check if the card played provided enough look at queue
+		if cardQueue.peek().type == Card.CardType.Unit:
+		
+			print("Paying for cost with: ", cardQueue.peek().cardName)
+			var pitchedCard: UnitCard = cardQueue.dequeue()
+		
+			bigManaPayed += pitchedCard.bigManaAmt
+			smallManaPayed += pitchedCard.smallManaAmt
+			
+		else:
+			print_rich("[b]\tThis card doesn't have a pitch value, reselect")
+			cardQueue.dequeue()
+			Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
+		
+		
+		
+	else:
+		print("We don't have enough mana for ", currentlyResolvingCard.cardName)
 	
 	
 	
 	
-	#var aCard = load("res://resources/AntWithSpear.tres")
-	#Player.addCardToHand(aCard)
 	
-	
-	print("mewomeowmeowmeowmeowmwomewomeowme")
-	
-	pass
 
 # This function should check if it possible for the player to have
 # enough mana to play a card!
@@ -92,14 +117,11 @@ func _enough_mana_for(card: Card) -> bool:
 	
 	# sum up total possible mana
 	for cardInHand in Player.cardsInHand:
-		if cardInHand == null:
+		if cardInHand == null or cardInHand.cardID == card.cardID:
 			continue
 		elif cardInHand.type == Card.CardType.Unit:
 			totalPossibleBigMana += cardInHand.bigManaAmt
 			totalPossibleSmallMana += cardInHand.smallManaAmt
-	# subtract mana from current card (obv can't pitch played card)
-	totalPossibleBigMana -= card.bigManaAmt
-	totalPossibleSmallMana -= card.smallManaAmt
 	
 	print("Total Possible Big Mana: ", totalPossibleBigMana)
 	print("Total Possible Small Mana: ", totalPossibleSmallMana)

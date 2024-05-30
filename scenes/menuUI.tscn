@@ -10,7 +10,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x38hf"]
 
-[node name="MenuUi" type="CanvasLayer" node_paths=PackedStringArray("start_button", "start_settings_button", "start_credits_button", "start_quit_button", "credits_back_button", "settings_display_mode_button", "settings_back_button", "main_menu_button")]
+[node name="MenuUi" type="CanvasLayer" node_paths=PackedStringArray("start_button", "start_settings_button", "start_credits_button", "start_quit_button", "credits_back_button", "settings_display_mode_button", "settings_back_button", "main_menu_button", "credits_menu_node")]
 script = ExtResource("1_m4exc")
 start_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/StartGameButton")
 start_settings_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/SettingsMenuButton")
@@ -20,6 +20,7 @@ credits_back_button = NodePath("CreditsMenuNode/CreditsContainer/VBoxContainer/G
 settings_display_mode_button = NodePath("SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayModeButton")
 settings_back_button = NodePath("SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/BackButton")
 main_menu_button = NodePath("SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/MainMenuBtn")
+credits_menu_node = NodePath("CreditsMenuNode")
 
 [node name="MainBG" type="Control" parent="."]
 layout_mode = 3

@@ -13,8 +13,9 @@ extends CanvasLayer
 @export var settings_back_button: Button
 @export var main_menu_button: Button
 
-func _ready():
+@export var credits_menu_node: Control
 
+func _ready():
 	start_button.button_up.connect(start_game)
 	start_settings_button.button_up.connect(toggle_settings_menu)
 	start_quit_button.button_up.connect(close_game)
@@ -27,6 +28,8 @@ func _ready():
 	main_menu_button.button_up.connect(return_to_main_menu)
 
 func _input(_event):
+	if Input.is_action_just_pressed("Escape") and credits_menu_node.visible == true:
+		toggle_creditsroll()
 	if Input.is_action_just_pressed("Escape") and $StartMenuNode.visible == false:
 		toggle_settings_menu()
 
@@ -41,13 +44,13 @@ func start_game():
 
 func toggle_settings_menu():
 	$SettingsMenuNode.visible = not $SettingsMenuNode.visible
-	if Gs.GAME_HAS_STARTED == false:
+	if Gs.GAME_IS_RUNNING == false:
 		$StartMenuNode.visible = not $StartMenuNode.visible
 
 
 func toggle_creditsroll():
 	$CreditsMenuNode.visible = not $CreditsMenuNode.visible
-	if Gs.GAME_HAS_STARTED == false:
+	if Gs.GAME_IS_RUNNING == false:
 		$StartMenuNode.visible = not $StartMenuNode.visible
 
 func return_to_main_menu():
@@ -55,6 +58,7 @@ func return_to_main_menu():
 	$SettingsMenuNode.visible = false
 	$MainBG.visible = true
 	main_menu_button.visible = false
+	Gs.GAME_IS_RUNNING = false
 
 func close_game():
 	get_tree().quit()
@@ -64,3 +68,5 @@ func change_display_mode(mode):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	if mode == 1:# fullscreen
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+
+

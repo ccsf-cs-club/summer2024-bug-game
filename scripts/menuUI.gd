@@ -30,7 +30,7 @@ func _ready():
 func _input(_event):
 	if Input.is_action_just_pressed("Escape") and credits_menu_node.visible == true:
 		toggle_creditsroll()
-	if Input.is_action_just_pressed("Escape") and $StartMenuNode.visible == false:
+	elif Input.is_action_just_pressed("Escape") and $StartMenuNode.visible == false:
 		toggle_settings_menu()
 
 

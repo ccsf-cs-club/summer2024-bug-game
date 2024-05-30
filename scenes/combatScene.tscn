@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://vvsenribpq0e"]
+[gd_scene load_steps=7 format=3 uid="uid://vvsenribpq0e"]
 
 [ext_resource type="Script" path="res://scripts/combatLoop.gd" id="1_e17cm"]
+[ext_resource type="PackedScene" uid="uid://cmvr3sefckd16" path="res://scenes/cardInspector_node2D.tscn" id="2_6of2c"]
 [ext_resource type="PackedScene" uid="uid://cxrli4cp1k6yl" path="res://scenes/enemyCardHand.tscn" id="2_tnnes"]
 [ext_resource type="Script" path="res://scripts/combatUI.gd" id="2_yieo8"]
 [ext_resource type="FontFile" uid="uid://btey4qndck0lw" path="res://assets/FontRoboto/Roboto-Black.ttf" id="3_l755p"]
@@ -8,6 +9,9 @@
 
 [node name="CombatScene" type="Node2D"]
 script = ExtResource("1_e17cm")
+
+[node name="CardInspector" parent="." instance=ExtResource("2_6of2c")]
+position = Vector2(271, 24)
 
 [node name="CombatUI" type="Node2D" parent="."]
 script = ExtResource("2_yieo8")
@@ -28,6 +32,7 @@ theme_override_colors/default_color = Color(0.847059, 0.8, 0.717647, 1)
 theme_override_fonts/normal_font = ExtResource("3_l755p")
 theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
+text = "[center]20[/center]"
 fit_content = true
 scroll_active = false
 
@@ -47,6 +52,7 @@ theme_override_colors/default_color = Color(0.847059, 0.8, 0.717647, 1)
 theme_override_fonts/normal_font = ExtResource("3_l755p")
 theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
+text = "[center]20[/center]"
 fit_content = true
 scroll_active = false
 
@@ -58,6 +64,7 @@ offset_bottom = 59.0
 theme_override_colors/default_color = Color(0.847059, 0.8, 0.717647, 1)
 theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
+text = "[center]$200[/center]"
 fit_content = true
 scroll_active = false
 

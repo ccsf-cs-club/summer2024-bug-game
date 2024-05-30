@@ -13,6 +13,8 @@ func _ready():
 	combat_turn_manager = combatTurnManager.new()
 	combat_turn_manager.name = "Combat Turn Manager"
 	add_child(combat_turn_manager)
+	
+	playerCardHovered(-1) # just to initialize it
 
 
 func removePlayedCard(cardToRemove: Card):
@@ -30,10 +32,11 @@ func playerCardPlayed(card: Card):
 
 func playerCardHovered(index: int):
 	if index < 0:
-		print("NO CARD IS HOVERED!")
+		$CardInspector.visible = false
 	else:
 		var card: Card = Player.cardsInHand[index]
-		print("CARD HOVERED: ", card.cardName)
+		$CardInspector.visible = true
+		$CardInspector.set_card(card)
 	
 func doSelfDamage(damage: int):	Player.decrease_health(damage)
 func doBossDamage(damage: int): Em.currentBoss.decrease_health(damage)

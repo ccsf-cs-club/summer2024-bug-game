@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://brtvfly1o7fou"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_omhwa"]
+
+[resource]
+script = ExtResource("1_omhwa")
+bigManaAmt = 2
+smallManaAmt = 1
+attack = 2
+defence = 1
+cardName = "Ant Guy"
+type = 0
+costBigManaAmt = 1
+costSmallManaAmt = 2
+loreString = "Ant....Guuuuuuuy!"
+cardArtPath = "res://assets/Card_art/ant_guy_small.png"
+cardArtPathFullSize = "res://assets/Card_art/ant_guy.png"

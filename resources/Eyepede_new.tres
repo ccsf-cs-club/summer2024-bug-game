@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://cuq853b8laof4"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_5nyqa"]
+
+[resource]
+script = ExtResource("1_5nyqa")
+bigManaAmt = 3
+smallManaAmt = 1
+attack = 1
+defence = 2
+cardName = ""
+type = 0
+costBigManaAmt = 2
+costSmallManaAmt = 1
+loreString = "Disturbingly cute"
+cardArtPath = "res://assets/Card_art/Eyepede_new_small.png"
+cardArtPathFullSize = "res://assets/Card_art/Eyepede_new.png"

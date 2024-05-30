@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://b3iglerk5e0kq"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_rvxut"]
+
+[resource]
+script = ExtResource("1_rvxut")
+bigManaAmt = 3
+smallManaAmt = 1
+attack = 1
+defence = 2
+cardName = ""
+type = 0
+costBigManaAmt = 2
+costSmallManaAmt = 1
+loreString = "It's all in the wrist"
+cardArtPath = "res://assets/Card_art/magic_worm_new_small.png"
+cardArtPathFullSize = "res://assets/Card_art/magic_worm_new.png"

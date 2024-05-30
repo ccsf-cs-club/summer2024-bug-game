@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://dhq6w7308dvy6"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_4kjpj"]
+
+[resource]
+script = ExtResource("1_4kjpj")
+bigManaAmt = 3
+smallManaAmt = 1
+attack = 1
+defence = 3
+cardName = ""
+type = 0
+costBigManaAmt = 2
+costSmallManaAmt = 1
+loreString = "Don't try him"
+cardArtPath = "res://assets/Card_art/footsoldier_fly_new_small.png"
+cardArtPathFullSize = "res://assets/Card_art/footsoldier_fly_new.png"

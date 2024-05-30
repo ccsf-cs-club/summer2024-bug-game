@@ -4,9 +4,11 @@ extends Node2D
 func _ready():
 	Player.health_change.connect(playerHpUpdate)
 	Em.currentBoss.health_change.connect(bossHpUpdate)
+	Player.money_change.connect(players_money)
 	
 	playerHpUpdate()
 	bossHpUpdate()
+	players_money()
 	
 	pass # Replace with function body.
 
@@ -19,3 +21,7 @@ func playerHpUpdate():
 	
 func bossHpUpdate():
 	$BossHpUiElement.text = "[center]" + str(Em.currentBoss.healthPool) + "[/center]"
+
+func players_money():
+	$PlayerMoneyUpdate.text = "$" + str(Player.money) 
+	print("jhksojfghsljkghlakjshfdlakjshfalkjsfhalkjsdfhalsjkfh")

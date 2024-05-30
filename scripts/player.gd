@@ -21,6 +21,10 @@ var bigManaHeld = 0
 var currentAttack = 0
 var currentDefence = 0
 
+var money: int = 200 # Players cash 
+
+
+
 signal health_increased # Sent when health increases (UI effect?)
 signal health_decreased # Sent when health decreases (Again effect?)
 signal health_zero # Sent when health gets to zero (Use for game loss?)
@@ -28,6 +32,9 @@ signal health_change
 signal card_added_to_hand(Card, index) # Lil Scuffed, Later impiment a visual card array!!
 signal card_removed_from_hand(int)
 signal cant_draw_to_full
+signal increased_money
+signal money_change
+signal out_of_money
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -110,3 +117,16 @@ func removeCardWithIDFromHand(cardID: int):
 			card_removed_from_hand.emit(index)
 			return
 	print("Card with ID ", cardID, " not found in hand.")
+		
+func money_increase(amount: int):
+	money += amount
+	emit_signal("increased_money")
+	emit_signal("moeny_change")
+	
+func moeny_decrease(amount: int):
+	money += amount
+	if money <=0:
+		money = 0
+		emit_signal("out_of_money")
+	emit_signal("decrase_moeny")
+	emit_signal("money_change")

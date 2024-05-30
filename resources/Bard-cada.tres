@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://b4eys6ef277g6"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_fu2dy"]
+
+[resource]
+script = ExtResource("1_fu2dy")
+bigManaAmt = 3
+smallManaAmt = 1
+attack = 3
+defence = 1
+cardName = "Bard-cada"
+type = 0
+costBigManaAmt = 1
+costSmallManaAmt = 2
+loreString = "Lover, not a fighter"
+cardArtPath = "res://assets/Card_art/Bard-cada_small.png"
+cardArtPathFullSize = "res://assets/Card_art/Bard-cada.png"

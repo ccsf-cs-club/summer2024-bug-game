@@ -21,7 +21,7 @@ var bigManaHeld = 0
 var currentAttack = 0
 var currentDefence = 0
 
-var money: int = 200 # Players cash 
+var money: int = 10 # Players cash 
 
 
 

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://kjacclrqgmcc"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_en3ft"]
+
+[resource]
+script = ExtResource("1_en3ft")
+bigManaAmt = 2
+smallManaAmt = 2
+attack = 2
+defence = 2
+cardName = "Potato Bug"
+type = 0
+costBigManaAmt = 2
+costSmallManaAmt = 2
+loreString = "Fluent in over 6,000,000 forms of communication"
+cardArtPath = "res://assets/Card_art/potato_bug_small.png"
+cardArtPathFullSize = "res://assets/Card_art/potato_bug.png"

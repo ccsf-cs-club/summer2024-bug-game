@@ -10,6 +10,7 @@ extends CanvasLayer
 @export var credits_back_button: Button
 @export var settings_display_mode_button: Button
 @export var settings_back_button: Button
+@export var main_menu_button: Button
 
 func _ready():
 
@@ -20,6 +21,8 @@ func _ready():
 	credits_back_button.button_up.connect(switch_to_creditsroll)
 	settings_display_mode_button.item_selected.connect(change_display_mode)
 	settings_back_button.button_up.connect(switch_to_settings_menu)
+	#main_menu_button.button_up.connect()
+	
 
 func _input(_event):
 	if Input.is_action_just_pressed("Escape") and $StartMenuNode.visible == false:

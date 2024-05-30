@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxb5xa2v0ef3r"]
+[gd_scene load_steps=2 format=3 uid="uid://bxb5xa2v0ef3r"]
 
 [ext_resource type="Script" path="res://scripts/cardControl_area2D.gd" id="1_esjot"]
-[ext_resource type="Texture2D" path="res://assets/antguyspear.png" id="2_xx82w"]
 
 [node name="CardControl" type="Node2D" node_paths=PackedStringArray("card_art")]
 script = ExtResource("1_esjot")
 card_art = NodePath("CardArt")
 
 [node name="CardArt" type="TextureRect" parent="."]
-texture = ExtResource("2_xx82w")

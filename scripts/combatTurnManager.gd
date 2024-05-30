@@ -17,7 +17,7 @@ func _on_player_turn_start():
 
 # Chooses what function to execute depending on state change
 func _on_game_state_changed(state):
-	print("Gamestate switched to: ", Gs.GameState.find_key(state))
+	print_rich("[color=#e6bb58]Gamestate switched to: ", Gs.GameState.find_key(state))
 	match state:
 		Gs.GameState.PL_WAITING_FOR_CARD:
 			print("Waiting for the player to choose a card.")
@@ -42,6 +42,9 @@ func _player_card_played():
 	print("Player played card: ", cardQueue.peek().cardName)
 	print("Enough mana? Vibe boom sound effect: ", _enough_mana_for(card))
 	
+	var aCard = load("res://resources/AntWithSpear.tres")
+	Player.addCardToHand(aCard)
+	
 	# Check if it's for pitching or attacking here
 	if Gs.current_state == Gs.GameState.PL_WAITING_FOR_CARD:
 		if card.type == Card.CardType.Unit:
@@ -64,6 +67,10 @@ func _resolve_spell_card():
 	pass
 
 func _resolve_pitch_cards():
+	#if it's not enough, cycle the queue again and get another card
+	
+	
+	
 	print("mewomeowmeowmeowmeowmwomewomeowme")
 	
 	pass

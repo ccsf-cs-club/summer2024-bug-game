@@ -25,7 +25,7 @@ signal health_increased # Sent when health increases (UI effect?)
 signal health_decreased # Sent when health decreases (Again effect?)
 signal health_zero # Sent when health gets to zero (Use for game loss?)
 signal health_change
-signal card_added_to_hand(Card)
+signal card_added_to_hand(Card, index) # Lil Scuffed, Later impiment a visual card array!!
 signal card_removed_from_hand(int)
 
 # Called when the node enters the scene tree for the first time.
@@ -53,13 +53,16 @@ func increase_health(amount: int):
 	emit_signal("health_increased")
 	emit_signal("health_change")
 
-func addCardToHand(card: Card):
+# Adds a card and returns the index it was added at
+func addCardToHand(card: Card) -> int:
 	for i in range(cardsInHand.size()):
 		if cardsInHand[i] == null:
 			cardsInHand[i]= card
-			return
+			card_added_to_hand.emit(card, i)
+			return i
 	cardsInHand.append(card) # no empty slots
-	card_added_to_hand.emit(card)
+	card_added_to_hand.emit(card, cardsInHand.size() - 1)
+	return cardsInHand.size()
 	
 func removeCardAtIndexFromHand(index: int):
 	if index >= 0 and index < cardsInHand.size():

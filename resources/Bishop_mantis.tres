@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://cr2twdcr3p0qm"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_fl5lh"]
+
+[resource]
+script = ExtResource("1_fl5lh")
+bigManaAmt = 2
+smallManaAmt = 3
+attack = 1
+defence = 1
+cardName = "Bishop Mantis"
+type = 0
+costBigManaAmt = 0
+costSmallManaAmt = 1
+loreString = "By the grace of the giants!"
+cardArtPath = "res://assets/Card_art/Bishop_mantis_small.png"
+cardArtPathFullSize = "res://assets/Card_art/Bishop_mantis.png"

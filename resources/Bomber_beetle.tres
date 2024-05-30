@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://882owao32mw7"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_58jpy"]
+
+[resource]
+script = ExtResource("1_58jpy")
+bigManaAmt = 2
+smallManaAmt = 1
+attack = 2
+defence = 2
+cardName = "Bomber Beetle"
+type = 0
+costBigManaAmt = 3
+costSmallManaAmt = 2
+loreString = "A few well place explosions will solve any problem"
+cardArtPath = "res://assets/Card_art/bomber_beetle_small.png"
+cardArtPathFullSize = "res://assets/Card_art/bomber_beetle.png"

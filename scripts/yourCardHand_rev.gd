@@ -4,7 +4,7 @@ extends Node2D
 @export var card_container: Node2D
 
 signal cardPlayedSignal(int)
-signal cardHovered(int)
+signal cardHoveredSignal(int)
 
 const default_card_angle = (PI / 2)
 
@@ -49,7 +49,7 @@ func onCardHovered(index: int, isHovered: bool):
 	elif currentlyHoveredCardIndex == index:
 		currentlyHoveredCardIndex = -1
 	
-	cardHovered.emit(currentlyHoveredCardIndex)
+	cardHoveredSignal.emit(currentlyHoveredCardIndex)
 
 # Function to batch-add multiple cards at once
 func add_cards(cards: Array[Card]):

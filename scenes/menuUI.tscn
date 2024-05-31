@@ -3,12 +3,12 @@
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="1_6h7qw"]
 [ext_resource type="Script" path="res://scripts/menuUI.gd" id="1_m4exc"]
 [ext_resource type="Texture2D" uid="uid://c0sv8viisxd77" path="res://assets/Ui_elements/mainMenuBG_OLD.png" id="2_oqfjg"]
-[ext_resource type="Texture2D" uid="uid://ccunm8r8cqq76" path="res://assets/Ui_elements/mainMenuBG2Eyepede.png" id="3_vhdp4"]
+[ext_resource type="Texture2D" uid="uid://cpfj8ntc03dhb" path="res://assets/Ui_elements/mainMenuBG_New.png" id="3_1bdtc"]
 [ext_resource type="Texture2D" uid="uid://dpejy4qsmm0fx" path="res://assets/Ui_elements/mainMenuBG2Experiment.png" id="4_p6ign"]
 [ext_resource type="Texture2D" uid="uid://57j45250tp6h" path="res://assets/Ui_elements/mainMenuBG2.png" id="5_jrq7d"]
 [ext_resource type="Texture2D" uid="uid://bvcd2ud0w4syo" path="res://assets/Themes/blankSignWithBar.png" id="8_cdh74"]
 [ext_resource type="Theme" uid="uid://diailjkqmen15" path="res://assets/Themes/DefaultUITheme.tres" id="8_o4mm6"]
-[ext_resource type="Theme" uid="uid://6h7pov0t1hep" path="res://assets/Themes/woodUI.tres" id="9_pwjll"]
+[ext_resource type="Theme" uid="uid://dtgjpix12dkn4" path="res://assets/Themes/woodUI.tres" id="9_pwjll"]
 [ext_resource type="Texture2D" uid="uid://bxqujv3fwyisi" path="res://assets/Themes/8bitCSCLUBLogo.png" id="10_yuhvt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x38hf"]
@@ -52,17 +52,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_oqfjg")
 
-[node name="MainMenuBG_Secret!" type="TextureRect" parent="MainBG"]
-visible = false
+[node name="MainMenuBG_New" type="TextureRect" parent="MainBG"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_vhdp4")
+texture = ExtResource("3_1bdtc")
 
 [node name="MainMenuBGExperiment" type="TextureRect" parent="MainBG"]
+visible = false
 layout_mode = 0
 offset_right = 960.0
 offset_bottom = 540.0
@@ -126,6 +126,7 @@ text = "Bug
 vertical_alignment = 1
 
 [node name="BlankSignWithBar" type="Sprite2D" parent="StartMenuNode/MarginContainer"]
+visible = false
 position = Vector2(744, 87)
 scale = Vector2(0.628272, 0.547141)
 texture = ExtResource("8_cdh74")
@@ -324,6 +325,7 @@ layout_mode = 2
 [node name="MainMenuBtn" type="Button" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
+theme = ExtResource("9_pwjll")
 text = "Main Menu"
 
 [node name="BackButton" type="Button" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]

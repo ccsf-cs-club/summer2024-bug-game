@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cxrli4cp1k6yl" path="res://scenes/enemyCardHand.tscn" id="2_tnnes"]
 [ext_resource type="Script" path="res://scripts/combatUI.gd" id="2_yieo8"]
 [ext_resource type="FontFile" uid="uid://btey4qndck0lw" path="res://assets/FontRoboto/Roboto-Black.ttf" id="3_l755p"]
-[ext_resource type="PackedScene" uid="uid://c32wujaein7r8" path="res://scenes/loreBlurbDisplay.tscn" id="4_bsgnj"]
+[ext_resource type="PackedScene" path="res://scenes/loreBlurbDisplay.tscn" id="4_bsgnj"]
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="5_e4vr5"]
 [ext_resource type="Texture2D" uid="uid://bmn6soyfw204t" path="res://assets/Ui_elements/tabletopBackground.png" id="5_txdtx"]
-[ext_resource type="PackedScene" path="res://scenes/deckInspectorPopup.tscn" id="7_igcod"]
+[ext_resource type="PackedScene" uid="uid://bq8xt2utpun67" path="res://scenes/deckInspectorPopup.tscn" id="7_igcod"]
 [ext_resource type="Texture2D" uid="uid://b2h41lwnc4fxh" path="res://assets/Ui_elements/tabletopBackground_Final.png" id="8_gui6b"]
 [ext_resource type="Texture2D" uid="uid://dfg250a2tl0mq" path="res://assets/Boss_art/AmbigousAngel.png" id="9_dss3q"]
 

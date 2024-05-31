@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ogom7"]
 [ext_resource type="PackedScene" uid="uid://vvsenribpq0e" path="res://scenes/combatScene.tscn" id="2_nkoi4"]
 [ext_resource type="PackedScene" uid="uid://wl3w05iheuuy" path="res://scenes/postCombatScene.tscn" id="3_c0go4"]
-[ext_resource type="PackedScene" path="res://scenes/music.tscn" id="5_ecrna"]
+[ext_resource type="PackedScene" uid="uid://4ne2xgqclthj" path="res://scenes/music.tscn" id="5_ecrna"]
 [ext_resource type="PackedScene" uid="uid://dsp37cd2wijm5" path="res://scenes/menuUI.tscn" id="8_nrmxb"]
 
 [node name="Main" type="Node2D"]

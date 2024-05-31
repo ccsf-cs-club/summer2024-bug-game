@@ -226,49 +226,76 @@ popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
 
-[node name="Master Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Empty Label (for filler)" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Master HBox" type="HBoxContainer" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Master Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/Master HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_6h7qw")
 theme_override_font_sizes/font_size = 30
 text = "Master"
-horizontal_alignment = 1
+
+[node name="Master Percent" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/Master HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50%"
+horizontal_alignment = 2
 
 [node name="Master Volume Slider" type="HSlider" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
-step = 0.001
+step = 0.01
 value = 0.5
 
-[node name="Music Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Music HBox" type="HBoxContainer" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Music Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/Music HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_6h7qw")
 theme_override_font_sizes/font_size = 30
 text = "Music"
-horizontal_alignment = 1
+
+[node name="Music Percent" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/Music HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50%"
+horizontal_alignment = 2
 
 [node name="Music Volume Slider" type="HSlider" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
-step = 0.001
+step = 0.01
 value = 0.5
 
-[node name="SFX Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SFX HBox" type="HBoxContainer" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFX Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/SFX HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_6h7qw")
 theme_override_font_sizes/font_size = 30
 text = "SFX"
-horizontal_alignment = 1
+
+[node name="SFX Percent" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/SFX HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50%"
+horizontal_alignment = 2
 
 [node name="SFX Volume Slider" type="HSlider" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
-step = 0.001
+step = 0.01
 value = 0.5
 
-[node name="Empty Label (for filler)" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Empty Label (for filler) 2" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="MainMenuBtn" type="Button" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]

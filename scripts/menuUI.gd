@@ -86,9 +86,12 @@ func change_display_mode(mode):
 
 func _on_master_volume_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(master_bus_index, linear_to_db(value))
+	%"Master Percent".text = str(100 * value) + "%"
 
 func _on_music_volume_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(music_bus_index, linear_to_db(value))
+	%"Music Percent".text = str(100 * value) + "%"
 
 func _on_sfx_volume_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(sfx_bus_index, linear_to_db(value))
+	%"SFX Percent".text = str(100 * value) + "%"

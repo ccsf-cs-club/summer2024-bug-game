@@ -36,5 +36,5 @@ func play_music():
 
 # when one's finished, replay it
 func _on_stream_finished():
-	print("Raaa audio finished")
+	print("money finished printing smhh my head ")
 	play_music()

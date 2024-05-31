@@ -1,5 +1,12 @@
 extends CanvasLayer
 
+@export var master_bus_name: String
+@export var music_bus_name: String
+@export var sfx_bus_name: String
+
+var master_bus_index: int
+var music_bus_index: int
+var sfx_bus_index: int
 
 # Add exports for other two buttons
 @export var start_button: Button
@@ -16,6 +23,13 @@ extends CanvasLayer
 @export var credits_menu_node: Control
 
 func _ready():
+	master_bus_index = AudioServer.get_bus_index(master_bus_name)
+	music_bus_index = AudioServer.get_bus_index(music_bus_name)
+	sfx_bus_index = AudioServer.get_bus_index(sfx_bus_name)
+	AudioServer.set_bus_volume_db(master_bus_index, linear_to_db(0.5))
+	AudioServer.set_bus_volume_db(music_bus_index, linear_to_db(0.5))
+	AudioServer.set_bus_volume_db(sfx_bus_index, linear_to_db(0.5))
+	
 	start_button.button_up.connect(start_game)
 	start_settings_button.button_up.connect(toggle_settings_menu)
 	start_quit_button.button_up.connect(close_game)
@@ -70,5 +84,11 @@ func change_display_mode(mode):
 	if mode == 1:# fullscreen
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
-func change_volume(volume):
-	pass
+func _on_master_volume_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(master_bus_index, linear_to_db(value))
+
+func _on_music_volume_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(music_bus_index, linear_to_db(value))
+
+func _on_sfx_volume_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(sfx_bus_index, linear_to_db(value))

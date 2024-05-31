@@ -12,6 +12,9 @@
 
 [node name="MenuUi" type="CanvasLayer" node_paths=PackedStringArray("start_button", "start_settings_button", "start_credits_button", "start_quit_button", "credits_back_button", "settings_display_mode_button", "settings_back_button", "main_menu_button", "credits_menu_node")]
 script = ExtResource("1_m4exc")
+master_bus_name = "Master"
+music_bus_name = "Music"
+sfx_bus_name = "SFX"
 start_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/StartGameButton")
 start_settings_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/SettingsMenuButton")
 start_credits_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/CreditsButton")
@@ -188,9 +191,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -228.0
-offset_top = -61.0
+offset_top = -113.5
 offset_right = 228.0
-offset_bottom = 61.0
+offset_bottom = 113.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -207,7 +210,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_6h7qw")
@@ -222,6 +225,51 @@ popup/item_0/text = "Windowed"
 popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
+
+[node name="Master Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_6h7qw")
+theme_override_font_sizes/font_size = 30
+text = "Master"
+horizontal_alignment = 1
+
+[node name="Master Volume Slider" type="HSlider" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="Music Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_6h7qw")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Music Volume Slider" type="HSlider" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="SFX Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_6h7qw")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFX Volume Slider" type="HSlider" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="Empty Label (for filler)" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="MainMenuBtn" type="Button" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 visible = false
@@ -278,3 +326,7 @@ text = "Back"
 [node name="CreditRollButton" type="Button" parent="CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Credits Roll"
+
+[connection signal="value_changed" from="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/Master Volume Slider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/Music Volume Slider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/SFX Volume Slider" to="." method="_on_sfx_volume_slider_value_changed"]

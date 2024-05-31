@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/angel_theme_by_kyle.mp3-6d9f41018ebc3063bccc8
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

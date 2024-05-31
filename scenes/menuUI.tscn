@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsp37cd2wijm5"]
+[gd_scene load_steps=15 format=3 uid="uid://dsp37cd2wijm5"]
 
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="1_6h7qw"]
 [ext_resource type="Script" path="res://scripts/menuUI.gd" id="1_m4exc"]
@@ -7,8 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://dpejy4qsmm0fx" path="res://assets/Ui_elements/mainMenuBG2Experiment.png" id="4_p6ign"]
 [ext_resource type="Texture2D" uid="uid://57j45250tp6h" path="res://assets/Ui_elements/mainMenuBG2.png" id="5_jrq7d"]
 [ext_resource type="Theme" uid="uid://diailjkqmen15" path="res://assets/Themes/DefaultUITheme.tres" id="8_o4mm6"]
+[ext_resource type="Texture2D" uid="uid://bvcd2ud0w4syo" path="res://assets/Themes/blankSignWithBar.png" id="8_y6hsl"]
+[ext_resource type="Theme" uid="uid://6h7pov0t1hep" path="res://assets/Themes/woodUI.tres" id="9_hlo0g"]
+[ext_resource type="Texture2D" uid="uid://c1rrf0ge1kqon" path="res://assets/Themes/blankSignWithout.png" id="10_4fvq4"]
+[ext_resource type="Texture2D" uid="uid://bxqujv3fwyisi" path="res://assets/Themes/8bitCSCLUBLogo.png" id="11_2yvh1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x38hf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_456n4"]
+texture = ExtResource("10_4fvq4")
+region_rect = Rect2(51, 36, 570, 371)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqi3h"]
+texture = ExtResource("10_4fvq4")
+region_rect = Rect2(51, 36, 570, 371)
 
 [node name="MenuUi" type="CanvasLayer" node_paths=PackedStringArray("start_button", "start_settings_button", "start_credits_button", "start_quit_button", "credits_back_button", "settings_display_mode_button", "settings_back_button", "main_menu_button", "credits_menu_node")]
 script = ExtResource("1_m4exc")
@@ -86,6 +98,7 @@ text = "Now with
        Eyepede:"
 
 [node name="StartMenuNode" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,6 +132,11 @@ text = "Bug
           Game"
 vertical_alignment = 1
 
+[node name="BlankSignWithBar" type="Sprite2D" parent="StartMenuNode/MarginContainer"]
+position = Vector2(762, 79)
+scale = Vector2(0.598168, 0.537481)
+texture = ExtResource("8_y6hsl")
+
 [node name="PanelContainer" type="PanelContainer" parent="StartMenuNode"]
 layout_mode = 1
 anchors_preset = 8
@@ -126,10 +144,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 108.0
-offset_top = -232.0
-offset_right = 454.0
-offset_bottom = -24.0
+offset_left = 109.0
+offset_top = -231.0
+offset_right = 428.0
+offset_bottom = -55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_x38hf")
@@ -152,24 +170,27 @@ layout_mode = 2
 [node name="StartGameButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("9_hlo0g")
 text = "Start Game"
 
 [node name="SettingsMenuButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("9_hlo0g")
 text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("9_hlo0g")
 text = "Credits"
 
 [node name="QuitGameButton" type="Button" parent="StartMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("9_hlo0g")
 text = "Quit Game"
 
 [node name="SettingsMenuNode" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -187,12 +208,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -228.0
-offset_top = -61.0
-offset_right = 228.0
-offset_bottom = 61.0
+offset_left = -189.0
+offset_top = -65.0
+offset_right = 195.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SettingsMenuNode/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("9_hlo0g")
+theme_override_styles/panel = SubResource("StyleBoxTexture_456n4")
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsMenuNode/PanelContainer"]
 layout_mode = 2
@@ -210,9 +236,11 @@ layout_mode = 2
 [node name="Label" type="Label" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_6h7qw")
 theme_override_font_sizes/font_size = 30
-text = "Display Mode"
+text = "Display Mode  
+"
 
 [node name="DisplayModeButton" type="OptionButton" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -226,11 +254,13 @@ popup/item_1/id = 1
 [node name="MainMenuBtn" type="Button" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
+theme = ExtResource("9_hlo0g")
 text = "Main Menu"
 
 [node name="BackButton" type="Button" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("9_hlo0g")
 text = "Back"
 
 [node name="CreditsMenuNode" type="Control" parent="."]
@@ -248,18 +278,28 @@ offset_top = 64.0
 offset_right = 794.0
 offset_bottom = 469.0
 
+[node name="Panel" type="Panel" parent="CreditsMenuNode/CreditsContainer"]
+layout_mode = 2
+theme = ExtResource("9_hlo0g")
+theme_override_styles/panel = SubResource("StyleBoxTexture_cqi3h")
+
 [node name="Label" type="Label" parent="CreditsMenuNode/CreditsContainer"]
 layout_mode = 2
-text = "Bug Game by CS CLUB CCSF
+theme_override_colors/font_color = Color(0.282353, 0.235294, 0.196078, 1)
+text = "BugGame by CCSF CS Club
 
-Vena, John, Jesse, Jason, Val, "
+
+A trading card roguelike based around
+ bugs and the theme Size Matters.
+ Participating in the Gamejam: https://itch.io/jam/godot-jam-2024
+
+Made with Love City College of San Francisco"
 horizontal_alignment = 1
 
-[node name="Line" type="Label" parent="CreditsMenuNode/CreditsContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 8.63
-horizontal_alignment = 1
-text_direction = 3
+[node name="8BitCsclubLogo" type="Sprite2D" parent="CreditsMenuNode/CreditsContainer/Label"]
+position = Vector2(321.625, 51.5)
+scale = Vector2(0.136561, 0.135838)
+texture = ExtResource("11_2yvh1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenuNode/CreditsContainer"]
 layout_mode = 2
@@ -273,8 +313,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.0
+theme = ExtResource("9_hlo0g")
 text = "Back"
 
 [node name="CreditRollButton" type="Button" parent="CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer"]
+visible = false
 layout_mode = 2
 text = "Credits Roll"

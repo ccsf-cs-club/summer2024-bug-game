@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq8xt2utpun67"]
+
+[ext_resource type="Script" path="res://scripts/deckInspectorPopup.gd" id="1_lq32m"]
+[ext_resource type="Texture2D" uid="uid://dy1ahn72r3qke" path="res://assets/Card_art/Bishop_mantis.png" id="3_xwb67"]
+
+[node name="DeckInspectorPopup" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_lq32m")
+
+[node name="backgroundClickSinker" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="overlay" type="Panel" parent="."]
+offset_left = 150.0
+offset_top = 80.0
+offset_right = 810.0
+offset_bottom = 460.0
+
+[node name="title" type="RichTextLabel" parent="overlay"]
+layout_mode = 0
+offset_right = 660.0
+offset_bottom = 30.0
+bbcode_enabled = true
+text = "[center]Your Cards (todo: make this UI not look like garbage)[center]"
+fit_content = true
+scroll_active = false
+
+[node name="cardsInDeckGrid" type="GridContainer" parent="overlay"]
+layout_mode = 2
+offset_left = 400.0
+offset_top = 30.0
+offset_right = 800.0
+offset_bottom = 380.0
+columns = 3
+
+[node name="cards" type="ScrollContainer" parent="overlay"]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 660.0
+offset_bottom = 380.0
+
+[node name="grid" type="GridContainer" parent="overlay/cards"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="overlay/cards/grid"]
+layout_mode = 2
+texture = ExtResource("3_xwb67")
+
+[node name="TextureRect2" type="TextureRect" parent="overlay/cards/grid"]
+layout_mode = 2
+texture = ExtResource("3_xwb67")
+
+[node name="TextureRect3" type="TextureRect" parent="overlay/cards/grid"]
+layout_mode = 2
+texture = ExtResource("3_xwb67")
+
+[node name="TextureRect4" type="TextureRect" parent="overlay/cards/grid"]
+layout_mode = 2
+texture = ExtResource("3_xwb67")
+
+[node name="TextureRect5" type="TextureRect" parent="overlay/cards/grid"]
+layout_mode = 2
+texture = ExtResource("3_xwb67")
+
+[node name="TextureRect6" type="TextureRect" parent="overlay/cards/grid"]
+layout_mode = 2
+texture = ExtResource("3_xwb67")
+
+[node name="TextureRect7" type="TextureRect" parent="overlay/cards/grid"]
+layout_mode = 2
+texture = ExtResource("3_xwb67")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cllpoa1w66fry"]
+
+[ext_resource type="Script" path="res://scripts/mana_display.gd" id="1_7d4o4"]
+
+[node name="ManaDisplay" type="Node2D"]
+script = ExtResource("1_7d4o4")
+
+[node name="BigManaDisplay" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BigManaDisplay"]
+offset_left = 86.0
+offset_top = -5.0
+offset_right = 140.0
+offset_bottom = 29.0
+bbcode_enabled = true
+text = "[center]0[/center]"
+
+[node name="SmallManaDisplay" type="Node2D" parent="."]
+position = Vector2(0, 157)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SmallManaDisplay"]
+offset_left = 87.0
+offset_top = -8.0
+offset_right = 138.0
+offset_bottom = 23.0
+bbcode_enabled = true
+text = "[center]0[/center]"

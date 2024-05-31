@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_g1ee0")
-bigManaAmt = 1
-smallManaAmt = 2
-attack = 2
-defence = 3
+bigManaAmt = 2
+smallManaAmt = 0
+attack = 1
+defence = 0
 cardName = "Fire Fly"
 type = 0
-costBigManaAmt = 3
+costBigManaAmt = 0
 costSmallManaAmt = 0
 loreString = "Follower of the tempting grace of the pale lady"
 cardArtPath = "res://assets/Card_art/Fire_fly_small.png"

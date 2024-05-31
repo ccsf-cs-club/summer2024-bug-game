@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://dt4iesohg877y"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_ff0oa"]
+
+[resource]
+script = ExtResource("1_ff0oa")
+bigManaAmt = 0
+smallManaAmt = 0
+attack = 0
+defence = 0
+cardName = "Eyepede"
+type = 0
+costBigManaAmt = 0
+costSmallManaAmt = 0
+loreString = ""
+cardArtPath = "res://assets/Card_art/TestEyepede_Small.png"
+cardArtPathFullSize = "res://assets/Card_art/TestEyepede.png"

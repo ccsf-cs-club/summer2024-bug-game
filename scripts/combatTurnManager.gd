@@ -34,8 +34,13 @@ func _on_game_state_changed(state):
 		Gs.GameState.PL_RESOLVING_PITCHED_CARDS:
 			print("Resolving Pitched Cards")
 			_resolve_pitch_cards()
-		Gs.GameState.PL_PITCHING_PHASE_FINISHED:
+		Gs.GameState.PL_PITCHING_PHASE_FINISHED: # This is just used for the await
 			print("Pitching Phase Finished")
+		Gs.GameState.PL_RESOLVE_GO_AGAIN_OR_END_TURN:
+			_resolve_go_again_or_end_turn()
+		Gs.GameState.PL_NOT_ENOUGH_MANA_FOR_CARD:
+			print("You don't have enough mana for this card")
+			_resolve_not_enough_mana()
 		_:
 			print("\t\tUNHANDLED GAMESTATE!!!")
 
@@ -56,12 +61,29 @@ func _player_card_played():
 	if Gs.current_state == Gs.GameState.PL_WAITING_FOR_CARD:
 		enoughMana = _enough_mana_for(card)
 		print("Enough mana? Vibe boom sound effect: ", enoughMana, "\n")
-		if card.type == Card.CardType.Unit:
+		if !enoughMana:
+			Gs.set_state(Gs.GameState.PL_NOT_ENOUGH_MANA_FOR_CARD)
+		elif card.type == Card.CardType.Unit:
 			Gs.set_state(Gs.GameState.PL_RESOLVING_ATTACK_CARD)
 		elif card.type == Card.CardType.Spell:
 			Gs.set_state(Gs.GameState.PL_RESOLVING_SPELL_CARD)
 	elif Gs.current_state == Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS:
 		Gs.set_state(Gs.GameState.PL_RESOLVING_PITCHED_CARDS)
+
+			# Provide option to pass turn and draw up to full?
+
+# Check if it is possible for a card to be played or if it's not possible
+func _resolve_not_enough_mana():
+	var possible_to_play_different_card: bool = _can_player_play_a_card()
+	cardQueue.dequeue()
+	
+	if(possible_to_play_different_card):
+		print("\tThere is a different card combo that allows play to continue")
+		Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD) #hope this isn't a bug later
+	else:
+		print("\n\nIt is impossible to play any more cards")
+		print("Will draw back up now!!!")
+		Gs.set_state(Gs.GameState.PL_RESOLVE_GO_AGAIN_OR_END_TURN)
 
 func _resolve_attack_card():
 	var attackingCard: UnitCard = cardQueue.dequeue()
@@ -81,8 +103,7 @@ func _resolve_attack_card():
 	print("Player hp: ", Player.healthPool)
 	print("Boss hp: ", Em.currentBoss.healthPool)
 	
-	# For now just let them attack again!!
-	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
+	Gs.set_state(Gs.GameState.PL_RESOLVE_GO_AGAIN_OR_END_TURN)
 
 func _resolve_spell_card():
 	var castingCard: SpellCard = cardQueue.dequeue()
@@ -95,7 +116,8 @@ func _resolve_spell_card():
 	
 	print_rich("[color=#b44c02]Trying to cast with: ", castingCard.cardName)
 	castingCard.run_card_effect()
-
+	
+	Gs.set_state(Gs.GameState.PL_RESOLVE_GO_AGAIN_OR_END_TURN)
 
 
 func _resolve_pitch_cards():
@@ -143,16 +165,24 @@ func _resolve_pitch_cards():
 		
 	else:
 		print("We don't have enough mana for ", currentlyResolvingCard.cardName)
+
+
+
+func _resolve_go_again_or_end_turn():
+	print_rich("[color=orange][b]  Trying to resolve go again or end of turn")
+	Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
 	
-	
-	
-	
-	
+	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
+
+
 
 # This function should check if it possible for the player to have
 # enough mana to play a card!
 func _can_player_play_a_card() -> bool:
-	return true
+	for card in Player.cardsInHand:
+		if card != null and _enough_mana_for(card):
+			return true
+	return false
 
 # This function checks if player has enough potential mana to play a card
 func _enough_mana_for(card: Card) -> bool:

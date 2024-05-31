@@ -13,7 +13,7 @@ var cardsInHand: Array[Card] # Array of cards in your hand - will use later!!
 # We could also refactor card resource to have a Unique Identifier but bleh
 
 var healthPool: int = 20 # 20 for now?
-var maxCardHand: int = 5
+const maxCardHand: int = 5	# Making this const for now, might change later
 
 var bigManaPayed = 0
 var smallManaPayed = 0
@@ -49,7 +49,7 @@ func _ready():
 	#		cardsInDeck.append(card_entry.card_template)
 	
 	# Draws 4 random cards at the beginning!
-	drawRandomCards(5)
+	drawRandomCards(1)
 
 func drawAllCardsInDeck():
 	var i = 0

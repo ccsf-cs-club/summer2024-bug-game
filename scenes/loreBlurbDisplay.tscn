@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://barctvsuuw2t2"]
 
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="1_5r7u0"]
-[ext_resource type="Script" path="res://scenes/loreBlurbDisplay.gd" id="1_eed0g"]
+[ext_resource type="Script" path="res://scripts/loreBlurbDisplay.gd" id="1_eed0g"]
 
 [node name="LoreBlurb" type="Node2D" node_paths=PackedStringArray("loreDisplay")]
 script = ExtResource("1_eed0g")

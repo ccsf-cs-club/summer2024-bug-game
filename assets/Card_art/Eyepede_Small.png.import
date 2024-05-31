@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpck0eww0upep"
-path="res://.godot/imported/Eyepede_Small.png-242d79e2201ae9436afd87d58c0671a2.ctex"
+path="res://.godot/imported/Eyepede_small.png-e7e37123533e713ccd6aae02e9708f97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Card_art/Eyepede_Small.png"
-dest_files=["res://.godot/imported/Eyepede_Small.png-242d79e2201ae9436afd87d58c0671a2.ctex"]
+source_file="res://assets/Card_art/Eyepede_small.png"
+dest_files=["res://.godot/imported/Eyepede_small.png-e7e37123533e713ccd6aae02e9708f97.ctex"]
 
 [params]
 

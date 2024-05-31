@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqleuen5opcr2"]
+
+[ext_resource type="Script" path="res://scripts/keybindPopupPanel_template.gd" id="1_6xqxu"]
+
+[node name="KeybindPopupPanelTemplate" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_6xqxu")
+
+[node name="backgroundClickSinker" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 880.0
+offset_bottom = 460.0
+
+[node name="ExampleUIElement" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_top = 170.0
+offset_right = 800.0
+offset_bottom = 220.0
+bbcode_enabled = true
+text = "[center]UI GOES HERE[center](press E to close)"
+fit_content = true
+scroll_active = false

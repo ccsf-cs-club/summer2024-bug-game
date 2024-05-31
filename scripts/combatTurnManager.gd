@@ -131,7 +131,7 @@ func _resolve_attack_card():
 	
 	if currentlyResolvingCard.hasManaCost():
 		# Store requirements to offer a hint to player for mana cost
-		Player.storeCardManaCost(currentlyResolvingCard)
+		Player.announcePitchManaHint(currentlyResolvingCard)
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 		# maybe make a new gamestate that is finished resolving pitched cards
 		await await_state_change(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
@@ -153,6 +153,7 @@ func _resolve_spell_card():
 	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 0) # 0 means display card
 	
 	if currentlyResolvingCard.hasManaCost():
+		Player.announcePitchManaHint(currentlyResolvingCard)
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 		await await_state_change(Gs.GameState.PL_RESOLVING_PITCHED_CARDS)
 	
@@ -286,6 +287,7 @@ func _resolve_player_blocking_card():
 	
 	# Pitch for the blocking card
 	if currentlyResolvingCard.hasManaCost():
+		Player.announcePitchManaHint(currentlyResolvingCard)
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 		# maybe make a new gamestate that is finished resolving pitched cards
 		await await_state_change(Gs.GameState.PL_PITCHING_PHASE_FINISHED)

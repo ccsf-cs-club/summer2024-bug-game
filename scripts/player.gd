@@ -36,6 +36,8 @@ signal small_mana_changed # Sent when health increases (UI effect?)
 signal card_added_to_hand(Card, index) # Lil Scuffed, Later impiment a visual card array!!
 signal card_removed_from_hand(int)
 signal resolving_card(UnitCard)
+signal player_attacking
+signal player_defending
 signal cant_draw_to_full
 signal increased_money
 signal money_change
@@ -155,9 +157,8 @@ func getCardInDeckByID(cardID: int) -> Card:
 			return card
 	return null
 
-func storeCardManaCost(card: UnitCard):
-	bigManaNeeded = card.costBigManaAmt
-	smallManaNeeded = card.costSmallManaAmt
+func announcePitchManaHint(card: UnitCard):
+	resolving_card.emit(card)
 
 func decrease_health(amount: int):
 	healthPool -= amount

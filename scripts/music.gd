@@ -1,7 +1,7 @@
 extends Node
 
-@onready var menu_music: AudioStreamPlayer = $excerpt
-#@onready var game_music: AudioStreamPlayer = 
+@onready var menu_music: AudioStreamPlayer = $main_menu_by_kyle
+@onready var game_music: AudioStreamPlayer = $main_menu_by_kyle
 
 var current_player = null
 
@@ -22,8 +22,8 @@ func _ready():
 
 func _on_game_start():
 	current_player.stop()
-	#current_player = game_music
-	#play_music()
+	current_player = game_music
+	play_music()
 
 func _on_game_pause():
 	current_player.stop()

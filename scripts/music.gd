@@ -10,10 +10,10 @@ func _ready():
 	Gs.GAME_START.connect(_on_game_start)
 	Gs.GAME_PAUSE.connect(_on_game_pause)
 	
-	print("Audio array making")
+	print("START PRINTING MONEY?????!!! ")
 	for audio_node in get_children():
 		if audio_node is AudioStreamPlayer:
-			print("Added ", audio_node)
+			print("STOP PRINTING MONEY!!! ")
 			audio_node.finished.connect(_on_stream_finished)
 	
 	current_player = menu_music

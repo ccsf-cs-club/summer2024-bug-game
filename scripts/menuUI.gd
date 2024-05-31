@@ -69,3 +69,6 @@ func change_display_mode(mode):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	if mode == 1:# fullscreen
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+
+func change_volume(volume):
+	pass

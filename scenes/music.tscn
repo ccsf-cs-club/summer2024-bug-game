@@ -8,3 +8,4 @@ script = ExtResource("1_ghktr")
 
 [node name="excerpt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_2048q")
+volume_db = -24.721

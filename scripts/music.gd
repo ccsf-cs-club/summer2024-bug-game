@@ -7,7 +7,7 @@ var current_player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Gs.GAME_START.connect(_on_game_start)
+	Gs.GAME_START.connect(_on_game_start)
 	Gs.GAME_PAUSE.connect(_on_game_pause)
 	
 	print("Audio array making")
@@ -20,8 +20,8 @@ func _ready():
 	play_music()
 
 
-#func _on_game_start():
-	#current_player.stop()
+func _on_game_start():
+	current_player.stop()
 	#current_player = game_music
 	#play_music()
 
@@ -31,7 +31,7 @@ func _on_game_pause():
 	play_music()
 
 func play_music():
-	print("THIS IS CURRENTLY PLAYING OKAY THIS IS CURRENTLY PLAYING BTW DID YOU KNOW THAT ", current_player)
+	print("money playing in background ", current_player)
 	current_player.play()
 
 # when one's finished, replay it

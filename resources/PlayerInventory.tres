@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="CardInventory" load_steps=13 format=3 uid="uid://bnxv6ya0em0uf"]
 
-[ext_resource type="Resource" path="res://resources/Ant_guy_new.tres" id="1_foi2g"]
+[ext_resource type="Resource" uid="uid://brtvfly1o7fou" path="res://resources/Ant_guy_new.tres" id="1_foi2g"]
 [ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_dklt8"]
-[ext_resource type="Resource" uid="uid://nh7yckyt7236" path="res://resources/Eyepede_new.tres" id="3_ub3cc"]
+[ext_resource type="Resource" uid="uid://cuq853b8laof4" path="res://resources/Eyepede_new.tres" id="3_ub3cc"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_b63lt"]
-[ext_resource type="Resource" uid="uid://57wa7cx8hti7" path="res://resources/Footsoldier_fly.tres" id="4_f3qk8"]
+[ext_resource type="Resource" uid="uid://dhq6w7308dvy6" path="res://resources/Footsoldier_fly.tres" id="4_f3qk8"]
 [ext_resource type="Resource" uid="uid://bve626hhjnhwl" path="res://resources/Ant.tres" id="5_b3puw"]
-[ext_resource type="Resource" uid="uid://bdweywab86mdf" path="res://resources/TestSpell.tres" id="6_qapu3"]
+[ext_resource type="Resource" uid="uid://clobxrimfq4bw" path="res://resources/Test_Parasite.tres" id="6_hfqvt"]
 
 [sub_resource type="Resource" id="Resource_k1mnr"]
 script = ExtResource("2_dklt8")
@@ -30,7 +30,7 @@ amt = 3
 
 [sub_resource type="Resource" id="Resource_cngji"]
 script = ExtResource("2_dklt8")
-card_template = ExtResource("6_qapu3")
+card_template = ExtResource("6_hfqvt")
 amt = 1
 
 [resource]

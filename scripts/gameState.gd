@@ -4,6 +4,7 @@ extends Node
 
 enum GameState {
 	GS_WAITING_FOR_GAME_START,
+	GS_POST_COMBAT_SCENE,
 	### Player Gamestates
 	PL_WAITING_FOR_CARD,
 	PL_WAITING_FOR_PITCHED_CARDS,

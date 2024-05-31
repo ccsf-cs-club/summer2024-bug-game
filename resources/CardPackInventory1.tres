@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardInventory" load_steps=5 format=3 uid="uid://c2l4a1is1pgvk"]
+
+[ext_resource type="Resource" uid="uid://b71iru4be7cfu" path="res://resources/Magic_worm.tres" id="1_sul5u"]
+[ext_resource type="Script" path="res://scripts/cardInventory.gd" id="1_w4l52"]
+[ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_a35rv"]
+
+[sub_resource type="Resource" id="Resource_70dl1"]
+script = ExtResource("2_a35rv")
+card_template = ExtResource("1_sul5u")
+amt = 5
+
+[resource]
+script = ExtResource("1_w4l52")
+card_hand = Array[ExtResource("2_a35rv")]([SubResource("Resource_70dl1")])

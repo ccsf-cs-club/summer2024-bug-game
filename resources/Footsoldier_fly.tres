@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource("1_4kjpj")
-bigManaAmt = 3
-smallManaAmt = 1
-attack = 1
-defence = 3
+bigManaAmt = 2
+smallManaAmt = 2
+attack = 2
+defence = 2
 cardName = "Footsoldier Fly"
 type = 0
 costBigManaAmt = 2
-costSmallManaAmt = 1
-loreString = "Don't try him"
-cardArtPath = "res://assets/Card_art/footsoldier_fly_new_small.png"
-cardArtPathFullSize = "res://assets/Card_art/footsoldier_fly_new.png"
+costSmallManaAmt = 2
+loreString = "The fly legions will rise"
+cardArtPath = "res://assets/Card_art/footsoldier_fly_small.png"
+cardArtPathFullSize = "res://assets/Card_art/footsoldier_fly.png"

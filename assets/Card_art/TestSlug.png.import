@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c420832d5ggyc"
-path="res://.godot/imported/spear_ant.png-e65afc8a72e8e1261b8c194b0615d101.ctex"
+uid="uid://dw014i1pw3hh4"
+path="res://.godot/imported/TestSlug.png-42bdfc887304426fc8caea0f1b47403d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Card_art/spear_ant.png"
-dest_files=["res://.godot/imported/spear_ant.png-e65afc8a72e8e1261b8c194b0615d101.ctex"]
+source_file="res://assets/Card_art/TestSlug.png"
+dest_files=["res://.godot/imported/TestSlug.png-42bdfc887304426fc8caea0f1b47403d.ctex"]
 
 [params]
 

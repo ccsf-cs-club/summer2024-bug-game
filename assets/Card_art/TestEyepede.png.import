@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be8dxdat0wxll"
-path="res://.godot/imported/magic_worm_new_small.png-4fa4cd6768a22bb63f7f16245d211813.ctex"
+uid="uid://5mki852v6e7f"
+path="res://.godot/imported/TestEyepede.png-dd1278358f2900427cc359f3f961b9ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Card_art/magic_worm_new_small.png"
-dest_files=["res://.godot/imported/magic_worm_new_small.png-4fa4cd6768a22bb63f7f16245d211813.ctex"]
+source_file="res://assets/Card_art/TestEyepede.png"
+dest_files=["res://.godot/imported/TestEyepede.png-dd1278358f2900427cc359f3f961b9ba.ctex"]
 
 [params]
 

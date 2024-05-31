@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource("1_en3ft")
-bigManaAmt = 2
-smallManaAmt = 2
+bigManaAmt = 3
+smallManaAmt = 1
 attack = 2
-defence = 2
+defence = 4
 cardName = "Potato Bug"
 type = 0
 costBigManaAmt = 2
-costSmallManaAmt = 2
+costSmallManaAmt = 4
 loreString = "Fluent in over 6,000,000 forms of communication"
 cardArtPath = "res://assets/Card_art/potato_bug_small.png"
 cardArtPathFullSize = "res://assets/Card_art/potato_bug.png"

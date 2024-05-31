@@ -4,13 +4,13 @@
 
 [resource]
 script = ExtResource("1_58jpy")
-bigManaAmt = 2
-smallManaAmt = 1
-attack = 2
+bigManaAmt = 1
+smallManaAmt = 3
+attack = 4
 defence = 2
 cardName = "Bomber Beetle"
 type = 0
-costBigManaAmt = 3
+costBigManaAmt = 4
 costSmallManaAmt = 2
 loreString = "A few well place explosions will solve any problem"
 cardArtPath = "res://assets/Card_art/bomber_beetle_small.png"

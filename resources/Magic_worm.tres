@@ -13,5 +13,5 @@ type = 0
 costBigManaAmt = 2
 costSmallManaAmt = 1
 loreString = "It's all in the wrist"
-cardArtPath = "res://assets/Card_art/magic_worm_new_small.png"
-cardArtPathFullSize = "res://assets/Card_art/magic_worm_new.png"
+cardArtPath = "res://assets/Card_art/magic_worm_small.png"
+cardArtPathFullSize = "res://assets/Card_art/magic_worm.png"

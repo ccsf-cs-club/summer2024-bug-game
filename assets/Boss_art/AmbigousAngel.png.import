@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y3yci8osdrao"
-path="res://.godot/imported/footsoldier_fly_new_small.png-d19a3cc857cc894b0afbb79b84bc7413.ctex"
+uid="uid://dfg250a2tl0mq"
+path="res://.godot/imported/AmbigousAngel.png-9bfe00d5678a9aef4f3d0c3e7fb5cc61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Card_art/footsoldier_fly_new_small.png"
-dest_files=["res://.godot/imported/footsoldier_fly_new_small.png-d19a3cc857cc894b0afbb79b84bc7413.ctex"]
+source_file="res://assets/Boss_art/AmbigousAngel.png"
+dest_files=["res://.godot/imported/AmbigousAngel.png-9bfe00d5678a9aef4f3d0c3e7fb5cc61.ctex"]
 
 [params]
 

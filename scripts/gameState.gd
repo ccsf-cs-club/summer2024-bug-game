@@ -24,6 +24,7 @@ var GAME_HAS_STARTED: bool = false
 var GAME_IS_RUNNING: bool = false # Pink - equals true when you're not on the main menu
 var current_state = GameState.GS_WAITING_FOR_GAME_START
 signal GAME_START
+signal GAME_PAUSE
 signal PLAYER_TURN_STARTED
 signal ENEMY_TURN_STARTED
 signal STATE_CHANGED(current_state)

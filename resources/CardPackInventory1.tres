@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardInventory" load_steps=5 format=3 uid="uid://c2l4a1is1pgvk"]
+[gd_resource type="Resource" script_class="CardInventory" load_steps=5 format=3 uid="uid://caifl6iud8pdd"]
 
 [ext_resource type="Resource" uid="uid://b71iru4be7cfu" path="res://resources/Magic_worm.tres" id="1_sul5u"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="1_w4l52"]

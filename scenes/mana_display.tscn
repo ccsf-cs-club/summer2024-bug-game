@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://iakm55iawac5"]
+[gd_scene load_steps=3 format=3 uid="uid://1iiog8ful8l4"]
 
 [ext_resource type="Script" path="res://scripts/mana_display.gd" id="1_7d4o4"]
+[ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="2_5q4ed"]
 
 [node name="ManaDisplay" type="Node2D"]
 script = ExtResource("1_7d4o4")
@@ -8,20 +9,25 @@ script = ExtResource("1_7d4o4")
 [node name="BigManaDisplay" type="Node2D" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BigManaDisplay"]
-offset_left = 86.0
-offset_top = -5.0
-offset_right = 140.0
-offset_bottom = 29.0
+offset_left = 40.0
+offset_top = -68.0
+offset_right = 94.0
+offset_bottom = -34.0
+theme_override_colors/default_color = Color(0.827451, 0.643137, 0.435294, 1)
+theme_override_fonts/normal_font = ExtResource("2_5q4ed")
 bbcode_enabled = true
 text = "[center]0[/center]"
 
 [node name="SmallManaDisplay" type="Node2D" parent="."]
-position = Vector2(0, 157)
+rotation = 0.383972
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SmallManaDisplay"]
-offset_left = 87.0
-offset_top = -8.0
-offset_right = 138.0
-offset_bottom = 23.0
+offset_left = 59.0112
+offset_top = 41.9486
+offset_right = 113.011
+offset_bottom = 75.9486
+rotation = -0.383972
+theme_override_colors/default_color = Color(0.827451, 0.643137, 0.435294, 1)
+theme_override_fonts/normal_font = ExtResource("2_5q4ed")
 bbcode_enabled = true
 text = "[center]0[/center]"

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c32wujaein7r8"]
+
+[ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="1_5r7u0"]
+[ext_resource type="Script" path="res://scenes/loreBlurbDisplay.gd" id="1_eed0g"]
+
+[node name="LoreBlurb" type="Node2D" node_paths=PackedStringArray("loreDisplay")]
+script = ExtResource("1_eed0g")
+loreDisplay = NodePath("RichTextLabel")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 134.0
+offset_bottom = 64.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_5r7u0")
+theme_override_font_sizes/normal_font_size = 0

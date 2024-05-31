@@ -12,6 +12,6 @@ cardName = "Fire Fly"
 type = 0
 costBigManaAmt = 0
 costSmallManaAmt = 0
-loreString = "Follower of the tempting grace of the pale lady"
+loreString = "Follower of the lunar grace of the pale lady"
 cardArtPath = "res://assets/Card_art/Fire_fly_small.png"
 cardArtPathFullSize = "res://assets/Card_art/Fire_fly.png"

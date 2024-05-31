@@ -172,6 +172,8 @@ func _resolve_go_again_or_end_turn():
 	print_rich("[color=orange][b]  Trying to resolve go again or end of turn")
 	Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
 	
+#	if _can_player_play_a_card()
+	
 	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
 
 

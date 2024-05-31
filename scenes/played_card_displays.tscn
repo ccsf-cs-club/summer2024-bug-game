@@ -2,16 +2,27 @@
 
 [ext_resource type="Script" path="res://scripts/played_card_displays.gd" id="1_gca82"]
 
-[node name="PlayedCardDisplays" type="Node2D"]
+[node name="PlayedCardDisplays" type="Node2D" node_paths=PackedStringArray("BossTexture", "PlayerTexture")]
 script = ExtResource("1_gca82")
+BossTexture = NodePath("Boss/TextureRect")
+PlayerTexture = NodePath("Player/TextureRect")
 
 [node name="Boss" type="Node2D" parent="."]
+position = Vector2(0, -207)
 
 [node name="TextureRect" type="TextureRect" parent="Boss"]
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Boss" type="Node2D" parent="Boss"]
+position = Vector2(0, -207)
+
+[node name="TextureRect" type="TextureRect" parent="Boss/Boss"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Player" type="Node2D" parent="."]
+position = Vector2(0, 13)
 
 [node name="TextureRect" type="TextureRect" parent="Player"]
 offset_right = 40.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vvsenribpq0e"]
+[gd_scene load_steps=15 format=3 uid="uid://vvsenribpq0e"]
 
 [ext_resource type="Script" path="res://scripts/combatLoop.gd" id="1_e17cm"]
 [ext_resource type="PackedScene" uid="uid://c20p7rgfp812b" path="res://scenes/cardInspector_node2D.tscn" id="2_6of2c"]
@@ -8,8 +8,9 @@
 [ext_resource type="FontFile" uid="uid://btey4qndck0lw" path="res://assets/FontRoboto/Roboto-Black.ttf" id="3_l755p"]
 [ext_resource type="PackedScene" uid="uid://barctvsuuw2t2" path="res://scenes/loreBlurbDisplay.tscn" id="4_bsgnj"]
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="5_e4vr5"]
+[ext_resource type="PackedScene" uid="uid://re6gb2jolng3" path="res://scenes/played_card_displays.tscn" id="5_htc56"]
 [ext_resource type="Texture2D" uid="uid://bmn6soyfw204t" path="res://assets/Ui_elements/tabletopBackground.png" id="5_txdtx"]
-[ext_resource type="PackedScene" uid="uid://bq8xt2utpun67" path="res://scenes/deckInspectorPopup.tscn" id="7_igcod"]
+[ext_resource type="PackedScene" path="res://scenes/deckInspectorPopup.tscn" id="7_igcod"]
 [ext_resource type="Texture2D" uid="uid://b2h41lwnc4fxh" path="res://assets/Ui_elements/tabletopBackground_Final.png" id="8_gui6b"]
 [ext_resource type="Texture2D" uid="uid://dfg250a2tl0mq" path="res://assets/Boss_art/AmbigousAngel.png" id="9_dss3q"]
 [ext_resource type="PackedScene" uid="uid://dy743m4fh4gip" path="res://scenes/combatRoundStatusIndicator.tscn" id="13_umwxy"]
@@ -25,6 +26,9 @@ position = Vector2(64, 251)
 
 [node name="LoreBlurb" parent="." instance=ExtResource("4_bsgnj")]
 position = Vector2(58, 464)
+
+[node name="PlayedCardDisplays" parent="." instance=ExtResource("5_htc56")]
+position = Vector2(471, 236)
 
 [node name="CombatUI" type="Node2D" parent="."]
 script = ExtResource("2_yieo8")

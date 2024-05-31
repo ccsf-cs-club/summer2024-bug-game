@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://2unus82c4i73"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_i74ja"]
+
+[resource]
+script = ExtResource("1_i74ja")
+bigManaAmt = 0
+smallManaAmt = 0
+attack = 1
+defence = 0
+cardName = "Attack 1"
+type = 0
+costBigManaAmt = 0
+costSmallManaAmt = 0
+loreString = ""
+cardArtPath = "res://assets/Card_art/BossCards/Boss_Attack-1.png"
+cardArtPathFullSize = "res://assets/Card_art/BossCards/Boss_Attack-1.png"

@@ -2,8 +2,8 @@
 
 [ext_resource type="Resource" uid="uid://jus40sjat3l7" path="res://resources/BananaQueenBoss.tres" id="1_sn7hr"]
 [ext_resource type="Script" path="res://scripts/enemyList.gd" id="1_vo5so"]
-[ext_resource type="Resource" path="res://resources/SanguineMamaBoss.tres" id="2_bsbo0"]
-[ext_resource type="Resource" path="res://resources/AmbigousAngelBoss.tres" id="3_3yjpo"]
+[ext_resource type="Resource" uid="uid://dkgoxc7q0kd7v" path="res://resources/SanguineMamaBoss.tres" id="2_bsbo0"]
+[ext_resource type="Resource" uid="uid://dluko5gkm7ffd" path="res://resources/AmbigousAngelBoss.tres" id="3_3yjpo"]
 
 [resource]
 script = ExtResource("1_vo5so")

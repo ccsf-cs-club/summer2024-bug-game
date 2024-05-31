@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="CardInventory" load_steps=23 format=3 uid="uid://c1m8846org6l"]
+
+[ext_resource type="Resource" uid="uid://2unus82c4i73" path="res://resources/BossCards/Attack1.tres" id="1_uw6bg"]
+[ext_resource type="Script" path="res://scripts/cardInventory.gd" id="1_xiona"]
+[ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_ljc6v"]
+[ext_resource type="Resource" uid="uid://danvkk772g34k" path="res://resources/BossCards/Attack2.tres" id="3_pr7jn"]
+[ext_resource type="Resource" uid="uid://cnc3kglar713u" path="res://resources/BossCards/Attack3.tres" id="4_b8r4w"]
+[ext_resource type="Resource" uid="uid://cyxbusicglhfs" path="res://resources/BossCards/Attack4.tres" id="5_0vte5"]
+[ext_resource type="Resource" uid="uid://dl4oa77vl2044" path="res://resources/BossCards/Attack5.tres" id="6_wwkya"]
+[ext_resource type="Resource" uid="uid://bjji6xkv7at2j" path="res://resources/BossCards/Defend1.tres" id="7_8byrc"]
+[ext_resource type="Resource" uid="uid://dtxahvxkwn14e" path="res://resources/BossCards/Defend2.tres" id="8_46hgm"]
+[ext_resource type="Resource" uid="uid://ceeqbcdkffdxc" path="res://resources/BossCards/Defend3.tres" id="9_dovua"]
+[ext_resource type="Resource" uid="uid://3ir0l3pgr146" path="res://resources/BossCards/Defend4.tres" id="10_vf02m"]
+[ext_resource type="Resource" uid="uid://ruoiyj2uji0f" path="res://resources/BossCards/Defend5.tres" id="11_1ahvy"]
+
+[sub_resource type="Resource" id="Resource_48vjd"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("1_uw6bg")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_o5uk5"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("3_pr7jn")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_7a5u3"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("4_b8r4w")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_gsxe5"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("5_0vte5")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_lw4qa"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("6_wwkya")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_uqx51"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("7_8byrc")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_6nlll"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("8_46hgm")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_gx5rm"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("9_dovua")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_77twb"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("10_vf02m")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_v6j6h"]
+script = ExtResource("2_ljc6v")
+card_template = ExtResource("11_1ahvy")
+amt = 1
+
+[resource]
+script = ExtResource("1_xiona")
+card_hand = Array[ExtResource("2_ljc6v")]([SubResource("Resource_48vjd"), SubResource("Resource_o5uk5"), SubResource("Resource_7a5u3"), SubResource("Resource_gsxe5"), SubResource("Resource_lw4qa"), SubResource("Resource_uqx51"), SubResource("Resource_6nlll"), SubResource("Resource_gx5rm"), SubResource("Resource_77twb"), SubResource("Resource_v6j6h")])

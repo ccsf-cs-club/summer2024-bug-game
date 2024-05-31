@@ -267,6 +267,7 @@ func _on_player_pass_turn():
 	#if Gs.current_state == Gs.GameState.PL_RESOLVING_BLOCKING_PHASE:
 			print("\t\t\t\t\t\tPlayer Desided To Skip Phase From Here")
 			Player.decrease_health(damageQueue.dequeue())
+			Gs.DISPLAY_BOSS_CARD.emit(Em.currentCard, 1) # 1 means clear card
 			Gs.set_state(Gs.GameState.PL_BLOCKING_PHASE_FINISHED)
 		Gs.GameState.PL_WAITING_FOR_CARD:
 			print("\t\t\t\t\t\tPlayer Desided To End Attack Phase From Here")
@@ -283,6 +284,7 @@ func _resolve_player_blocking_phase():
 	if(!_can_player_play_a_card()):
 		print("\t\t\t\t\t\tImpossible For Player To Block More. [", damageQueue.peek(), "] -> Damage Will Be Delt")
 		Player.decrease_health(damageQueue.dequeue())
+		Gs.DISPLAY_BOSS_CARD.emit(Em.currentCard, 1) # 1 means clear card
 		Gs.set_state(Gs.GameState.PL_BLOCKING_PHASE_FINISHED)
 	
 	pass
@@ -321,6 +323,7 @@ func _resolve_end_of_blocking_phase():
 ######################################## Enemy
 
 func _resolve_enemy_attack():
-	damageQueue.enqueue(Em.attackAmountPerTurn)
+	damageQueue.enqueue(Em.currentCard)
+	Gs.DISPLAY_BOSS_CARD.emit(Em.currentCard, 0) # 0 means display card
 	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)
 	#Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)

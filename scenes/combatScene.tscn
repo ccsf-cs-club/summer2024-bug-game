@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scripts/combatUI.gd" id="2_yieo8"]
 [ext_resource type="FontFile" uid="uid://btey4qndck0lw" path="res://assets/FontRoboto/Roboto-Black.ttf" id="3_l755p"]
 [ext_resource type="Texture2D" uid="uid://bmn6soyfw204t" path="res://assets/Ui_elements/tabletopBackground.png" id="5_txdtx"]
-[ext_resource type="PackedScene" uid="uid://cllpoa1w66fry" path="res://scenes/mana_display.tscn" id="7_kp7dj"]
+[ext_resource type="PackedScene" path="res://scenes/mana_display.tscn" id="7_kp7dj"]
 
 [node name="CombatScene" type="Node2D"]
 script = ExtResource("1_e17cm")

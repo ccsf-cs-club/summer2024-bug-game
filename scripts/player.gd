@@ -19,6 +19,9 @@ const maxCardHand: int = 5	# Making this const for now, might change later
 var bigManaPayed = 0
 var smallManaPayed = 0
 
+var bigManaNeeded = 0
+var smallManaNeeded = 0
+
 var currentAttack = 0
 var currentDefence = 0
 
@@ -32,6 +35,7 @@ signal big_mana_changed # Sent when health increases (UI effect?)
 signal small_mana_changed # Sent when health increases (UI effect?)
 signal card_added_to_hand(Card, index) # Lil Scuffed, Later impiment a visual card array!!
 signal card_removed_from_hand(int)
+signal resolving_card(UnitCard)
 signal cant_draw_to_full
 signal increased_money
 signal money_change
@@ -150,6 +154,10 @@ func getCardInDeckByID(cardID: int) -> Card:
 		if card.cardID == cardID:
 			return card
 	return null
+
+func storeCardManaCost(card: UnitCard):
+	bigManaNeeded = card.costBigManaAmt
+	smallManaNeeded = card.costSmallManaAmt
 
 func decrease_health(amount: int):
 	healthPool -= amount

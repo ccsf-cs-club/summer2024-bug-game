@@ -262,10 +262,19 @@ func addCardToPlayerQueue(card: Card):
 	_player_card_played()
 
 func _on_player_pass_turn():
-	if Gs.current_state == Gs.GameState.PL_RESOLVING_BLOCKING_PHASE:
-		print("\t\t\t\t\t\tPlayer Desided To Skip Phase From Here")
-		Player.decrease_health(damageQueue.dequeue())
-		Gs.set_state(Gs.GameState.PL_BLOCKING_PHASE_FINISHED)
+	match Gs.current_state:
+		Gs.GameState.PL_RESOLVING_BLOCKING_PHASE:
+	#if Gs.current_state == Gs.GameState.PL_RESOLVING_BLOCKING_PHASE:
+			print("\t\t\t\t\t\tPlayer Desided To Skip Phase From Here")
+			Player.decrease_health(damageQueue.dequeue())
+			Gs.set_state(Gs.GameState.PL_BLOCKING_PHASE_FINISHED)
+		Gs.GameState.PL_WAITING_FOR_CARD:
+			print("\t\t\t\t\t\tPlayer Desided To End Attack Phase From Here")
+			Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
+			Player.resetAllManaPlayed()
+			Player.moveDiscardToDeck()
+			Player.shuffleDeck()
+			Gs.set_state(Gs.GameState.PL_END_TURN)
 
 # Player Blocking Phase
 func _resolve_player_blocking_phase():
@@ -302,7 +311,7 @@ func _resolve_player_blocking_card():
 	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)
 
 func _resolve_end_of_blocking_phase():
-	Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
+	#Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
 	Player.resetAllManaPlayed()
 	Player.moveDiscardToDeck()
 	Player.shuffleDeck()

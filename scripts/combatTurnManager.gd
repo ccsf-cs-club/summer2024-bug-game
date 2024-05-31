@@ -4,6 +4,7 @@ class_name combatTurnManager
 
 var cardQueue: Queue
 var currentlyResolvingCard: Card
+var enoughMana = false
 
 func _ready():
 	# Initalizing the queue
@@ -37,14 +38,23 @@ func _on_game_state_changed(state):
 		_:
 			print("\t\tUNHANDLED GAMESTATE!!!")
 
+# Helper function to wait for a specific game state
+# MOVE THIS TO Gs LATER
+func await_state_change(target_state: int) -> void:
+	while Gs.current_state != target_state:
+		await Gs.STATE_CHANGED
+		if Gs.current_state == target_state:
+			break
+
 # Gets called when a card is selected
 func _player_card_played():
 	var card = cardQueue.peek()
 	print("Player played card on queue: ", cardQueue.peek().cardName)
-	print("Enough mana? Vibe boom sound effect: ", _enough_mana_for(card))
 	
 	# Check if it's for pitching or attacking here
 	if Gs.current_state == Gs.GameState.PL_WAITING_FOR_CARD:
+		enoughMana  = _enough_mana_for(card)
+		print("Enough mana? Vibe boom sound effect: ", enoughMana, "\n")
 		if card.type == Card.CardType.Unit:
 			Gs.set_state(Gs.GameState.PL_RESOLVING_ATTACK_CARD)
 		elif card.type == Card.CardType.Spell:
@@ -53,13 +63,19 @@ func _player_card_played():
 		Gs.set_state(Gs.GameState.PL_RESOLVING_PITCHED_CARDS)
 
 func _resolve_attack_card():
-	var attackingCard: Card = cardQueue.dequeue()
+	var attackingCard: UnitCard = cardQueue.dequeue()
 	currentlyResolvingCard = attackingCard
 	Player.removeCardWithIDFromHand(attackingCard.cardID)
 	
 	print_rich("[color=#b44c02]Trying to attack with: ", attackingCard.cardName)
-	Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
-
+	
+	if currentlyResolvingCard.hasManaCost():
+		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
+		# maybe make a new gamestate that is finished resolving pitched cards
+		await await_state_change(Gs.GameState.PL_RESOLVING_PITCHED_CARDS)
+	
+	print_rich("[color=blue]\tSuccessful Pitch, ", currentlyResolvingCard.cardName, "'s attack is being resolved!!!")
+	# change state to enemy ai defense
 
 
 
@@ -71,12 +87,13 @@ func _resolve_spell_card():
 func _resolve_pitch_cards():
 	#if it's not enough, cycle the queue again and get another card
 	print("Enough mana for: ", currentlyResolvingCard.cardName, "?")
-	var enoughMana: bool = _enough_mana_for(currentlyResolvingCard)
+	
+	# Check if currentlyResolvingCard has a pitch value to start with
+	#if !currentlyResolvingCard.hasManaCost():
+	#	return
 	
 	print("\t\t\t\tYou tried pitching: ", cardQueue.peek().cardName)
 	
-	var bigManaPayed = 0
-	var smallManaPayed = 0
 	
 	if enoughMana:
 		print("You have enough mana for ", currentlyResolvingCard.cardName)
@@ -86,9 +103,22 @@ func _resolve_pitch_cards():
 		
 			print("Paying for cost with: ", cardQueue.peek().cardName)
 			var pitchedCard: UnitCard = cardQueue.dequeue()
-		
-			bigManaPayed += pitchedCard.bigManaAmt
-			smallManaPayed += pitchedCard.smallManaAmt
+			Player.removeCardWithIDFromHand(pitchedCard.cardID)
+			
+			Player.bigManaPayed += pitchedCard.bigManaAmt
+			Player.smallManaPayed += pitchedCard.smallManaAmt
+			
+			if currentlyResolvingCard.costBigManaAmt > Player.bigManaPayed or \
+				currentlyResolvingCard.costSmallManaAmt > Player.smallManaPayed:
+				print("You have to pitch more cards!!! Current Small: ", Player.smallManaPayed, " Current Big: ", Player.bigManaPayed)
+				
+				Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
+			else:
+				print_rich("[color=red][b]You successfully pitched enough to play the card!!!")
+				Player.resetAllManaPlayed()
+				
+				# For now reset to next player attack, later defence or boss ai
+				Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
 			
 		else:
 			print_rich("[b]\tThis card doesn't have a pitch value, reselect")

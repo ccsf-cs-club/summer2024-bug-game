@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource("1_fkfjl")
-bigManaAmt = 2
+bigManaAmt = 1
 smallManaAmt = 0
 attack = 2
 defence = 3
 cardName = "Slug"
 type = 0
-costBigManaAmt = 2
-costSmallManaAmt = 1
+costBigManaAmt = 0
+costSmallManaAmt = 0
 loreString = "I may be small but for you I'd give it my all"
 cardArtPath = "res://assets/Card_art/slug.png"
 cardArtPathFullSize = ""

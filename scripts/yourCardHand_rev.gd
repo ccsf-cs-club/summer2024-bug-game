@@ -89,19 +89,6 @@ func _on_card_removed_from_hand(index: int):
 		card_display.queue_free()
 	
 	update_card_positions()
-	
-	#rebuild_card_displays()
-
-func rebuild_card_displays():
-	var card_display_scene = preload("res://scenes/card_node2D.tscn")
-	for i in range(Player.cardsInHand.size()):
-		var card = Player.cardsInHand[i]
-		var card_display = card_display_scene.instantiate()
-		card_display.set_card(card, i)
-		card_container.add_child(card_display)
-		card_display.cardIDofSelectedCard.connect(getCardIDRelativeCard)
-		card_display.cardHovered.connect(onCardHovered)
-	update_card_positions()
 
 func update_hand_angles():
 	if Player.cardsInHand.size() > 1:

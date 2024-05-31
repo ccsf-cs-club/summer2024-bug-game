@@ -15,15 +15,13 @@ var cardsInHand: Array[Card] # Array of cards in your hand - will use later!!
 var healthPool: int = 20 # 20 for now?
 var maxCardHand: int = 5
 
-var smallManaHeld = 0	# updated for every card used
-var bigManaHeld = 0
+var bigManaPayed = 0
+var smallManaPayed = 0
 
 var currentAttack = 0
 var currentDefence = 0
 
 var money: int = 10 # Players cash 
-
-
 
 signal health_increased # Sent when health increases (UI effect?)
 signal health_decreased # Sent when health decreases (Again effect?)
@@ -143,3 +141,7 @@ func moeny_decrease(amount: int):
 		emit_signal("out_of_money")
 	emit_signal("decrase_moeny")
 	emit_signal("money_change")
+
+func resetAllManaPlayed():
+	bigManaPayed = 0
+	smallManaPayed = 0

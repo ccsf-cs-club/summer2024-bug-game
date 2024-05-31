@@ -8,6 +8,7 @@ extends Node
 var card_inventory: CardInventory = null # The resource defining the inventory
 var cardsInDeck: Array[Card] # Holds all cards in deck (HAND IS NOT INCLUDED)
 var cardsInHand: Array[Card] # Array of cards in your hand - will use later!!
+var cardsInDiscard: Array[Card] # An array of all the cards you've used
 # Remember! CardInHand keeps track of it's location. Once a card is in a location
 #		in cardInHand, it should not move untill it is deleted because we use its index
 # We could also refactor card resource to have a Unique Identifier but bleh
@@ -91,6 +92,36 @@ func addCardToHand(card: Card) -> int:
 	cardsInHand.append(card) # no empty slots
 	card_added_to_hand.emit(card, cardsInHand.size() - 1)
 	return cardsInHand.size()
+
+func addCardToDiscard(card: Card):
+	cardsInDiscard.append(card)
+
+# These Four were written with Ai ... not my fault if they break! I'm lazy :3
+func moveDiscardToHand():
+	while cardsInDiscard.size() > 0:
+		var card = cardsInDiscard.pop_back()
+		addCardToHand(card)
+func moveDiscardToDeck():
+	while cardsInDiscard.size() > 0:
+		var card = cardsInDiscard.pop_back()
+		cardsInDeck.append(card)
+func shuffleDeck():
+	var shuffled_deck: Array[Card] = []
+	while cardsInDeck.size() > 0:
+		var random_index = randi() % cardsInDeck.size()
+		shuffled_deck.append(cardsInDeck[random_index])
+		cardsInDeck.remove_at(random_index)
+	cardsInDeck = shuffled_deck
+func moveCardWithIDFromDiscardToHand(cardID: int) -> bool:
+	for i in range(cardsInDiscard.size()):
+		if cardsInDiscard[i].cardID == cardID:
+			var card = cardsInDiscard[i]
+			cardsInDiscard.remove_at(i)
+			addCardToHand(card)
+			return true
+	return false
+
+
 
 func removeCardAtIndexFromHand(index: int):
 	if index >= 0 and index < cardsInHand.size():

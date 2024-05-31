@@ -31,10 +31,10 @@ func _on_game_pause():
 	play_music()
 
 func play_music():
-	print("money playing in background ", current_player)
+	#print("money playing in background ", current_player)
 	current_player.play()
 
 # when one's finished, replay it
 func _on_stream_finished():
-	print("Raaa audio finished")
+	#print("Raaa audio finished")
 	play_music()

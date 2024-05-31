@@ -41,6 +41,12 @@ func _on_game_state_changed(state):
 		Gs.GameState.PL_NOT_ENOUGH_MANA_FOR_CARD:
 			print("You don't have enough mana for this card")
 			_resolve_not_enough_mana()
+		Gs.GameState.PL_END_TURN:
+			print("End of player's turn!!!")
+			Gs.set_state(Gs.GameState.EM_ATTACK)
+		# Enemy AI States:
+			
+			
 		_:
 			print("\t\tUNHANDLED GAMESTATE!!!")
 
@@ -79,6 +85,12 @@ func _resolve_not_enough_mana():
 	
 	if(possible_to_play_different_card):
 		print("\tThere is a different card combo that allows play to continue")
+		
+		# This works for now but it will allow double attacks with a bug
+		# Work on this later!!!!
+		# Uhhhh maybe this will work *gulp* - Vena
+		#		Player.moveCardWithIDFromDiscardToHand(currentlyResolvingCard.cardID)
+		
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD) #hope this isn't a bug later
 	else:
 		print("\n\nIt is impossible to play any more cards")
@@ -89,6 +101,7 @@ func _resolve_attack_card():
 	var attackingCard: UnitCard = cardQueue.dequeue()
 	currentlyResolvingCard = attackingCard
 	Player.removeCardWithIDFromHand(attackingCard.cardID)
+	Player.addCardToDiscard(attackingCard)
 	
 	print_rich("[color=#b44c02]Trying to attack with: ", attackingCard.cardName)
 	
@@ -109,6 +122,7 @@ func _resolve_spell_card():
 	var castingCard: SpellCard = cardQueue.dequeue()
 	currentlyResolvingCard = castingCard
 	Player.removeCardWithIDFromHand(castingCard.cardID)
+	Player.addCardToDiscard(castingCard)
 	
 	if currentlyResolvingCard.hasManaCost():
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
@@ -118,7 +132,6 @@ func _resolve_spell_card():
 	castingCard.run_card_effect()
 	
 	Gs.set_state(Gs.GameState.PL_RESOLVE_GO_AGAIN_OR_END_TURN)
-
 
 func _resolve_pitch_cards():
 	#if it's not enough, cycle the queue again and get another card
@@ -140,6 +153,7 @@ func _resolve_pitch_cards():
 			print("Paying for cost with: ", cardQueue.peek().cardName)
 			var pitchedCard: UnitCard = cardQueue.dequeue()
 			Player.removeCardWithIDFromHand(pitchedCard.cardID)
+			Player.addCardToDiscard(pitchedCard)
 			
 			Player.increment_big_mana(pitchedCard.bigManaAmt)
 			Player.increment_small_mana(pitchedCard.smallManaAmt)
@@ -168,16 +182,19 @@ func _resolve_pitch_cards():
 	else:
 		print("We don't have enough mana for ", currentlyResolvingCard.cardName)
 
-
-
 func _resolve_go_again_or_end_turn():
 	print_rich("[color=orange][b]  Trying to resolve go again or end of turn")
-	Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
 	
-#	if _can_player_play_a_card()
-	
-	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
-
+	# Player can technically play a card so don't end turn!
+	if _can_player_play_a_card():
+		Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
+	else:
+		Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
+		Player.resetAllManaPlayed()
+		Player.moveDiscardToDeck()
+		Player.shuffleDeck()
+		#Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
+		Gs.set_state(Gs.GameState.PL_END_TURN)
 
 
 # This function should check if it possible for the player to have

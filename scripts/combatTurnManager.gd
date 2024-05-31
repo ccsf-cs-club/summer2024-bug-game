@@ -83,9 +83,12 @@ func _resolve_spell_card():
 	currentlyResolvingCard = castingCard
 	Player.removeCardWithIDFromHand(castingCard.cardID)
 	
+	if currentlyResolvingCard.hasManaCost():
+		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
+		await await_state_change(Gs.GameState.PL_RESOLVING_PITCHED_CARDS)
+	
 	print_rich("[color=#b44c02]Trying to cast with: ", castingCard.cardName)
 	castingCard.run_card_effect()
-	Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 
 
 

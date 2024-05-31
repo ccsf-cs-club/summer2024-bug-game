@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://caft61fwspuf2"]
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://koego70ahnt1"]
 
 [ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_mfb61"]
 

@@ -1,47 +1,26 @@
-[gd_resource type="Resource" script_class="CardInventory" load_steps=15 format=3 uid="uid://bnxv6ya0em0uf"]
+[gd_resource type="Resource" script_class="CardInventory" load_steps=9 format=3 uid="uid://bnxv6ya0em0uf"]
 
-[ext_resource type="Resource" uid="uid://brtvfly1o7fou" path="res://resources/Ant_guy_new.tres" id="1_foi2g"]
+[ext_resource type="Resource" path="res://resources/Ant_guy_new.tres" id="1_foi2g"]
 [ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_dklt8"]
-[ext_resource type="Resource" uid="uid://cuq853b8laof4" path="res://resources/Eyepede_new.tres" id="3_ub3cc"]
+[ext_resource type="Resource" path="res://resources/Crazed_axe_fly.tres" id="3_tg5fq"]
+[ext_resource type="Resource" uid="uid://nh7yckyt7236" path="res://resources/Eyepede_new.tres" id="3_ub3cc"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_b63lt"]
-[ext_resource type="Resource" uid="uid://dhq6w7308dvy6" path="res://resources/Footsoldier_fly.tres" id="4_f3qk8"]
-[ext_resource type="Resource" uid="uid://bve626hhjnhwl" path="res://resources/Ant.tres" id="5_b3puw"]
-[ext_resource type="Resource" uid="uid://clobxrimfq4bw" path="res://resources/Test_Parasite.tres" id="6_hfqvt"]
 
-[sub_resource type="Resource" id="Resource_k1mnr"]
-script = ExtResource("2_dklt8")
-card_template = ExtResource("1_foi2g")
-amt = 0
-
-[sub_resource type="Resource" id="Resource_lmmiu"]
+[sub_resource type="Resource" id="Resource_b3xsy"]
 script = ExtResource("2_dklt8")
 card_template = ExtResource("3_ub3cc")
-amt = 0
+amt = 3
 
-[sub_resource type="Resource" id="Resource_g0fjf"]
+[sub_resource type="Resource" id="Resource_rp2uw"]
 script = ExtResource("2_dklt8")
-card_template = ExtResource("4_f3qk8")
-amt = 0
-
-[sub_resource type="Resource" id="Resource_cd2vt"]
-script = ExtResource("2_dklt8")
-card_template = ExtResource("5_b3puw")
-amt = 2
-
-[sub_resource type="Resource" id="Resource_cngji"]
-script = ExtResource("2_dklt8")
-<<<<<<< HEAD
-card_template = ExtResource("6_qapu3")
-amt = 0
-
-[sub_resource type="Resource" id="Resource_2r4iy"]
-script = ExtResource("2_dklt8")
-card_template = ExtResource("7_5eomw")
-=======
-card_template = ExtResource("6_hfqvt")
->>>>>>> c0f1c902ec58fb40a679d46ca62f3d541d16403b
+card_template = ExtResource("3_tg5fq")
 amt = 1
+
+[sub_resource type="Resource" id="Resource_dpvwe"]
+script = ExtResource("2_dklt8")
+card_template = ExtResource("1_foi2g")
+amt = 4
 
 [resource]
 script = ExtResource("4_b63lt")
-card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_k1mnr"), SubResource("Resource_lmmiu"), SubResource("Resource_g0fjf"), SubResource("Resource_cd2vt"), SubResource("Resource_cngji"), SubResource("Resource_2r4iy")])
+card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_b3xsy"), SubResource("Resource_rp2uw"), SubResource("Resource_dpvwe")])

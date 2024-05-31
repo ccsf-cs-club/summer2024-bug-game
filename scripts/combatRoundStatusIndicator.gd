@@ -18,7 +18,7 @@ func center(s):
 	return "[center]%s[/center]" % s
 
 func cue_attack_hint():
-	$HintText.set_text(center("Pick your attacking card"))
+	HintText.set_text(center("Pick your attacking card"))
 	
 func cue_pitch_hint():
 	HintText.set_text(center("Pitch %d big and %d small mana" % [Player.bigManaNeeded, Player.smallManaNeeded]))

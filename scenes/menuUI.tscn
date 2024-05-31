@@ -240,6 +240,8 @@ horizontal_alignment = 1
 [node name="DisplayModeButton" type="OptionButton" parent="SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_pwjll")
+theme_override_constants/h_separation = 10
+theme_override_font_sizes/font_size = 22
 item_count = 2
 selected = 0
 popup/item_0/text = "Windowed"

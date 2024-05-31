@@ -22,7 +22,7 @@ start_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContai
 start_settings_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/SettingsMenuButton")
 start_credits_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/CreditsButton")
 start_quit_button = NodePath("StartMenuNode/PanelContainer/MarginContainer/VBoxContainer/QuitGameButton")
-credits_back_button = NodePath("CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer/BackButton2")
+credits_back_button = NodePath("CreditsMenuNode/CreditsContainer/Panel/VBoxContainer/GridContainer/BackButton2")
 settings_display_mode_button = NodePath("SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DisplayModeButton")
 settings_back_button = NodePath("SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/BackButton")
 main_menu_button = NodePath("SettingsMenuNode/PanelContainer/MarginContainer/VBoxContainer/MainMenuBtn")
@@ -337,7 +337,6 @@ theme = ExtResource("9_pwjll")
 text = "Back"
 
 [node name="CreditsMenuNode" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -355,8 +354,31 @@ offset_bottom = 469.0
 layout_mode = 2
 theme = ExtResource("9_pwjll")
 
-[node name="Label" type="Label" parent="CreditsMenuNode/CreditsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenuNode/CreditsContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreditsMenuNode/CreditsContainer/Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsMenuNode/CreditsContainer/Panel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="CreditsMenuNode/CreditsContainer/Panel/VBoxContainer/ScrollContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.360784, 0.25098, 0.2, 1)
 text = "BugGame by CS Club & Friends
 
@@ -369,19 +391,42 @@ Made with Love City College of San Francisco
 "
 horizontal_alignment = 1
 
-[node name="8BitCsclubLogo" type="Sprite2D" parent="CreditsMenuNode/CreditsContainer/Label"]
-position = Vector2(319, 50)
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsMenuNode/CreditsContainer/Panel/VBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][color=black]BugGame by CS Club & Friends[/color][/center]
+
+[center][color=black]A trading card roguelike based around bugs and the theme Size Matters.
+Participating in the Gamejam: [url]https://itch.io/jam/godot-jam-2024[/url][/center]
+
+[table=2]
+[cell][color=black]Vena[/color][/cell][cell][color=black]Game Designer + Game Logic Code + Tabletop/Ui Art[/color][/cell]
+[cell][color=black]Jesse[/color][/cell][cell][color=black]Technical Art Lead + Ui/Ux Display + Hand Spread[/color][/cell]
+[cell][color=black]Jason[/color][/cell][cell][color=black]Ui Display + Hp Dynamic Updates + Design[/color][/cell]
+[cell][color=black]John[/color][/cell][cell][color=black]Ui/Ux Interaction + Card Hand Clicks + Ideas[/color][/cell]
+[cell][color=black]Val[/color][/cell][cell][color=black]Card Art[/color][/cell]
+[cell][color=black]Niko[/color][/cell][cell][color=black]Card Art[/color][/cell]
+[cell][color=black]Gev[/color][/cell][cell][color=black]Credits + Card Art[/color][/cell]
+[cell][color=black]Pink[/color][/cell][cell][color=black]Implementing Audio and UI Code[/color][/cell]
+[cell][color=black]Citrine[/color][/cell][cell][color=black]Math for card rotation[/color][/cell]
+[cell][color=black]Gabe[/color][/cell][cell][color=black]Card hovering code[/color][/cell]
+[cell][color=black]Kyle[/color][/cell][cell][color=black]Music tracks, Main Menu and Angel Boss[/color][/cell]
+[cell][color=black]Leo[/color][/cell][cell][color=black]Music for Sanguine Mama[/color][/cell]
+[/table]
+
+[center][color=black]Made with Love City College of San Francisco[/color][/center]
+"
+
+[node name="8BitCsclubLogo" type="Sprite2D" parent="CreditsMenuNode/CreditsContainer/Panel/VBoxContainer/ScrollContainer/MarginContainer/RichTextLabel"]
+position = Vector2(296, 61)
 scale = Vector2(0.115607, 0.118497)
 texture = ExtResource("10_yuhvt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CreditsMenuNode/CreditsContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="GridContainer" type="GridContainer" parent="CreditsMenuNode/CreditsContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="CreditsMenuNode/CreditsContainer/Panel/VBoxContainer"]
 layout_mode = 2
 
-[node name="BackButton2" type="Button" parent="CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer"]
+[node name="BackButton2" type="Button" parent="CreditsMenuNode/CreditsContainer/Panel/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
@@ -389,7 +434,7 @@ size_flags_stretch_ratio = 0.0
 theme = ExtResource("9_pwjll")
 text = "Back"
 
-[node name="CreditRollButton" type="Button" parent="CreditsMenuNode/CreditsContainer/VBoxContainer/GridContainer"]
+[node name="CreditRollButton" type="Button" parent="CreditsMenuNode/CreditsContainer/Panel/VBoxContainer/GridContainer"]
 visible = false
 layout_mode = 2
 theme = ExtResource("9_pwjll")

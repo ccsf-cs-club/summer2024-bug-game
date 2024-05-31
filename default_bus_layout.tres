@@ -1,9 +1,7 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://830wdxf8t1xj"]
 
 [resource]
-<<<<<<< HEAD
-bus/0/volume_db = -80.0
-=======
+bus/0/volume_db = -17.0
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
@@ -16,4 +14,3 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"SFX"
->>>>>>> 968e063fc48b8edf447fcdd841dfb1353042245f

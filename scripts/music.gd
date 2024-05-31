@@ -1,13 +1,13 @@
 extends Node
 
 @onready var menu_music: AudioStreamPlayer = $excerpt
-@onready var game_music: AudioStreamPlayer = $"(DO NOT DELETE) WILL DELETE THE ENTIRE GAME"
+#@onready var game_music: AudioStreamPlayer = 
 
 var current_player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Gs.GAME_START.connect(_on_game_start)
+	# Gs.GAME_START.connect(_on_game_start)
 	Gs.GAME_PAUSE.connect(_on_game_pause)
 	
 	print("Audio array making")
@@ -19,10 +19,11 @@ func _ready():
 	current_player = menu_music
 	play_music()
 
-func _on_game_start():
-	current_player.stop()
-	current_player = game_music
-	play_music()
+
+#func _on_game_start():
+	#current_player.stop()
+	#current_player = game_music
+	#play_music()
 
 func _on_game_pause():
 	current_player.stop()
@@ -30,7 +31,7 @@ func _on_game_pause():
 	play_music()
 
 func play_music():
-	print("I GOON TO MUSIC ", current_player)
+	print("THIS IS CURRENTLY PLAYING OKAY THIS IS CURRENTLY PLAYING BTW DID YOU KNOW THAT ", current_player)
 	current_player.play()
 
 # when one's finished, replay it

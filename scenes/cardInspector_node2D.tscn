@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c20p7rgfp812b"]
+[gd_scene load_steps=2 format=3 uid="uid://c20p7rgfp812b"]
 
 [ext_resource type="Script" path="res://scripts/fullSizeCardView.gd" id="1_lm7hf"]
-[ext_resource type="Texture2D" uid="uid://i0sx2cywc35c" path="res://assets/Card_art/ant.png" id="2_8p3dq"]
 
 [node name="CardInspector" type="Node2D" node_paths=PackedStringArray("card_art")]
 script = ExtResource("1_lm7hf")
 card_art = NodePath("CardArt")
 
 [node name="CardArt" type="TextureRect" parent="."]
-texture = ExtResource("2_8p3dq")
 stretch_mode = 5

@@ -125,6 +125,7 @@ func _resolve_attack_card():
 	currentlyResolvingCard = attackingCard
 	Player.removeCardWithIDFromHand(attackingCard.cardID)
 	Player.addCardToDiscard(attackingCard)
+	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 0) # 0 means display card
 	
 	print_rich("[color=#b44c02]Trying to attack with: ", attackingCard.cardName)
 	
@@ -138,6 +139,7 @@ func _resolve_attack_card():
 	print_rich("[color=blue]\tSuccessful Pitch, ", currentlyResolvingCard.cardName, "'s attack is being resolved!!!")
 	# change state to enemy ai defense
 	Em.currentBoss.decrease_health(attackingCard.attack)
+	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 1) # 1 means clear card
 	print("Player hp: ", Player.healthPool)
 	print("Boss hp: ", Em.currentBoss.healthPool)
 	
@@ -148,6 +150,7 @@ func _resolve_spell_card():
 	currentlyResolvingCard = castingCard
 	Player.removeCardWithIDFromHand(castingCard.cardID)
 	Player.addCardToDiscard(castingCard)
+	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 0) # 0 means display card
 	
 	if currentlyResolvingCard.hasManaCost():
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
@@ -155,6 +158,7 @@ func _resolve_spell_card():
 	
 	print_rich("[color=#b44c02]Trying to cast with: ", castingCard.cardName)
 	castingCard.run_card_effect()
+	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 1) # 1 means clear card
 	
 	Gs.set_state(Gs.GameState.PL_RESOLVE_GO_AGAIN_OR_END_TURN)
 
@@ -278,6 +282,7 @@ func _resolve_player_blocking_card():
 	currentlyResolvingCard = blockingCard
 	Player.removeCardWithIDFromHand(blockingCard.cardID)
 	Player.addCardToDiscard(blockingCard)
+	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard)
 	
 	# Pitch for the blocking card
 	if currentlyResolvingCard.hasManaCost():

@@ -3,15 +3,18 @@ extends Node
 class_name combatTurnManager
 
 var cardQueue: Queue
+var damageQueue: Queue
 var currentlyResolvingCard: Card
 var enoughMana = false
 
 func _ready():
 	# Initalizing the queue
 	cardQueue = Queue.new()
+	damageQueue = Queue.new()
 	# Connecting start turn from Gamestate
 	Gs.PLAYER_TURN_STARTED.connect(_on_player_turn_start)
 	Gs.STATE_CHANGED.connect(_on_game_state_changed)
+	Gs.PASS_PLAYER_TURN.connect(_on_player_pass_turn)
 
 # Just a function called when player turn starts
 func _on_player_turn_start():
@@ -44,10 +47,19 @@ func _on_game_state_changed(state):
 		Gs.GameState.PL_END_TURN:
 			print("End of player's turn!!!")
 			Gs.set_state(Gs.GameState.EM_ATTACK)
-		# Enemy AI States:
+		# Enemy AI and Turn States:
 		Gs.GameState.EM_ATTACK:
+			print("Enemy Attacking")
 			_resolve_enemy_attack()
-			
+		Gs.GameState.PL_RESOLVING_BLOCKING_PHASE:
+			print("Resolving Player Blocking Phase")
+			_resolve_player_blocking_phase()
+		Gs.GameState.PL_RESOLVING_BLOCKING_CARD:
+			print("Resolving Player Blocking Card")
+			_resolve_player_blocking_card()
+		Gs.GameState.PL_BLOCKING_PHASE_FINISHED:
+			print("Blocking Phase Finished")
+			_resolve_end_of_blocking_phase()
 		_:
 			print("\t\tUNHANDLED GAMESTATE!!!")
 
@@ -71,11 +83,21 @@ func _player_card_played():
 		if !enoughMana:
 			Gs.set_state(Gs.GameState.PL_NOT_ENOUGH_MANA_FOR_CARD)
 		elif card.type == Card.CardType.Unit:
+			#if(Gs.current_state != Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)):
 			Gs.set_state(Gs.GameState.PL_RESOLVING_ATTACK_CARD)
 		elif card.type == Card.CardType.Spell:
 			Gs.set_state(Gs.GameState.PL_RESOLVING_SPELL_CARD)
 	elif Gs.current_state == Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS:
 		Gs.set_state(Gs.GameState.PL_RESOLVING_PITCHED_CARDS)
+	elif Gs.current_state == Gs.GameState.PL_RESOLVING_BLOCKING_PHASE:
+		enoughMana = _enough_mana_for(card)
+		print("Enough mana to block?: ", enoughMana, "\n")
+		if !enoughMana:
+			# Set this later!
+			print("Not enough mana to block with this card stupid")
+			#Gs.set_state(Gs.GameState.PL_NOT_ENOUGH_MANA_FOR_CARD)
+		else:
+			Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_CARD)
 
 			# Provide option to pass turn and draw up to full?
 
@@ -232,8 +254,54 @@ func addCardToPlayerQueue(card: Card):
 	cardQueue.enqueue(card)
 	_player_card_played()
 
+func _on_player_pass_turn():
+	if Gs.current_state == Gs.GameState.PL_RESOLVING_BLOCKING_PHASE:
+		print("\t\t\t\t\t\tPlayer Desided To Skip Phase From Here")
+		Player.decrease_health(damageQueue.dequeue())
+		Gs.set_state(Gs.GameState.PL_BLOCKING_PHASE_FINISHED)
+
+# Player Blocking Phase
+func _resolve_player_blocking_phase():
+	print("\t\t\t\t\t\tResolving Player Blocking Phase")
+	
+	if(!_can_player_play_a_card()):
+		print("\t\t\t\t\t\tImpossible For Player To Block More. [", damageQueue.peek(), "] -> Damage Will Be Delt")
+		Player.decrease_health(damageQueue.dequeue())
+		Gs.set_state(Gs.GameState.PL_BLOCKING_PHASE_FINISHED)
+	
+	pass
+
+func _resolve_player_blocking_card():
+	var blockingCard: UnitCard = cardQueue.dequeue()
+	currentlyResolvingCard = blockingCard
+	Player.removeCardWithIDFromHand(blockingCard.cardID)
+	Player.addCardToDiscard(blockingCard)
+	
+	# Pitch for the blocking card
+	if currentlyResolvingCard.hasManaCost():
+		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
+		# maybe make a new gamestate that is finished resolving pitched cards
+		await await_state_change(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
+	
+	
+	var damageChunk = damageQueue.dequeue()
+	damageChunk -= blockingCard.defence
+	damageQueue.enqueue(damageChunk)
+	print_rich("[color=purple]\tCurrent damage that will be delt = ", damageQueue.peek())
+	
+	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)
+
+func _resolve_end_of_blocking_phase():
+	Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
+	Player.resetAllManaPlayed()
+	Player.moveDiscardToDeck()
+	Player.shuffleDeck()
+	
+	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
+
 ######################################## Enemy
 
 func _resolve_enemy_attack():
-	Player.decrease_health(4)
-	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
+	damageQueue.enqueue(Em.attackAmountPerTurn)
+	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)
+	#Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)

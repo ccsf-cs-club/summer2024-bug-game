@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://4ne2xgqclthj"]
+
+[ext_resource type="Script" path="res://scripts/music.gd" id="1_ghktr"]
+[ext_resource type="AudioStream" uid="uid://cdob23yxfrjkm" path="res://assets/Music/excerpt.mp3" id="2_2048q"]
+[ext_resource type="AudioStream" uid="uid://blq5q87xlk0x3" path="res://assets/Music/(DO NOT DELETE) WILL DELETE THE ENTIRE GAME.mp3" id="3_k6ppa"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_ghktr")
+
+[node name="excerpt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2048q")
+
+[node name="(DO NOT DELETE) WILL DELETE THE ENTIRE GAME" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k6ppa")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl4u5ryw6u6lo"]
+[gd_scene load_steps=6 format=3 uid="uid://dl4u5ryw6u6lo"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ogom7"]
 [ext_resource type="PackedScene" uid="uid://vvsenribpq0e" path="res://scenes/combatScene.tscn" id="2_nkoi4"]
 [ext_resource type="PackedScene" uid="uid://wl3w05iheuuy" path="res://scenes/postCombatScene.tscn" id="3_c0go4"]
+[ext_resource type="PackedScene" uid="uid://4ne2xgqclthj" path="res://scenes/music.tscn" id="5_ecrna"]
 [ext_resource type="PackedScene" uid="uid://dsp37cd2wijm5" path="res://scenes/menuUI.tscn" id="8_nrmxb"]
 
 [node name="Main" type="Node2D"]
@@ -13,3 +14,5 @@ script = ExtResource("1_ogom7")
 [node name="PostCombatScene" parent="." instance=ExtResource("3_c0go4")]
 
 [node name="MenuUi" parent="." instance=ExtResource("8_nrmxb")]
+
+[node name="Music" parent="." instance=ExtResource("5_ecrna")]

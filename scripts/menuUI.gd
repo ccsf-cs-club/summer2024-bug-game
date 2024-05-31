@@ -59,6 +59,7 @@ func return_to_main_menu():
 	$MainBG.visible = true
 	main_menu_button.visible = false
 	Gs.GAME_IS_RUNNING = false
+	Gs.GAME_PAUSE.emit()
 
 func close_game():
 	get_tree().quit()
@@ -68,5 +69,3 @@ func change_display_mode(mode):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	if mode == 1:# fullscreen
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-
-

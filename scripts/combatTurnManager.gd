@@ -34,6 +34,8 @@ func _on_game_state_changed(state):
 		Gs.GameState.PL_RESOLVING_PITCHED_CARDS:
 			print("Resolving Pitched Cards")
 			_resolve_pitch_cards()
+		Gs.GameState.PL_PITCHING_PHASE_FINISHED:
+			print("Pitching Phase Finished")
 		_:
 			print("\t\tUNHANDLED GAMESTATE!!!")
 
@@ -71,12 +73,16 @@ func _resolve_attack_card():
 	if currentlyResolvingCard.hasManaCost():
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 		# maybe make a new gamestate that is finished resolving pitched cards
-		await await_state_change(Gs.GameState.PL_RESOLVING_PITCHED_CARDS)
+		await await_state_change(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
 	
 	print_rich("[color=blue]\tSuccessful Pitch, ", currentlyResolvingCard.cardName, "'s attack is being resolved!!!")
 	# change state to enemy ai defense
-
-
+	Em.currentBoss.decrease_health(attackingCard.attack)
+	print("Player hp: ", Player.healthPool)
+	print("Boss hp: ", Em.currentBoss.healthPool)
+	
+	# For now just let them attack again!!
+	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
 
 func _resolve_spell_card():
 	var castingCard: SpellCard = cardQueue.dequeue()
@@ -126,7 +132,7 @@ func _resolve_pitch_cards():
 				Player.resetAllManaPlayed()
 				
 				# For now reset to next player attack, later defence or boss ai
-				Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
+				Gs.set_state(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
 			
 		else:
 			print_rich("[b]\tThis card doesn't have a pitch value, reselect")

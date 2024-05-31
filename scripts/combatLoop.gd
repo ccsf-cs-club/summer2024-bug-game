@@ -24,11 +24,10 @@ func removePlayedCard(cardToRemove: Card):
 func playerCardPlayed(card: Card):
 	combat_turn_manager.addCardToPlayerQueue(card) #not sure what to put here
 	
-	if card is UnitCard:
+	#if card is UnitCard:
 		#doSelfDamage(card.attack) # testing
-		doBossDamage(card.attack)
-	print("Player hp: ", Player.healthPool)
-	print("Boss hp: ", Em.currentBoss.healthPool)
+		#doBossDamage(card.attack)
+	
 
 func playerCardHovered(cardID: int):
 	if cardID < 0:

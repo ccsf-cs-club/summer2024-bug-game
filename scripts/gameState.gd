@@ -7,7 +7,7 @@ enum GameState {
 	GS_WAITING_FOR_GAME_START,
 	PL_WAITING_FOR_CARD,
 	PL_WAITING_FOR_PITCHED_CARDS,
-#	PL_PITCHING_PHASE_FINISHED,		We might need this depending on execution flow
+	PL_PITCHING_PHASE_FINISHED,	#	We might need this depending on execution flow
 	PL_FOCUSING_ENEMY_TURN,
 	EM_WAITING_FOR_DEFENSE_CARDS,
 	EM_WAITING_FOR_PITCHED_CARDS,

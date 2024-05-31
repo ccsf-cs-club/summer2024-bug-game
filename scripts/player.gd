@@ -49,7 +49,7 @@ func _ready():
 	#		cardsInDeck.append(card_entry.card_template)
 	
 	# Draws 4 random cards at the beginning!
-	drawRandomCards(10)
+	drawRandomCards(5)
 
 func drawAllCardsInDeck():
 	var i = 0

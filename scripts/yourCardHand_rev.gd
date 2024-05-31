@@ -56,13 +56,6 @@ func add_cards(cards: Array[Card]):
 	for card_index in cards.size():
 		_on_card_added_to_hand(cards[card_index], card_index)
 
-# Might lead to a memory leak if we don't disconnect so better call this to remove
-#func remove_card(card_display): # NOT USED CURRENTLY, DISCONNECTED IN _on_card_removed_from_hand
-#	if card_display and card_display.get_parent() == card_container:
-#		card_display.indexOfSelectedCard.disconnect(getIndexRelativeCard)
-#		# later free it from the card hand queue
-#		card_display.queue_free()
-
 # Use the one in player!!
 func _on_card_added_to_hand(card: Card, index: int):
 	# This loads our "default" card scene!!
@@ -114,52 +107,12 @@ func update_card_positions():
 		
 	update_hand_angles()
 
-func update_card_positionsTrash():
-	var total_cards = Player.cardsInHand.size()
-	var total_nulls = count_nulls_in_hand()
-	
-	var nullsNotRendered = 0
-	for i in range(total_cards):
-		if Player.cardsInHand[i] == null:
-			i -= 1
-			nullsNotRendered += 1
-			continue
-		
-		
-		
-		var card_display = card_container.get_child(i)
-		
-		print_rich("[color=green]\ti: ", i, " nullsNotRendered: ", nullsNotRendered, " Rendering: ", card_display.name)
-		print_rich("i + nullsNotRendered: ", i - nullsNotRendered)
-		
-		if card_display:
-			set_hand_position(card_display, i - nullsNotRendered, total_cards - total_nulls)
-	update_hand_angles()
-
-func update_card_positionsBROKEN():
-	var visual_index = 0  # This will keep track of the index in the UI for visible cards
-	for card in Player.cardsInHand:
-		if card != null:
-			if visual_index < card_container.get_child_count():
-				var card_display = card_container.get_child(visual_index)
-				set_hand_position(card_display, visual_index, Player.cardsInHand.size() - count_nulls_in_hand())
-				visual_index += 1
-		else:
-			continue
-	remove_unused_card_displays(visual_index)
-
 func count_nulls_in_hand() -> int:
 	var null_count = 0
 	for card in Player.cardsInHand:
 		if card == null:
 			null_count += 1
 	return null_count
-
-func remove_unused_card_displays(start_index):
-	#for i in range(start_index, card_container.get_child_count()):
-	#	var extra_card_display = card_container.get_child(i)
-	#	extra_card_display.visible = false
-	pass
 
 func set_hand_position(card: Node2D, position_index: int, total_cards: int):
 	# Positions card along plotted angle
@@ -180,9 +133,3 @@ func set_hand_position(card: Node2D, position_index: int, total_cards: int):
 func _process(delta):
 	# update_card_positions()
 	pass
-
-#func _on_dev_card_action_gui_input(event):
-#	if event is InputEventMouseButton:
-#		if event.button_index == 1 and event.pressed:
-#			#print(event) # Replace with function body.
-#			getCardIDRelativeCard(2)

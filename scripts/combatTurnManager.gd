@@ -54,7 +54,7 @@ func _player_card_played():
 	
 	# Check if it's for pitching or attacking here
 	if Gs.current_state == Gs.GameState.PL_WAITING_FOR_CARD:
-		enoughMana  = _enough_mana_for(card)
+		enoughMana = _enough_mana_for(card)
 		print("Enough mana? Vibe boom sound effect: ", enoughMana, "\n")
 		if card.type == Card.CardType.Unit:
 			Gs.set_state(Gs.GameState.PL_RESOLVING_ATTACK_CARD)

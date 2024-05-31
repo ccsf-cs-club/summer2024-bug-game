@@ -4,7 +4,7 @@ class_name combatTurnManager
 
 var cardQueue: Queue
 var damageQueue: Queue
-var currentlyResolvingCard: Card
+@export var currentlyResolvingCard: Card
 var enoughMana = false
 
 func _ready():
@@ -129,6 +129,8 @@ func _resolve_attack_card():
 	print_rich("[color=#b44c02]Trying to attack with: ", attackingCard.cardName)
 	
 	if currentlyResolvingCard.hasManaCost():
+		# Store requirements to offer a hint to player for mana cost
+		Player.storeCardManaCost(currentlyResolvingCard)
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 		# maybe make a new gamestate that is finished resolving pitched cards
 		await await_state_change(Gs.GameState.PL_PITCHING_PHASE_FINISHED)

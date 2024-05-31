@@ -13,6 +13,7 @@ cardPlayed = NodePath("CardSelected_TEMP_TILL_DRAG")
 card_container = NodePath("HandContainer")
 
 [node name="HandContainer" type="Node2D" parent="."]
+position = Vector2(-154, -33)
 
 [node name="CardSelected_TEMP_TILL_DRAG" type="OptionButton" parent="."]
 visible = false

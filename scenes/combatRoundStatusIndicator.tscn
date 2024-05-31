@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfu7cukldaps"]
+
+[ext_resource type="Script" path="res://scripts/combatRoundStatusIndicator.gd" id="1_4ge8m"]
+[ext_resource type="FontFile" uid="uid://ckvmjlmjmdyiv" path="res://assets/FontRoboto/Roboto-Italic.ttf" id="2_ma8hh"]
+[ext_resource type="Texture2D" uid="uid://bm0hlnogwaw8l" path="res://assets/Ui_elements/tabletopLitPanelMini.png" id="2_ucll1"]
+[ext_resource type="Texture2D" uid="uid://4gl5c4oy2l7t" path="res://assets/Ui_elements/tabletopAttackSwordIcon.png" id="3_rpihb"]
+[ext_resource type="Texture2D" uid="uid://xo06xc1s70d2" path="res://assets/Ui_elements/tabletopUnlitPanelMini.png" id="4_1c24v"]
+[ext_resource type="Texture2D" uid="uid://cj78yk73dls6t" path="res://assets/Ui_elements/tabletopPitchManaIcon.png" id="5_0ykod"]
+[ext_resource type="Texture2D" uid="uid://bml2lqojjkbxn" path="res://assets/Ui_elements/tabletopDefenseShieldIcon.png" id="6_3m6c0"]
+
+[node name="CombatRoundStatusIndicator" type="Node2D"]
+script = ExtResource("1_4ge8m")
+
+[node name="PlayerCombatStatusText" type="RichTextLabel" parent="."]
+offset_top = -108.0
+offset_right = 141.0
+offset_bottom = -65.0
+bbcode_enabled = true
+text = "[center]Attack[/center]"
+
+[node name="HintText" type="RichTextLabel" parent="."]
+offset_left = 631.0
+offset_top = 149.0
+offset_right = 947.0
+offset_bottom = 232.0
+theme_override_colors/default_color = Color(0.744351, 0.583276, 0.418734, 1)
+theme_override_fonts/normal_font = ExtResource("2_ma8hh")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Pick your attacking card[/center]"
+scroll_active = false
+
+[node name="AttackPanel" type="Sprite2D" parent="."]
+position = Vector2(0, -47)
+texture = ExtResource("2_ucll1")
+
+[node name="SwordIcon" type="Sprite2D" parent="AttackPanel"]
+texture = ExtResource("3_rpihb")
+
+[node name="PitchPanel" type="Sprite2D" parent="."]
+texture = ExtResource("4_1c24v")
+
+[node name="ManaIcon" type="Sprite2D" parent="PitchPanel"]
+texture = ExtResource("5_0ykod")
+
+[node name="DefensePanel" type="Sprite2D" parent="."]
+position = Vector2(0, 48)
+texture = ExtResource("4_1c24v")
+
+[node name="ShieldIcon" type="Sprite2D" parent="DefensePanel"]
+texture = ExtResource("6_3m6c0")

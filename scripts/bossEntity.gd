@@ -4,17 +4,15 @@ class_name BossEntity
 # array of cards (dunno if I actually have to impliment this
 # entity itself might be enough but I forgot, leave here for now)
 
-var card_inventory: CardInventory = null
-var cardsInDeck: Array[Card]
+@export var move_set: BossMoveSet
+var move_set_functions = {}
 
-func _ready():
-			#CHANGE THIS!!!!
-	card_inventory = load("res://resources/PlayerInventory.tres") as CardInventory
-	
-			# FUTURE VENA NOTE, FIX CARD ID FOR BOSSES!!!
-	#Card.next_cardID = 1 # Reset ID counter after loading reouces
-	
-	# pulls all cards from the inventory into the array
-	for card_entry in card_inventory.card_hand:
-		var card_instances = card_entry.instantiate_cards()
-		cardsInDeck += card_instances
+func _init():
+	if move_set:
+		move_set_functions = move_set.init_moves()
+
+func preform_move(move_name: String):
+	if move_name in move_set_functions:
+		move_set_functions[move_name].call()
+	else:
+		print_rich("[color=red][b]\t\tMOVE NOT FOUND: ", move_name)

@@ -4,7 +4,7 @@ class_name combatTurnManager
 
 var cardQueue: Queue
 var damageQueue: Queue
-@export var currentlyResolvingCard: Card
+var currentlyResolvingCard: Card
 var enoughMana = false
 
 func _ready():
@@ -282,7 +282,7 @@ func _resolve_player_blocking_card():
 	currentlyResolvingCard = blockingCard
 	Player.removeCardWithIDFromHand(blockingCard.cardID)
 	Player.addCardToDiscard(blockingCard)
-	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard)
+	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 0)
 	
 	# Pitch for the blocking card
 	if currentlyResolvingCard.hasManaCost():
@@ -294,6 +294,7 @@ func _resolve_player_blocking_card():
 	var damageChunk = damageQueue.dequeue()
 	damageChunk -= blockingCard.defence
 	damageQueue.enqueue(damageChunk)
+	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 1)
 	print_rich("[color=purple]\tCurrent damage that will be delt = ", damageQueue.peek())
 	
 	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)

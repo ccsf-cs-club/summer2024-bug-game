@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://vvsenribpq0e"]
+[gd_scene load_steps=8 format=3 uid="uid://vvsenribpq0e"]
 
 [ext_resource type="Script" path="res://scripts/combatLoop.gd" id="1_e17cm"]
 [ext_resource type="PackedScene" uid="uid://c20p7rgfp812b" path="res://scenes/cardInspector_node2D.tscn" id="2_6of2c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/combatUI.gd" id="2_yieo8"]
 [ext_resource type="FontFile" uid="uid://btey4qndck0lw" path="res://assets/FontRoboto/Roboto-Black.ttf" id="3_l755p"]
 [ext_resource type="Texture2D" uid="uid://bmn6soyfw204t" path="res://assets/Ui_elements/tabletopBackground.png" id="5_txdtx"]
+[ext_resource type="PackedScene" uid="uid://cllpoa1w66fry" path="res://scenes/mana_display.tscn" id="7_kp7dj"]
 
 [node name="CombatScene" type="Node2D"]
 script = ExtResource("1_e17cm")
@@ -100,3 +101,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_txdtx")
 metadata/_edit_lock_ = true
+
+[node name="ManaDisplay" parent="." instance=ExtResource("7_kp7dj")]
+position = Vector2(745, 221)

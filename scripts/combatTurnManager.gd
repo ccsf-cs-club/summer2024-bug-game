@@ -119,8 +119,8 @@ func _resolve_pitch_cards():
 			var pitchedCard: UnitCard = cardQueue.dequeue()
 			Player.removeCardWithIDFromHand(pitchedCard.cardID)
 			
-			Player.bigManaPayed += pitchedCard.bigManaAmt
-			Player.smallManaPayed += pitchedCard.smallManaAmt
+			Player.increment_big_mana(pitchedCard.bigManaAmt)
+			Player.increment_small_mana(pitchedCard.smallManaAmt)
 			
 			if currentlyResolvingCard.costBigManaAmt > Player.bigManaPayed or \
 				currentlyResolvingCard.costSmallManaAmt > Player.smallManaPayed:
@@ -129,7 +129,9 @@ func _resolve_pitch_cards():
 				Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 			else:
 				print_rich("[color=red][b]You successfully pitched enough to play the card!!!")
-				Player.resetAllManaPlayed()
+				# Decrement user mana
+				Player.spend_big_mana(currentlyResolvingCard.costBigManaAmt)
+				Player.spend_small_mana(currentlyResolvingCard.costSmallManaAmt)
 				
 				# For now reset to next player attack, later defence or boss ai
 				Gs.set_state(Gs.GameState.PL_PITCHING_PHASE_FINISHED)

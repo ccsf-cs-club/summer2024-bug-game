@@ -27,6 +27,8 @@ signal health_increased # Sent when health increases (UI effect?)
 signal health_decreased # Sent when health decreases (Again effect?)
 signal health_zero # Sent when health gets to zero (Use for game loss?)
 signal health_change
+signal big_mana_changed # Sent when health increases (UI effect?)
+signal small_mana_changed # Sent when health increases (UI effect?)
 signal card_added_to_hand(Card, index) # Lil Scuffed, Later impiment a visual card array!!
 signal card_removed_from_hand(int)
 signal cant_draw_to_full
@@ -141,6 +143,24 @@ func moeny_decrease(amount: int):
 		emit_signal("out_of_money")
 	emit_signal("decrase_moeny")
 	emit_signal("money_change")
+
+func increment_big_mana(amount: int):
+	bigManaPayed += amount
+	emit_signal("big_mana_changed")
+	
+func spend_big_mana(amount: int):
+	bigManaPayed -= amount
+	emit_signal("big_mana_changed")
+	
+func increment_small_mana(amount: int):
+	smallManaPayed += amount
+	emit_signal("small_mana_changed")
+
+func spend_small_mana(amount: int):
+	smallManaPayed -= amount
+	emit_signal("small_mana_changed")
+	
+
 
 func resetAllManaPlayed():
 	bigManaPayed = 0

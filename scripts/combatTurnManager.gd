@@ -29,7 +29,6 @@ func _on_game_state_changed(state):
 			print("Resolving Attack Card")
 			_resolve_attack_card()
 		Gs.GameState.PL_RESOLVING_SPELL_CARD:
-			print("\t\tSPELL CARDS NOT IMPLEMENTED YET")
 			print("Resolving Spell")
 			_resolve_spell_card()
 		Gs.GameState.PL_RESOLVING_PITCHED_CARDS:
@@ -80,9 +79,15 @@ func _resolve_attack_card():
 
 
 func _resolve_spell_card():
-	Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
+	var castingCard: SpellCard = cardQueue.dequeue()
+	currentlyResolvingCard = castingCard
+	Player.removeCardWithIDFromHand(castingCard.cardID)
 	
-	pass
+	print_rich("[color=#b44c02]Trying to cast with: ", castingCard.cardName)
+	castingCard.run_card_effect()
+	Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
+
+
 
 func _resolve_pitch_cards():
 	#if it's not enough, cycle the queue again and get another card

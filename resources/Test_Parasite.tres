@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SpellCard" load_steps=3 format=3 uid="uid://clobxrimfq4bw"]
+
+[ext_resource type="Script" path="res://scripts/spellCard.gd" id="1_fekvy"]
+[ext_resource type="Script" path="res://scripts/spellParasiteEffect.gd" id="2_5uxil"]
+
+[resource]
+script = ExtResource("1_fekvy")
+effectString = "Drains 1 HP from target and heals self by that amount"
+spellScript = ExtResource("2_5uxil")
+cardName = "Parasite"
+type = 1
+costBigManaAmt = 2
+costSmallManaAmt = 2
+loreString = "Profitting off the blood, sweat and tears of others"
+cardArtPath = "res://assets/Card_art/spell-parasite_small.png"
+cardArtPathFullSize = "res://assets/Card_art/spell-parasite.png"

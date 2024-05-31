@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="CardInventory" load_steps=9 format=3 uid="uid://bnxv6ya0em0uf"]
+[gd_resource type="Resource" script_class="CardInventory" load_steps=17 format=3 uid="uid://bnxv6ya0em0uf"]
 
 [ext_resource type="Resource" path="res://resources/Ant_guy.tres" id="1_foi2g"]
 [ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_dklt8"]
 [ext_resource type="Resource" uid="uid://koego70ahnt1" path="res://resources/Crazed_axe_fly.tres" id="3_tg5fq"]
 [ext_resource type="Resource" uid="uid://nh7yckyt7236" path="res://resources/Eyepede.tres" id="3_ub3cc"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_b63lt"]
+[ext_resource type="Resource" uid="uid://b4eys6ef277g6" path="res://resources/Bard-cada.tres" id="5_4edrq"]
+[ext_resource type="Resource" uid="uid://882owao32mw7" path="res://resources/Bomber_beetle.tres" id="6_m0hpg"]
+[ext_resource type="Resource" uid="uid://c7ruw02hy6u5r" path="res://resources/Fire_fly.tres" id="7_waiuc"]
+[ext_resource type="Resource" uid="uid://57wa7cx8hti7" path="res://resources/Footsoldier_fly.tres" id="8_4m463"]
 
 [sub_resource type="Resource" id="Resource_b3xsy"]
 script = ExtResource("2_dklt8")
@@ -21,6 +25,26 @@ script = ExtResource("2_dklt8")
 card_template = ExtResource("1_foi2g")
 amt = 4
 
+[sub_resource type="Resource" id="Resource_rfat6"]
+script = ExtResource("2_dklt8")
+card_template = ExtResource("5_4edrq")
+amt = 4
+
+[sub_resource type="Resource" id="Resource_n1b0l"]
+script = ExtResource("2_dklt8")
+card_template = ExtResource("6_m0hpg")
+amt = 4
+
+[sub_resource type="Resource" id="Resource_otl3k"]
+script = ExtResource("2_dklt8")
+card_template = ExtResource("7_waiuc")
+amt = 4
+
+[sub_resource type="Resource" id="Resource_jvsky"]
+script = ExtResource("2_dklt8")
+card_template = ExtResource("8_4m463")
+amt = 4
+
 [resource]
 script = ExtResource("4_b63lt")
-card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_b3xsy"), SubResource("Resource_rp2uw"), SubResource("Resource_dpvwe")])
+card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_b3xsy"), SubResource("Resource_rp2uw"), SubResource("Resource_dpvwe"), SubResource("Resource_rfat6"), SubResource("Resource_n1b0l"), SubResource("Resource_otl3k"), SubResource("Resource_jvsky")])

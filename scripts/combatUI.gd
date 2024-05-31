@@ -6,15 +6,14 @@ func _ready():
 	Em.currentBoss.health_change.connect(bossHpUpdate)
 	Player.money_change.connect(players_money)
 	
+	$"Pass Phase".button_down.connect(pass_phase)
+	
 	playerHpUpdate()
 	bossHpUpdate()
 	players_money()
-	
-	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func pass_phase():
+	Gs.PASS_PLAYER_TURN.emit()
 
 func playerHpUpdate():
 	$PlayerHpUiElement.text = "[center]" + str(Player.healthPool) + "[/center]"

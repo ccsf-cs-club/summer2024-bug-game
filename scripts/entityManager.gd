@@ -9,6 +9,8 @@ var entityDictionary: Dictionary
 var currentBoss 	# key val pairs, key = name, val = entity
 signal bossChanged
 
+var attackAmountPerTurn = 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var entityListResource = load("res://resources/EnemyList.tres") as EnemyList

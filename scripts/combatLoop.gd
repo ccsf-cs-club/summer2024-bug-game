@@ -32,10 +32,14 @@ func playerCardPlayed(card: Card):
 func playerCardHovered(cardID: int):
 	if cardID < 0:
 		$CardInspector.visible = false
+		$LoreBlurb.visible = false
 	else:
 		var card: Card = Player.getCardInHandByID(cardID)
 		$CardInspector.visible = true
 		$CardInspector.set_card(card)
+		
+		$LoreBlurb.visible = true
+		$LoreBlurb.set_display(card)
 	
 func doSelfDamage(damage: int):	Player.decrease_health(damage)
 func doBossDamage(damage: int): Em.currentBoss.decrease_health(damage)

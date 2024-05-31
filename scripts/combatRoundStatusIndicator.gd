@@ -9,6 +9,9 @@ var UNLIT_PANEL_TEXTURE = preload("res://assets/Ui_elements/tabletopUnlitPanelMi
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Gs.STATE_CHANGED.connect(status)
+	Player.player_attacking.connect(cue_attack_hint)
+	Player.resolving_card.connect(cue_pitch_hint)
+	Player.player_defending.connect(cue_defend_hint)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,12 +21,12 @@ func center(s):
 	return "[center]%s[/center]" % s
 
 func cue_attack_hint():
-	$HintText.set_text(center("Pick your attacking card"))
+	HintText.set_text(center("Pick your attacking card"))
 	
-func cue_pitch_hint():
-	HintText.set_text(center("Pitch %d big and %d small mana" % [Player.bigManaNeeded, Player.smallManaNeeded]))
+func cue_pitch_hint(card: UnitCard):
+	HintText.set_text(center("Pitch %d big and %d small mana" % [card.costBigManaAmt, card.costSmallManaAmt]))
 	
-func cue_end_hint():
+func cue_defend_hint():
 	HintText.set_text(center("Pick a card to defend with"))
 
 func toggle_turn_panels(atk: bool, pitch: bool, def: bool):
@@ -35,18 +38,14 @@ func status(state):
 	match state:
 		# Player Offense Status
 		Gs.GameState.PL_WAITING_FOR_CARD, Gs.GameState.PL_RESOLVING_ATTACK_CARD, Gs.GameState.PL_RESOLVING_SPELL_CARD, Gs.GameState.PL_NOT_ENOUGH_MANA_FOR_CARD:
-			$PlayerCombatStatusText.set_text(center("Attack"))
-			toggle_turn_panels(true, false, false)
 			cue_attack_hint()
+			toggle_turn_panels(true, false, false)
 		# Player Pitching Status
 		Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS, Gs.GameState.PL_RESOLVING_PITCHED_CARDS, Gs.GameState.PL_PITCHING_PHASE_FINISHED:
-			$PlayerCombatStatusText.set_text(center("Pitch"))
 			toggle_turn_panels(false, true, false)
-			cue_pitch_hint()
 		# Player Defense Status
 		Gs.GameState.EM_ATTACK, Gs.GameState.PL_RESOLVING_BLOCKING_PHASE, Gs.GameState.PL_RESOLVING_BLOCKING_CARD, Gs.GameState.PL_BLOCKING_PHASE_FINISHED:
-			$PlayerCombatStatusText.set_text(center("Block"))
+			cue_defend_hint()
 			toggle_turn_panels(false, false, true)
-			cue_end_hint()
 		_:
 			pass

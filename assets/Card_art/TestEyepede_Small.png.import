@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b537xx5t7hfni"
-path="res://.godot/imported/footsoldier_fly_new.png-c7c8b39a65e8e1df43f38e79f614fb19.ctex"
+uid="uid://40qr201cp5l"
+path="res://.godot/imported/TestEyepede_Small.png-4615a4866dd9c71f7e47c2f9df0534fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Card_art/footsoldier_fly_new.png"
-dest_files=["res://.godot/imported/footsoldier_fly_new.png-c7c8b39a65e8e1df43f38e79f614fb19.ctex"]
+source_file="res://assets/Card_art/TestEyepede_Small.png"
+dest_files=["res://.godot/imported/TestEyepede_Small.png-4615a4866dd9c71f7e47c2f9df0534fd.ctex"]
 
 [params]
 

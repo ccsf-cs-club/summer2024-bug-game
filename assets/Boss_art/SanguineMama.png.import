@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2fty4svhb2ko"
-path="res://.godot/imported/Sang_M.jpg-2085e6db04834f7cb7dd1a71e1f0b508.ctex"
+uid="uid://bygbpjnyal8o3"
+path="res://.godot/imported/SanguineMama.png-d7ad8ea09c003e59778b4a14cefbf945.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Boss_art/Sang_M.jpg"
-dest_files=["res://.godot/imported/Sang_M.jpg-2085e6db04834f7cb7dd1a71e1f0b508.ctex"]
+source_file="res://assets/Boss_art/SanguineMama.png"
+dest_files=["res://.godot/imported/SanguineMama.png-d7ad8ea09c003e59778b4a14cefbf945.ctex"]
 
 [params]
 

@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource("1_fl5lh")
-bigManaAmt = 2
-smallManaAmt = 3
-attack = 1
-defence = 1
+bigManaAmt = 1
+smallManaAmt = 2
+attack = 2
+defence = 3
 cardName = "Bishop Mantis"
 type = 0
-costBigManaAmt = 0
-costSmallManaAmt = 1
+costBigManaAmt = 1
+costSmallManaAmt = 3
 loreString = "By the grace of the giants!"
 cardArtPath = "res://assets/Card_art/Bishop_mantis_small.png"
 cardArtPathFullSize = "res://assets/Card_art/Bishop_mantis.png"

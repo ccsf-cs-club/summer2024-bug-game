@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbud780p73w5a"
-path="res://.godot/imported/magic_worm_new.png-35f6b8344ea997c4a563fabc7f242f59.ctex"
+uid="uid://by1b4tgbxq7jd"
+path="res://.godot/imported/moth_small.png-55ba987756a51c54386b97b7936b4a33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Card_art/magic_worm_new.png"
-dest_files=["res://.godot/imported/magic_worm_new.png-35f6b8344ea997c4a563fabc7f242f59.ctex"]
+source_file="res://assets/Card_art/moth_small.png"
+dest_files=["res://.godot/imported/moth_small.png-55ba987756a51c54386b97b7936b4a33.ctex"]
 
 [params]
 

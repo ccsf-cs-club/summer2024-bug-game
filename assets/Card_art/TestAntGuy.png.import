@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw014i1pw3hh4"
-path="res://.godot/imported/slug.png-68dc906085e385ce7be120269e819c38.ctex"
+uid="uid://chca38pawejnw"
+path="res://.godot/imported/TestAntGuy.png-98686250e717fef8ea0297455b4dc78e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Card_art/slug.png"
-dest_files=["res://.godot/imported/slug.png-68dc906085e385ce7be120269e819c38.ctex"]
+source_file="res://assets/Card_art/TestAntGuy.png"
+dest_files=["res://.godot/imported/TestAntGuy.png-98686250e717fef8ea0297455b4dc78e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq4dg0kn8lfjf"
-path="res://.godot/imported/antguyspear.png-7088c6bd66efae2aac03679ec0ce5113.ctex"
+uid="uid://bmor21krveph2"
+path="res://.godot/imported/TestSpell-parasite.png-c2938d3b7a9766fd53faaf0ee8507e07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Card_art/antguyspear.png"
-dest_files=["res://.godot/imported/antguyspear.png-7088c6bd66efae2aac03679ec0ce5113.ctex"]
+source_file="res://assets/Card_art/TestSpell-parasite.png"
+dest_files=["res://.godot/imported/TestSpell-parasite.png-c2938d3b7a9766fd53faaf0ee8507e07.ctex"]
 
 [params]
 

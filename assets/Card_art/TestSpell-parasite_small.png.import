@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmor21krveph2"
-path="res://.godot/imported/spell-parasite.png-bfc17f1f2cb0bc78bc7c38d6ee1594ce.ctex"
+uid="uid://vhrovm0flb2d"
+path="res://.godot/imported/TestSpell-parasite_small.png-b9bd46695fcd351b75ea5199f8f0e642.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Card_art/spell-parasite.png"
-dest_files=["res://.godot/imported/spell-parasite.png-bfc17f1f2cb0bc78bc7c38d6ee1594ce.ctex"]
+source_file="res://assets/Card_art/TestSpell-parasite_small.png"
+dest_files=["res://.godot/imported/TestSpell-parasite_small.png-b9bd46695fcd351b75ea5199f8f0e642.ctex"]
 
 [params]
 

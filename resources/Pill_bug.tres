@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource("1_asm10")
-bigManaAmt = 3
-smallManaAmt = 2
+bigManaAmt = 1
+smallManaAmt = 1
 attack = 0
-defence = 4
+defence = 5
 cardName = "Pill Bug"
 type = 0
-costBigManaAmt = 1
-costSmallManaAmt = 2
+costBigManaAmt = 0
+costSmallManaAmt = 6
 loreString = "The sleeping dragon"
 cardArtPath = "res://assets/Card_art/pill_bug_small.png"
 cardArtPathFullSize = "res://assets/Card_art/pill_bug.png"

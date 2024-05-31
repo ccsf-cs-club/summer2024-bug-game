@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_omhwa")
-bigManaAmt = 2
-smallManaAmt = 1
+bigManaAmt = 1
+smallManaAmt = 3
 attack = 2
 defence = 1
 cardName = "Ant Guy"

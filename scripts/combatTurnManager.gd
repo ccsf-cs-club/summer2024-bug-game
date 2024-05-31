@@ -45,7 +45,8 @@ func _on_game_state_changed(state):
 			print("End of player's turn!!!")
 			Gs.set_state(Gs.GameState.EM_ATTACK)
 		# Enemy AI States:
-			
+		Gs.GameState.EM_ATTACK:
+			_resolve_enemy_attack()
 			
 		_:
 			print("\t\tUNHANDLED GAMESTATE!!!")
@@ -231,10 +232,8 @@ func addCardToPlayerQueue(card: Card):
 	cardQueue.enqueue(card)
 	_player_card_played()
 
-
-
-
 ######################################## Enemy
 
-func _on_enemy_turn_start():
-	pass
+func _resolve_enemy_attack():
+	Player.decrease_health(4)
+	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)

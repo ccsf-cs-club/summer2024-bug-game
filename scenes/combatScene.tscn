@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cxrli4cp1k6yl" path="res://scenes/enemyCardHand.tscn" id="2_tnnes"]
 [ext_resource type="Script" path="res://scripts/combatUI.gd" id="2_yieo8"]
 [ext_resource type="FontFile" uid="uid://btey4qndck0lw" path="res://assets/FontRoboto/Roboto-Black.ttf" id="3_l755p"]
-[ext_resource type="PackedScene" uid="uid://c32wujaein7r8" path="res://scenes/loreBlurbDisplay.tscn" id="4_bsgnj"]
+[ext_resource type="PackedScene" uid="uid://barctvsuuw2t2" path="res://scenes/loreBlurbDisplay.tscn" id="4_bsgnj"]
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="5_e4vr5"]
 [ext_resource type="Texture2D" uid="uid://bmn6soyfw204t" path="res://assets/Ui_elements/tabletopBackground.png" id="5_txdtx"]
 [ext_resource type="PackedScene" uid="uid://bq8xt2utpun67" path="res://scenes/deckInspectorPopup.tscn" id="7_igcod"]
 [ext_resource type="Texture2D" uid="uid://b2h41lwnc4fxh" path="res://assets/Ui_elements/tabletopBackground_Final.png" id="8_gui6b"]
 [ext_resource type="Texture2D" uid="uid://dfg250a2tl0mq" path="res://assets/Boss_art/AmbigousAngel.png" id="9_dss3q"]
-[ext_resource type="PackedScene" uid="uid://bfu7cukldaps" path="res://scenes/combatRoundStatusIndicator.tscn" id="13_umwxy"]
+[ext_resource type="PackedScene" uid="uid://dy743m4fh4gip" path="res://scenes/combatRoundStatusIndicator.tscn" id="13_umwxy"]
 
 [node name="CombatScene" type="Node2D"]
 script = ExtResource("1_e17cm")
@@ -84,10 +84,12 @@ fit_content = true
 scroll_active = false
 
 [node name="Pass Phase" type="Button" parent="CombatUI"]
-offset_left = 551.0
-offset_top = 493.0
-offset_right = 678.0
-offset_bottom = 528.0
+offset_left = 635.0
+offset_top = 201.0
+offset_right = 770.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0.678431, 0.556863, 0.447059, 1)
+theme_override_fonts/font = ExtResource("3_l755p")
 text = "Pass / End Turn"
 
 [node name="EnemyCardHand" parent="." instance=ExtResource("2_tnnes")]
@@ -127,5 +129,18 @@ metadata/_edit_lock_ = true
 layer = 5
 visible = false
 
-[node name="CombatRoundStatusIndicator" parent="." instance=ExtResource("13_umwxy")]
+[node name="CombatRoundStatusIndicator" parent="." node_paths=PackedStringArray("HintText") instance=ExtResource("13_umwxy")]
 position = Vector2(30, 313)
+HintText = NodePath("HintText2")
+
+[node name="HintText2" type="RichTextLabel" parent="CombatRoundStatusIndicator"]
+offset_left = -17.0
+offset_top = -110.0
+offset_right = 197.0
+offset_bottom = -62.0
+theme_override_colors/default_color = Color(0.678431, 0.556863, 0.447059, 1)
+theme_override_fonts/normal_font = ExtResource("5_e4vr5")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Pick your attacking card[/center]"
+scroll_active = false

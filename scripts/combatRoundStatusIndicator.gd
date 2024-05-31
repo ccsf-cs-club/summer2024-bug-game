@@ -4,6 +4,8 @@ extends Node2D
 var LIT_PANEL_TEXTURE = preload("res://assets/Ui_elements/tabletopLitPanelMini.png")
 var UNLIT_PANEL_TEXTURE = preload("res://assets/Ui_elements/tabletopUnlitPanelMini.png")
 
+@export var HintText: RichTextLabel
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Gs.STATE_CHANGED.connect(status)
@@ -19,10 +21,10 @@ func cue_attack_hint():
 	$HintText.set_text(center("Pick your attacking card"))
 	
 func cue_pitch_hint():
-	$HintText.set_text(center("Pitch for %d big and %d small mana" % [Player.bigManaNeeded, Player.smallManaNeeded]))
+	HintText.set_text(center("Pitch %d big and %d small mana" % [Player.bigManaNeeded, Player.smallManaNeeded]))
 	
 func cue_end_hint():
-	$HintText.set_text(center("Pick a card to defend with"))
+	HintText.set_text(center("Pick a card to defend with"))
 
 func toggle_turn_panels(atk: bool, pitch: bool, def: bool):
 	$AttackPanel.set_texture(LIT_PANEL_TEXTURE if atk else UNLIT_PANEL_TEXTURE)

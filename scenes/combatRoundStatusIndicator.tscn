@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfu7cukldaps"]
+[gd_scene load_steps=8 format=3 uid="uid://dy743m4fh4gip"]
 
 [ext_resource type="Script" path="res://scripts/combatRoundStatusIndicator.gd" id="1_4ge8m"]
 [ext_resource type="FontFile" uid="uid://ckvmjlmjmdyiv" path="res://assets/FontRoboto/Roboto-Italic.ttf" id="2_ma8hh"]
@@ -12,6 +12,7 @@
 script = ExtResource("1_4ge8m")
 
 [node name="PlayerCombatStatusText" type="RichTextLabel" parent="."]
+visible = false
 offset_top = -108.0
 offset_right = 141.0
 offset_bottom = -65.0
@@ -19,6 +20,7 @@ bbcode_enabled = true
 text = "[center]Attack[/center]"
 
 [node name="HintText" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 631.0
 offset_top = 149.0
 offset_right = 947.0

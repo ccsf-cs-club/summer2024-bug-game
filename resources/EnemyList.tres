@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="EnemyList" load_steps=3 format=3 uid="uid://j8ygo5cmlvo7"]
+[gd_resource type="Resource" script_class="EnemyList" load_steps=5 format=3 uid="uid://j8ygo5cmlvo7"]
 
 [ext_resource type="Resource" uid="uid://jus40sjat3l7" path="res://resources/BananaQueenBoss.tres" id="1_sn7hr"]
 [ext_resource type="Script" path="res://scripts/enemyList.gd" id="1_vo5so"]
+[ext_resource type="Resource" path="res://resources/SanguineMamaBoss.tres" id="2_bsbo0"]
+[ext_resource type="Resource" path="res://resources/AmbigousAngelBoss.tres" id="3_3yjpo"]
 
 [resource]
 script = ExtResource("1_vo5so")
-enemies = Array[Resource("res://scripts/entity.gd")]([ExtResource("1_sn7hr")])
+enemies = Array[Resource("res://scripts/entity.gd")]([ExtResource("1_sn7hr"), ExtResource("2_bsbo0"), ExtResource("3_3yjpo")])

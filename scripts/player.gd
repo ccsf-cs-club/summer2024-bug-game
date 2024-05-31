@@ -196,3 +196,5 @@ func spend_small_mana(amount: int):
 func resetAllManaPlayed():
 	bigManaPayed = 0
 	smallManaPayed = 0
+	big_mana_changed.emit()
+	small_mana_changed.emit()

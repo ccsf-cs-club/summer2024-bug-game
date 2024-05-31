@@ -14,7 +14,7 @@ card_hand = Array[ExtResource("2_6wpiv")]([SubResource("Resource_3rdfb")])
 
 [resource]
 script = ExtResource("4_j35vt")
-healthPool = 16
+healthPool = 15
 name = "Banana Queen"
 cardInventory = SubResource("Resource_a8e3m")
 entityArtPath = "res://assets/Boss_art/BananaQueen.png"

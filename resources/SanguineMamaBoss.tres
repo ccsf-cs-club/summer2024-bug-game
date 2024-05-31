@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BossEntity" load_steps=4 format=3 uid="uid://ciwonqhefb7ax"]
+[gd_resource type="Resource" script_class="BossEntity" load_steps=4 format=3 uid="uid://dkgoxc7q0kd7v"]
 
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="1_gxpd7"]
 [ext_resource type="Script" path="res://scripts/bossEntity.gd" id="1_h52g4"]
@@ -9,7 +9,7 @@ card_hand = Array[Resource("res://scripts/cardAndAmt.gd")]([])
 
 [resource]
 script = ExtResource("1_h52g4")
-healthPool = 16
+healthPool = 20
 name = "Sanguine Mama"
 cardInventory = SubResource("Resource_bp324")
 entityArtPath = "res://assets/Boss_art/SanguineMama.png"

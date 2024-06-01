@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardInventory" load_steps=7 format=3 uid="uid://df4pbkgl74u"]
+
+[ext_resource type="Resource" uid="uid://cr2twdcr3p0qm" path="res://resources/Bishop_mantis.tres" id="1_87dac"]
+[ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_qwvn3"]
+[ext_resource type="Resource" path="res://resources/Banana_slug.tres" id="3_axi8a"]
+[ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_kkg7h"]
+
+[sub_resource type="Resource" id="Resource_76bdn"]
+script = ExtResource("2_qwvn3")
+card_template = ExtResource("1_87dac")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_crfab"]
+script = ExtResource("2_qwvn3")
+card_template = ExtResource("3_axi8a")
+amt = 4
+
+[resource]
+script = ExtResource("4_kkg7h")
+card_hand = Array[ExtResource("2_qwvn3")]([SubResource("Resource_76bdn"), SubResource("Resource_crfab")])

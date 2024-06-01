@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardInventory" load_steps=7 format=3 uid="uid://dm8hui2geg3av"]
+
+[ext_resource type="Script" path="res://scripts/cardInventory.gd" id="1_3qc0j"]
+[ext_resource type="Resource" path="res://resources/Knight_beetle.tres" id="1_gqtxh"]
+[ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_co8bq"]
+[ext_resource type="Resource" path="res://resources/Ronin_archer.tres" id="3_r0a6g"]
+
+[sub_resource type="Resource" id="Resource_ttxgw"]
+script = ExtResource("2_co8bq")
+card_template = ExtResource("1_gqtxh")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_d7rpb"]
+script = ExtResource("2_co8bq")
+card_template = ExtResource("3_r0a6g")
+amt = 4
+
+[resource]
+script = ExtResource("1_3qc0j")
+card_hand = Array[ExtResource("2_co8bq")]([SubResource("Resource_ttxgw"), SubResource("Resource_d7rpb")])

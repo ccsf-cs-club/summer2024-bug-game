@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://wl3w05iheuuy"]
+[gd_scene load_steps=7 format=3 uid="uid://wl3w05iheuuy"]
 
 [ext_resource type="Script" path="res://scripts/postCombatScene.gd" id="1_hwuxh"]
 [ext_resource type="Texture2D" uid="uid://diwjxbvsudcap" path="res://assets/Packs/postCombatBG.png" id="1_kshvk"]
 [ext_resource type="Texture2D" uid="uid://b6poeiloq65cm" path="res://assets/Packs/pack1.png" id="2_qfgiq"]
 [ext_resource type="Texture2D" uid="uid://ddvd8mwmeeuds" path="res://assets/Packs/pack2.png" id="3_yskgb"]
 [ext_resource type="Texture2D" uid="uid://5q8yyorawv1l" path="res://assets/Packs/pack3.png" id="4_j8h85"]
+[ext_resource type="Theme" uid="uid://diailjkqmen15" path="res://assets/Themes/DefaultUITheme.tres" id="6_tds0k"]
 
-[node name="PostCombatScene" type="Node2D" node_paths=PackedStringArray("pack1_button", "pack2_button", "pack3_button")]
+[node name="PostCombatScene" type="Node2D" node_paths=PackedStringArray("pack1_button", "pack2_button", "pack3_button", "packDisplay")]
 script = ExtResource("1_hwuxh")
-pack1_button = NodePath("postCombatPopup/Background/PostCombatBG/Pack1ButtOn")
-pack2_button = NodePath("postCombatPopup/Background/PostCombatBG/Pack2ButtOn")
-pack3_button = NodePath("postCombatPopup/Background/PostCombatBG/Pack3ButtOn")
+pack1_button = NodePath("postCombatPopup/Background/PackDisplay/Pack1ButtOn")
+pack2_button = NodePath("postCombatPopup/Background/PackDisplay/Pack2ButtOn")
+pack3_button = NodePath("postCombatPopup/Background/PackDisplay/Pack3ButtOn")
+packDisplay = NodePath("postCombatPopup/Background/PackDisplay")
 
 [node name="postCombatPopup" type="CanvasLayer" parent="."]
 layer = -7
@@ -24,6 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TempBG" type="ColorRect" parent="postCombatPopup/Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,47 +41,84 @@ offset_right = 960.0
 offset_bottom = 540.0
 texture = ExtResource("1_kshvk")
 
-[node name="Pack1ButtOn" type="Button" parent="postCombatPopup/Background/PostCombatBG"]
+[node name="PackDisplay" type="Control" parent="postCombatPopup/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pack1ButtOn" type="Button" parent="postCombatPopup/Background/PackDisplay"]
 layout_mode = 0
 offset_left = 260.0
 offset_top = 152.0
 offset_right = 380.0
 offset_bottom = 377.0
 
-[node name="PackWatch" type="TextureRect" parent="postCombatPopup/Background/PostCombatBG/Pack1ButtOn"]
+[node name="PackWatch" type="TextureRect" parent="postCombatPopup/Background/PackDisplay/Pack1ButtOn"]
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 225.0
 texture = ExtResource("2_qfgiq")
 stretch_mode = 2
 
-[node name="Pack2ButtOn" type="Button" parent="postCombatPopup/Background/PostCombatBG"]
+[node name="Pack2ButtOn" type="Button" parent="postCombatPopup/Background/PackDisplay"]
 layout_mode = 0
 offset_left = 420.0
 offset_top = 152.0
 offset_right = 540.0
 offset_bottom = 377.0
 
-[node name="PackWatch2" type="TextureRect" parent="postCombatPopup/Background/PostCombatBG/Pack2ButtOn"]
+[node name="PackWatch2" type="TextureRect" parent="postCombatPopup/Background/PackDisplay/Pack2ButtOn"]
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 225.0
 texture = ExtResource("3_yskgb")
 stretch_mode = 2
 
-[node name="Pack3ButtOn" type="Button" parent="postCombatPopup/Background/PostCombatBG"]
+[node name="Pack3ButtOn" type="Button" parent="postCombatPopup/Background/PackDisplay"]
 layout_mode = 0
 offset_left = 580.0
 offset_top = 152.0
 offset_right = 700.0
 offset_bottom = 377.0
 
-[node name="PackWatch3" type="TextureRect" parent="postCombatPopup/Background/PostCombatBG/Pack3ButtOn"]
+[node name="PackWatch3" type="TextureRect" parent="postCombatPopup/Background/PackDisplay/Pack3ButtOn"]
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 225.0
 texture = ExtResource("4_j8h85")
 stretch_mode = 2
+
+[node name="Panel" type="Panel" parent="postCombatPopup/Background/PackDisplay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_top = 29.0
+offset_right = 158.0
+offset_bottom = 105.0
+grow_horizontal = 2
+theme = ExtResource("6_tds0k")
+
+[node name="MarginContainer" type="MarginContainer" parent="postCombatPopup/Background/PackDisplay/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 7
+
+[node name="Label" type="Label" parent="postCombatPopup/Background/PackDisplay/Panel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("6_tds0k")
+text = "Pick a pack, any pack!
+Just 1 though~"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Map" type="Node2D" parent="."]
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CardInventory" load_steps=7 format=3 uid="uid://caifl6iud8pdd"]
+
+[ext_resource type="Resource" uid="uid://b4eys6ef277g6" path="res://resources/Bard-cada.tres" id="1_ockdu"]
+[ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_wwkvs"]
+[ext_resource type="Resource" path="res://resources/Baby_fly.tres" id="3_yuuqj"]
+[ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_btu0q"]
+
+[sub_resource type="Resource" id="Resource_70dl1"]
+script = ExtResource("2_wwkvs")
+card_template = ExtResource("1_ockdu")
+amt = 1
+
+[sub_resource type="Resource" id="Resource_4pgje"]
+script = ExtResource("2_wwkvs")
+card_template = ExtResource("3_yuuqj")
+amt = 4
+
+[resource]
+script = ExtResource("4_btu0q")
+card_hand = Array[ExtResource("2_wwkvs")]([SubResource("Resource_70dl1"), SubResource("Resource_4pgje")])

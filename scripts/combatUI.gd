@@ -56,6 +56,7 @@ func defenseCardApplied(damage: int, defense: int):
 func displayDefensePhaseResult():
 	$defensePhaseOutcome/attack/value.text = "[center]%d[/center]" % maxDamageSinceLastDisplay
 	$defensePhaseOutcome/defense/value.text = "[center]%d[/center]" % accumulatingDefenseSinceLastDisplay
+	$defensePhaseOutcome/PlayerDefendingSound.play()
 	maxDamageSinceLastDisplay = 0
 	accumulatingDefenseSinceLastDisplay = 0
 	

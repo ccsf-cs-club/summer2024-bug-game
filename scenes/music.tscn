@@ -1,17 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://4ne2xgqclthj"]
+[gd_scene load_steps=6 format=3 uid="uid://4ne2xgqclthj"]
 
 [ext_resource type="Script" path="res://scripts/music.gd" id="1_ghktr"]
-[ext_resource type="AudioStream" uid="uid://drdhdpsphk241" path="res://assets/Music/main_menu_by_kyle.mp3" id="2_4mkyo"]
-[ext_resource type="AudioStream" uid="uid://baspfmb8s3a7d" path="res://assets/Music/angel_theme_by_kyle.mp3" id="3_dmpdb"]
+[ext_resource type="AudioStream" uid="uid://c201tvjv0afh4" path="res://assets/Music/main_menu_theme.mp3" id="2_mrf5g"]
+[ext_resource type="AudioStream" uid="uid://b7v17th4bf6vt" path="res://assets/Music/ambiguous_angel_boss_theme.mp3" id="3_md3g7"]
+[ext_resource type="AudioStream" uid="uid://bjwhc84n6otms" path="res://assets/Music/sanguine_mama_boss_theme.mp3" id="4_my3w3"]
+[ext_resource type="AudioStream" uid="uid://bmd1i38t0n40e" path="res://assets/Music/banana_slug_boss_theme.mp3" id="5_opinq"]
 
 [node name="Music" type="Node"]
 script = ExtResource("1_ghktr")
 
-[node name="main_menu_by_kyle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_4mkyo")
+[node name="MainMenuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mrf5g")
 autoplay = true
 bus = &"Music"
 
-[node name="angel_theme_by_kyle" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_dmpdb")
+[node name="AmbiguousAngelTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_md3g7")
+bus = &"Music"
+
+[node name="SanguineMamaTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_my3w3")
+bus = &"Music"
+
+[node name="BananaSlugTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_opinq")
 bus = &"Music"

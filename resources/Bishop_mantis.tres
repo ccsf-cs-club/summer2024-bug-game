@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://cr2twdcr3p0qm"]
+[gd_resource type="Resource" script_class="UnitCard" load_steps=3 format=3 uid="uid://cr2twdcr3p0qm"]
 
+[ext_resource type="Resource" uid="uid://ku7catgi1eog" path="res://resources/UnitCardEffects.tres" id="1_b0ise"]
 [ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_fl5lh"]
 
 [resource]
@@ -8,6 +9,7 @@ bigManaAmt = 3
 smallManaAmt = 3
 attack = 3
 defence = 3
+effects = ExtResource("1_b0ise")
 cardName = "Bishop Mantis"
 type = 0
 costBigManaAmt = 0

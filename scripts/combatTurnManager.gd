@@ -327,8 +327,8 @@ func _resolve_end_of_blocking_phase():
 	
 	#Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
 	Player.resetAllManaPlayed()
-	Player.moveDiscardToDeck()
-	Player.shuffleDeck()
+	#Player.moveDiscardToDeck()
+	#Player.shuffleDeck()
 	
 	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
 

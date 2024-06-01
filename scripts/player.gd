@@ -103,6 +103,7 @@ func addCardToHand(card: Card) -> int:
 	return cardsInHand.size()
 
 func addCardToDiscard(card: Card):
+	print_rich("[b]  A card was added to discard: ", card.getCardAndCardIDString())
 	cardsInDiscard.append(card)
 
 # These Four were written with Ai ... not my fault if they break! I'm lazy :3
@@ -132,14 +133,17 @@ func moveCardWithIDFromDiscardToHand(cardID: int) -> bool:
 
 
 
-func removeCardAtIndexFromHand(index: int):
-	if index >= 0 and index < cardsInHand.size():
-		cardsInHand[index] = null
-		card_removed_from_hand.emit(index)
+#func removeCardAtIndexFromHand(index: int):
+#	if index >= 0 and index < cardsInHand.size():
+#		cardsInHand[index] = null
+#		card_removed_from_hand.emit(index)
+
 func removeCardWithIDFromHand(cardID: int):
+	print("\t\tRemoving a card with ID ", cardID, " from hand!")
+	
 	for index in range(cardsInHand.size()):
 		if cardsInHand[index].cardID == cardID:
-			cardsInHand[index] = null
+			cardsInHand.remove_at(index)  # Use remove_at to remove the element
 			card_removed_from_hand.emit(index)
 			return
 	print("Card with ID ", cardID, " not found in hand.")
@@ -153,6 +157,7 @@ func getCardInHandByID(cardID: int) -> Card:
 	for card in cardsInHand:
 		if card.cardID == cardID:
 			return card
+	print_rich("[color=red][b]YOU'RE TRYING TO GET A CARD WITH ID ", cardID, " WHICH DOESN'T EXIST IN HAND!!!")
 	return null
 func getCardInDeckByID(cardID: int) -> Card:
 	for card in cardsInDeck:

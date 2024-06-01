@@ -6,6 +6,8 @@ func _ready():
 
 
 func switch_scenes(state):
+	print_rich("\t\t\tSWITCHING STATES IN MAIN!!!")
+	
 	# only false if games hasn't started. Only STATE_CHANGE would be starting game
 	if Gs.GAME_HAS_STARTED == false:
 		swap_scene("res://scenes/combatScene.tscn")

@@ -23,6 +23,9 @@ func _init():
 	cardID = Card.next_cardID
 	Card.next_cardID += 1
 
+func getCardAndCardIDString() -> String:
+	return cardName + " " + str(cardID)
+
 func getCardTexture(big: bool = false) -> Texture:
 	if cardArtPath != "":
 		if !big:

@@ -73,7 +73,8 @@ func _on_card_removed_from_hand(index: int):
 	if index < 0 or index >= Player.cardsInHand.size():
 		return
 		
-	Player.cardsInHand.remove_at(index)
+	# Nasty lil guy
+#	Player.cardsInHand.remove_at(index)
 	
 	var card_display = card_container.get_child(index)
 	if card_display:

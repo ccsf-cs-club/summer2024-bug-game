@@ -105,6 +105,9 @@ func addCardToHand(card: Card) -> int:
 func addCardToDiscard(card: Card):
 	print_rich("[b]  A card was added to discard: ", card.getCardAndCardIDString())
 	cardsInDiscard.append(card)
+	
+	var total = cardsInDiscard.size() + cardsInHand.size() + cardsInDeck.size()
+	assert(total <= 32)
 
 # These Four were written with Ai ... not my fault if they break! I'm lazy :3
 func moveDiscardToHand():

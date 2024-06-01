@@ -24,3 +24,7 @@ func is_empty():
 
 func size():
 	return _queue.size()
+
+func clear():
+	_queue.clear()
+

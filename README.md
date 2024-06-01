@@ -18,7 +18,7 @@ Made with love, by the [CS Club](https://ccsf-cs.club/) at City College of San F
 | John          | UI/UX Interaction (Card Hand Clicks) + Ideas |
 | Kyle          | Music tracks, Main Menu and Angel Boss |
 | Leo           | Music for Sanguine Mama |
-| Niko          | Card Art |
+| Niko          | Card art, UI |
 | Pink          | Implimenting Audio and UI Code |
 | Val           | Card Art |
 

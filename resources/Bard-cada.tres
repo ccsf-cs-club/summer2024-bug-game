@@ -6,12 +6,12 @@
 script = ExtResource("1_fu2dy")
 bigManaAmt = 2
 smallManaAmt = 2
-attack = 4
-defence = 4
+attack = 2
+defence = 2
 cardName = "Bard-cada"
 type = 0
 costBigManaAmt = 3
-costSmallManaAmt = 3
+costSmallManaAmt = 0
 loreString = "Lover, not a fighter"
 cardArtPath = "res://assets/Card_art/Bard-cada_small.png"
 cardArtPathFullSize = "res://assets/Card_art/Bard-cada.png"

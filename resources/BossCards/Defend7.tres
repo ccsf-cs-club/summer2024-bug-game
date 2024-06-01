@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://d16o5evmcgu4d"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_jpp4j"]
+
+[resource]
+script = ExtResource("1_jpp4j")
+bigManaAmt = 0
+smallManaAmt = 0
+attack = 0
+defence = 7
+cardName = "Defend 7"
+type = 0
+costBigManaAmt = 0
+costSmallManaAmt = 0
+loreString = ""
+cardArtPath = "res://assets/Card_art/BossCards/Boss_Defend-7.png"
+cardArtPathFullSize = "res://assets/Card_art/BossCards/Boss_Defend-7.png"

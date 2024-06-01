@@ -11,7 +11,7 @@ Made with love, by the [CS Club](https://ccsf-cs.club/) at City College of San F
 | ------------- | ------------ |
 | Vena          | Lead Game Developer, game logic code, Tabletop/UI Art |
 | Citrine       | Math for card rotation |
-| @GabeMillikan | Card hovering, defense result indicator, deck inspection popup, debugging, wrote the readme |
+| [@GabeMillikan](https://github.com/GabeMillikan) | Card hovering, defense result indicator, deck inspection popup, debugging, wrote the readme |
 | Gev           | Credits + Card Art |
 | Jason         | Ui Display (Hp Dynamic Updates) + Design |
 | Jesse         | Technical Art Lead + UI/UX Display (Hand Spread) |

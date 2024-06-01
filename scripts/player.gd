@@ -205,6 +205,16 @@ func spend_small_mana(amount: int):
 	
 
 
+func resetStatsPostGame():
+	healthPool = 20
+	bigManaPayed = 0
+	smallManaPayed = 0
+	bigManaNeeded = 0
+	smallManaNeeded = 0
+	currentAttack = 0
+	currentDefence = 0
+
+
 func resetAllManaPlayed():
 	bigManaPayed = 0
 	smallManaPayed = 0

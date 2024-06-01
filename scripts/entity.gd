@@ -8,6 +8,7 @@ class_name Entity
 @export var inventory: Resource
 signal health_increased # Sent when health increases (UI effect?)
 signal health_decreased # Sent when health decreases (Again effect?)
+signal damage_amount(int)
 signal health_zero # Sent when health gets to zero (Use for game loss?)
 signal health_change
 
@@ -46,6 +47,7 @@ func decrease_health(amount: int):
 		healthPool = 0
 		emit_signal("health_zero")
 	emit_signal("health_decreased")
+	damage_amount.emit(amount)
 	emit_signal("health_change")
 
 func increase_health(amount: int):

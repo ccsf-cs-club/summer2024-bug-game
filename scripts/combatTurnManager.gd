@@ -392,4 +392,5 @@ func _resolve_loss_combat():
 	#reset stats
 	Player.resetStatsPostGame()
 	
-	Gs.set_state(Gs.GameState.GS_PLAYER_DIED)
+	Gs.set_scene(Gs.Scene.TO_BE_CONTINUED)
+	#Gs.set_state(Gs.GameState.GS_PLAYER_DIED)

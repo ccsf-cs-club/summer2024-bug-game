@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_h52g4")
-healthPool = 20
+healthPool = 5
 name = "Sanguine Mama"
 cardInventoryResource = ""
 inventory = ExtResource("1_2a38y")

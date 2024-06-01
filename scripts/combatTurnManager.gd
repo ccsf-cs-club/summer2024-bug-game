@@ -15,8 +15,13 @@ func _ready():
 	Gs.PLAYER_TURN_STARTED.connect(_on_player_turn_start)
 	Gs.STATE_CHANGED.connect(_on_game_state_changed)
 	Gs.PASS_PLAYER_TURN.connect(_on_player_pass_turn)
-	Em.currentBoss.health_zero.connect(_resolve_win_combat)
 	Player.health_zero.connect(_resolve_loss_combat)
+	Em.bossChanged.connect(_boss_changed_connect_health_zero)
+	
+
+func _boss_changed_connect_health_zero():
+	Em.currentBoss.health_zero.connect(_resolve_win_combat)
+	
 
 # Just a function called when player turn starts
 func _on_player_turn_start():

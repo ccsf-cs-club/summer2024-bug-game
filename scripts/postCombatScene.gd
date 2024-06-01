@@ -89,7 +89,7 @@ func _resolve_post_game_scene():
 	Player.cardsInDeck += cardsToBeAddedToDeck
 	
 	Gs.set_scene(Gs.Scene.COMBAT_SCENE)
-	Gs.start_game()
+	Gs.continue_game()
 	
 ###	This doesn't work and idk why
 	

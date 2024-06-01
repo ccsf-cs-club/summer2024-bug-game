@@ -74,15 +74,16 @@ func start_game():
 	GAME_START.emit()
 	PLAYER_TURN_STARTED.emit()
 	STATE_CHANGED.emit(current_state)
-	
-	if(Em.current_level == -1):
-		Em.current_level = BossLevel.BANANA_QUEEN
-		Em.changeBoss(Em.entityDictionary["Banana Queen"])
-		
-		# Later change this to reference boss damage!!!
-		Em.link_BossAtt_to_Card(Em.attackAmountPerTurn)
-	else:
-		assert(false)
+	init_first_boss()
+
+
+func init_first_boss():
+	current_level = BossLevel.BANANA_QUEEN
+	Em.changeBoss(Em.entityDictionary["Banana Queen"])
+	print("\t\tMAKING BANANA QUEEN!!!")
+	Em.bossChanged.emit()
+	# Later change this to reference boss damage!!!
+	Em.link_BossAtt_to_Card(Em.attackAmountPerTurn)
 
 # Run this at the end of the level!!!
 func continue_game():
@@ -92,13 +93,15 @@ func continue_game():
 	PLAYER_TURN_STARTED.emit()
 	STATE_CHANGED.emit(current_state)
 	
-	if(Em.current_level == BossLevel.BANANA_QUEEN):
-		Em.current_level = BossLevel.SANGUINE_MAMA
+	if(current_level == BossLevel.BANANA_QUEEN):
+		current_level = BossLevel.SANGUINE_MAMA
 		Em.changeBoss(Em.entityDictionary["Sanguine Mama"])
+		Em.bossChanged.emit()
 	elif(Em.current_level == BossLevel.SANGUINE_MAMA):
-		Em.current_level = BossLevel.AMBIGIOUS_ANGEL
+		current_level = BossLevel.AMBIGIOUS_ANGEL
 		Em.changeBoss(Em.entityDictionary["Ambigious Angel"])
-	elif(Em.current_level == BossLevel.AMBIGIOUS_ANGEL):
+		Em.bossChanged.emit()
+	elif(current_level == BossLevel.AMBIGIOUS_ANGEL):
 		print("Uh, you won the game!!!")
 
 func set_state(new_state: GameState):

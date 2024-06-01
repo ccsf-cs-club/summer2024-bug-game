@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://biqvug607xy73"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_0s8jc"]
+
+[resource]
+script = ExtResource("1_0s8jc")
+bigManaAmt = 0
+smallManaAmt = 4
+attack = 1
+defence = 1
+cardName = "Baby Fly"
+type = 0
+costBigManaAmt = 1
+costSmallManaAmt = 1
+loreString = "Not a single though lies behind those eyes"
+cardArtPath = "res://assets/Card_art/Baby_fly_small.png"
+cardArtPathFullSize = "res://assets/Card_art/Baby_fly.png"

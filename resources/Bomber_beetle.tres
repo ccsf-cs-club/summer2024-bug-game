@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_58jpy")
-bigManaAmt = 1
-smallManaAmt = 3
+bigManaAmt = 0
+smallManaAmt = 4
 attack = 4
 defence = 2
 cardName = "Bomber Beetle"

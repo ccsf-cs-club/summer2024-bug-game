@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://cts81idrbpy8w"]
+
+[ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_2pnd2"]
+
+[resource]
+script = ExtResource("1_2pnd2")
+bigManaAmt = 4
+smallManaAmt = 0
+attack = 1
+defence = 1
+cardName = "Banana Slug"
+type = 0
+costBigManaAmt = 1
+costSmallManaAmt = 1
+loreString = "Beware their king"
+cardArtPath = "res://assets/Card_art/Banana_slug_small.png"
+cardArtPathFullSize = "res://assets/Card_art/Banana_slug.png"

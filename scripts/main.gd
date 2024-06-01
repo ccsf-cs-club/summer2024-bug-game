@@ -1,10 +1,14 @@
 extends Node2D
 
+### REMEMBER TO COMMENT OUT ALL ASSERTS FOR EXPORT 
+### CODE INSIDE THEM WON'T BE RUN!!!
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Gs.STATE_CHANGED.connect(switch_scenes)
+	#Gs.STATE_CHANGED.connect(switch_scenes)
+	pass
 
-
+'''
 func switch_scenes(state):
 	print_rich("\t\t\tSWITCHING STATES IN MAIN!!!")
 	
@@ -36,3 +40,4 @@ func swap_scene(input_path: String):
 		main.add_child(instance_scene, 0)
 	else:
 		$MenuUi.return_to_main_menu() #FIXME: make this reset menu properly
+'''

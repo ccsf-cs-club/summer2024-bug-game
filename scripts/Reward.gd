@@ -14,5 +14,6 @@ func _input(_event):
 
 func money_function():
 	print('"Error at (7, 24): Assignment is not allowed inside an expression", 🤓☝')
+	# Sigh - Vena
 
 

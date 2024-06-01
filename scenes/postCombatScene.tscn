@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wl3w05iheuuy"]
 
-[ext_resource type="Script" path="res://scenes/Reward.gd" id="1_1fgqe"]
+[ext_resource type="Script" path="res://scripts/Reward.gd" id="1_hd1gt"]
 
 [node name="PostCombatScene" type="Node2D"]
 
@@ -27,7 +27,7 @@ color = Color(0.164706, 0.164706, 0.172549, 1)
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Reward" type="Node2D" parent="."]
-script = ExtResource("1_1fgqe")
+script = ExtResource("1_hd1gt")
 
 [node name="CardPackReward" type="Node2D" parent="Reward"]
 editor_description = "A pack of 5 cards, of which you can pick 3 to add to your deck"

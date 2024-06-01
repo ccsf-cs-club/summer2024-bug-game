@@ -62,6 +62,9 @@ func _on_game_state_changed(state):
 		Gs.GameState.PL_BLOCKING_PHASE_FINISHED:
 			print("Blocking Phase Finished")
 			_resolve_end_of_blocking_phase()
+		Gs.GameState.GS_POST_COMBAT_SCENE:
+			print("Go to post combat scene!!")
+			Gs.set_scene(Gs.Scene.POST_COMBAT_SCENE)
 		_:
 			print("\t\tUNHANDLED GAMESTATE!!!")
 
@@ -210,6 +213,10 @@ func _resolve_pitch_cards():
 				# Decrement user mana
 				Player.spend_big_mana(currentlyResolvingCard.costBigManaAmt)
 				Player.spend_small_mana(currentlyResolvingCard.costSmallManaAmt)
+				
+				# Clearing Pitched Cards, have to clear after every pitch finialization
+				Player.pitchedCardsThisPhase.clear()
+				Gs.DISPLAY_PITCHED_CARDS.emit(Player.pitchedCardsThisPhase, 1)
 				
 				# For now reset to next player attack, later defence or boss ai
 				Gs.set_state(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
@@ -361,7 +368,7 @@ func _resolve_enemy_attack():
 ######################################## Combat end states
 
 func _resolve_win_combat():
-	print("Enemy defeated! Switching to post combat scene")
+	print("\n\n\nEnemy defeated! Switching to post combat scene")
 	#reset stats
 	Player.resetStatsPostGame()
 	

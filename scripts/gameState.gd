@@ -30,8 +30,18 @@ enum GameState {
 	PL_BLOCKING_PHASE_FINISHED,
 	### Enemy Gamestates:
 	EM_ATTACK,
-	
-	
+}
+
+enum Scene {
+	MAIN_MENU,
+	COMBAT_SCENE,
+	POST_COMBAT_SCENE,
+}
+
+var scene_paths = {
+	Scene.MAIN_MENU: "res://scenes/menuUI.tscn",
+	Scene.COMBAT_SCENE: "res://scenes/combatScene.tscn",
+	Scene.POST_COMBAT_SCENE: "res://scenes/postCombatScene.tscn"
 }
 
 var GAME_HAS_STARTED: bool = false
@@ -42,6 +52,9 @@ signal PLAYER_TURN_STARTED
 signal PASS_PLAYER_TURN
 signal ENEMY_TURN_STARTED
 signal STATE_CHANGED(current_state)
+
+signal SCENE_CHANGED(new_scene)
+
 signal DISPLAY_PLAYER_CARD(card: Card, state: int) # state = 0 is for displaying a card, 1 is for clearing displayed card
 signal DISPLAY_BOSS_CARD(card: Card, state: int)
 signal DISPLAY_PITCHED_CARDS(cards: Array[Card], state: int)
@@ -56,6 +69,26 @@ func start_game():
 func set_state(new_state: GameState):
 	current_state = new_state
 	STATE_CHANGED.emit(new_state)
+
+func set_scene(new_scene: Scene):
+	swap_scene(scene_paths[new_scene])
+
+func swap_scene(input_path: String):
+	var swap_path = load(input_path)
+	var root = get_tree().root
+	var main = root.get_child(root.get_child_count() - 1)
+	
+	if GAME_HAS_STARTED:  # Only runs if the game has already started
+		var current_scene = main.get_child(0)
+		current_scene.queue_free()
+	
+	# Doesn't add new scene if player dies
+	if not current_state == GameState.GS_PLAYER_DIED:  
+		var instance_scene = swap_path.instantiate()
+		main.add_child(instance_scene, 0)
+	else:
+		
+		set_scene(Scene.MAIN_MENU)
 
 #	PLAYER_TURN_STARTED:
 #		LOOP:

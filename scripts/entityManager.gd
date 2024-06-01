@@ -6,7 +6,7 @@ extends Node
 
 var entityList: Array[Entity]
 var entityDictionary: Dictionary
-var currentBoss 	# key val pairs, key = name, val = entity
+var currentBoss: BossEntity 	# key val pairs, key = name, val = entity
 var currentCard: Card
 signal bossChanged
 

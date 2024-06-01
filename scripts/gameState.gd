@@ -41,7 +41,7 @@ enum Scene {
 enum BossLevel {
 	BANANA_QUEEN,
 	SANGUINE_MAMA,
-	AMBIGIOUS_ANGEL
+	AMBIGUOUS_ANGEL
 }
 
 var scene_paths = {
@@ -97,11 +97,11 @@ func continue_game():
 		current_level = BossLevel.SANGUINE_MAMA
 		Em.changeBoss(Em.entityDictionary["Sanguine Mama"])
 		Em.bossChanged.emit()
-	elif(Em.current_level == BossLevel.SANGUINE_MAMA):
-		current_level = BossLevel.AMBIGIOUS_ANGEL
-		Em.changeBoss(Em.entityDictionary["Ambigious Angel"])
+	elif(current_level == BossLevel.SANGUINE_MAMA):
+		current_level = BossLevel.AMBIGUOUS_ANGEL
+		Em.changeBoss(Em.entityDictionary["Ambiguous Angel"])
 		Em.bossChanged.emit()
-	elif(current_level == BossLevel.AMBIGIOUS_ANGEL):
+	elif(current_level == BossLevel.AMBIGUOUS_ANGEL):
 		print("Uh, you won the game!!!")
 
 func set_state(new_state: GameState):
@@ -112,20 +112,24 @@ func set_scene(new_scene: Scene):
 	swap_scene(scene_paths[new_scene])
 
 func swap_scene(input_path: String):
+	print_rich("[color=pink]/nTrying to swap to: ", input_path)
 	var swap_path = load(input_path)
 	var root = get_tree().root
 	var main = root.get_child(root.get_child_count() - 1)
 	
 	if GAME_HAS_STARTED:  # Only runs if the game has already started
+		# Assume the 0th scene is the active scene in main!!!
 		var current_scene = main.get_child(0)
 		current_scene.queue_free()
 	
 	# Doesn't add new scene if player dies
 	if not current_state == GameState.GS_PLAYER_DIED:  
 		var instance_scene = swap_path.instantiate()
-		main.add_child(instance_scene, 0)
+		main.add_child(instance_scene)
+		main.move_child(instance_scene, 0)
 	else:
 		
+		print_rich("[color=pink]Going to main menu")
 		set_scene(Scene.MAIN_MENU)
 
 #	PLAYER_TURN_STARTED:

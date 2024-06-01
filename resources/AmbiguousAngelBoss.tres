@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_t2vpw")
 healthPool = 30
-name = "Ambigous Angel"
+name = "Ambiguous Angel"
 cardInventoryResource = ""
 inventory = ExtResource("1_vxj6p")
 entityArtPath = "res://assets/Boss_art/AmbigousAngel.png"

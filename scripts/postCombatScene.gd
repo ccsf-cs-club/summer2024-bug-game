@@ -17,7 +17,9 @@ var pack3: Array[Card] = []
 var cardsToBeAddedToDeck: Array[Card] = []
 var selectedPack: TextureRect = null
 
+
 func _ready():
+	packDisplay.visible = true
 	#for card_entry in Player.card_inventory.card_hand:
 	#	var card_instances = card_entry.instantiate_cards()
 	#	Player.cardsInDeck += card_instances

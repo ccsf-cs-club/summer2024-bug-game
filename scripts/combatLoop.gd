@@ -60,8 +60,8 @@ func playerCardHovered(cardID: int):
 		$LoreBlurb.visible = true
 		$LoreBlurb.set_display(card)
 	
-func doSelfDamage(damage: int):	Player.decrease_health(damage)
-func doBossDamage(damage: int): Em.currentBoss.decrease_health(damage)
+#func doSelfDamage(damage: int):	Player.decrease_health(damage)
+#func doBossDamage(damage: int): Em.currentBoss.decrease_health(damage)
 
 # connects to cardPlayedSignal and cardHoveredSignal from the card_hand object
 func connectCardHandSignals(instantiated_card_hand: Node2D):

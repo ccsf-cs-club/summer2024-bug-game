@@ -20,6 +20,8 @@ func _ready():
 	
 
 func _boss_changed_connect_health_zero():
+	print_rich("[color=pink] Boss health zero was connected")
+	print_rich("[color=pink] Current Boss: ", Em.currentBoss.name)
 	Em.currentBoss.health_zero.connect(_resolve_win_combat)
 	
 
@@ -379,9 +381,14 @@ func _resolve_enemy_attack():
 ######################################## Combat end states
 
 func _resolve_win_combat():
-	print("\n\n\nEnemy defeated! Switching to post combat scene")
+	print_rich("[color=pink]\n\n\nEnemy defeated! Switching to post combat scene")
 	#reset stats
 	Player.resetStatsPostGame()
+	
+	Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
+	Player.resetAllManaPlayed()
+	Player.moveDiscardToDeck()
+	Player.shuffleDeck()
 	
 	Gs.set_state(Gs.GameState.GS_POST_COMBAT_SCENE)
 

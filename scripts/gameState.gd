@@ -38,6 +38,12 @@ enum Scene {
 	POST_COMBAT_SCENE,
 }
 
+enum BossLevel {
+	BANANA_QUEEN,
+	SANGUINE_MAMA,
+	AMBIGIOUS_ANGEL
+}
+
 var scene_paths = {
 	Scene.MAIN_MENU: "res://scenes/menuUI.tscn",
 	Scene.COMBAT_SCENE: "res://scenes/combatScene.tscn",
@@ -45,7 +51,9 @@ var scene_paths = {
 }
 
 var GAME_HAS_STARTED: bool = false
-var current_state = GameState.GS_WAITING_FOR_GAME_START
+var current_state: GameState = GameState.GS_WAITING_FOR_GAME_START
+var current_level: BossLevel = -1 # No boss set
+
 signal GAME_START
 signal GAME_PAUSE
 signal PLAYER_TURN_STARTED
@@ -59,12 +67,39 @@ signal DISPLAY_PLAYER_CARD(card: Card, state: int) # state = 0 is for displaying
 signal DISPLAY_BOSS_CARD(card: Card, state: int)
 signal DISPLAY_PITCHED_CARDS(cards: Array[Card], state: int)
 
+# Run this at the start of the game!!!
 func start_game():
 	GAME_HAS_STARTED = true
 	current_state = GameState.PL_WAITING_FOR_CARD
 	GAME_START.emit()
 	PLAYER_TURN_STARTED.emit()
 	STATE_CHANGED.emit(current_state)
+	
+	if(Em.current_level == -1):
+		Em.current_level = BossLevel.BANANA_QUEEN
+		Em.changeBoss(Em.entityDictionary["Banana Queen"])
+		
+		# Later change this to reference boss damage!!!
+		Em.link_BossAtt_to_Card(Em.attackAmountPerTurn)
+	else:
+		assert(false)
+
+# Run this at the end of the level!!!
+func continue_game():
+	GAME_HAS_STARTED = true
+	current_state = GameState.PL_WAITING_FOR_CARD
+	GAME_START.emit()
+	PLAYER_TURN_STARTED.emit()
+	STATE_CHANGED.emit(current_state)
+	
+	if(Em.current_level == BossLevel.BANANA_QUEEN):
+		Em.current_level = BossLevel.SANGUINE_MAMA
+		Em.changeBoss(Em.entityDictionary["Sanguine Mama"])
+	elif(Em.current_level == BossLevel.SANGUINE_MAMA):
+		Em.current_level = BossLevel.AMBIGIOUS_ANGEL
+		Em.changeBoss(Em.entityDictionary["Ambigious Angel"])
+	elif(Em.current_level == BossLevel.AMBIGIOUS_ANGEL):
+		print("Uh, you won the game!!!")
 
 func set_state(new_state: GameState):
 	current_state = new_state

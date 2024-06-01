@@ -7,8 +7,14 @@ var anchor = Vector2i(get_position())
 var original_scale = get_global_scale()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Em.currentBoss.damage_amount.connect(flash)
+	Em.bossChanged.connect(_on_BossChanged)
 	set_visible(false)
+
+func _on_BossChanged():
+	if Em.currentBoss:
+		Em.currentBoss.damage_amount.connect(flash)
+	else:
+		print("CAN'T CONNECT flash TO A BOSS IT DOESN'T EXIST")
 
 func fade():
 	times_faded += 1

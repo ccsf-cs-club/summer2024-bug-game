@@ -8,7 +8,6 @@ const DEFENSE_PHASE_OUTCOME_FLASH_DURATION: float = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Player.health_change.connect(playerHpUpdate)
-	Em.currentBoss.health_change.connect(bossHpUpdate)
 	Player.money_change.connect(players_money)
 	
 	$"Pass Phase".button_down.connect(pass_phase)
@@ -19,6 +18,13 @@ func _ready():
 	
 	Player.defense_card_applied.connect(defenseCardApplied)
 	Player.health_decreased.connect(displayDefensePhaseResult)
+	
+	# Listen for boss changes
+	Em.bossChanged.connect(_on_BossChanged)
+
+func _on_BossChanged():
+	if Em.currentBoss:
+		Em.currentBoss.health_change.connect(bossHpUpdate)
 
 func _input(event):
 	if Input.is_action_just_pressed("Pass"):
@@ -32,7 +38,10 @@ func playerHpUpdate():
 	$PlayerHpUiElement.text = "[center]" + str(Player.healthPool) + "[/center]"
 	
 func bossHpUpdate():
-	$BossHpUiElement.text = "[center]" + str(Em.currentBoss.healthPool) + "[/center]"
+	if Em.currentBoss:
+		$BossHpUiElement.text = "[center]" + str(Em.currentBoss.healthPool) + "[/center]"
+	else:
+		print("THERE IS NO CURRENT BOSS TO UPDATE HEALTH OF")
 
 func players_money():
 	$PlayerMoneyUpdate.text = "$" + str(Player.money) 

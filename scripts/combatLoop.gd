@@ -8,7 +8,6 @@ var instantiated_card_hand = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Em.bossChanged.connect(changeBossTexture)
-	changeBossTexture() # inital setting of boss
 	
 	# Create an instance of the combatTurnManager
 	combat_turn_manager = combatTurnManager.new()

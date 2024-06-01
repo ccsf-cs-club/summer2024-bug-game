@@ -23,18 +23,16 @@ func _ready():
 			entityDictionary[entity.name] = instanced_entity
 	else:
 		print("Failed to load entities it's jover")
-	
-	# Set the default starting boss!!!
-	if entityDictionary.has("Banana Queen"):
-		changeBoss(entityDictionary["Banana Queen"])
-		link_BossAtt_to_Card(attackAmountPerTurn)
-	else:
-		print("Boss not found in the entity dictionary")
 
 func changeBoss(changeBossTo: BossEntity):
 	currentBoss = changeBossTo
 	print("Boss Changed to ", changeBossTo.name)
 	emit_signal("bossChanged")
+
+# Decide how to impliment later!
+func nextBossInDictionary():
+	#changeBoss()
+	pass
 
 func link_BossAtt_to_Card(damage_value: int):
 	for card in currentBoss.cardsInDeck:

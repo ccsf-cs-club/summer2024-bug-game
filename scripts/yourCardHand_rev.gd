@@ -70,12 +70,6 @@ func _on_card_added_to_hand(card: Card, index: int):
 	update_card_positions()
 
 func _on_card_removed_from_hand(index: int):
-	if index < 0 or index >= Player.cardsInHand.size():
-		return
-		
-	# Nasty lil guy
-#	Player.cardsInHand.remove_at(index)
-	
 	var card_display = card_container.get_child(index)
 	if card_display:
 		card_display.cardIDofSelectedCard.disconnect(getCardIDRelativeCard)

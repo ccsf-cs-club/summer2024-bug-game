@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch1maj8ee2rkq"
-path="res://.godot/imported/pack3.webp-b93aaeaf3098be32e3152ccc5182a8f3.ctex"
+uid="uid://diwjxbvsudcap"
+path="res://.godot/imported/postCombatBG.png-55a943bb3d2c086f311a83bfa6063b65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Packs/pack3.webp"
-dest_files=["res://.godot/imported/pack3.webp-b93aaeaf3098be32e3152ccc5182a8f3.ctex"]
+source_file="res://assets/Packs/postCombatBG.png"
+dest_files=["res://.godot/imported/postCombatBG.png-55a943bb3d2c086f311a83bfa6063b65.ctex"]
 
 [params]
 

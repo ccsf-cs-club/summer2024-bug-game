@@ -124,13 +124,6 @@ position = Vector2(58, 464)
 [node name="PlayedCardDisplays" parent="." instance=ExtResource("5_htc56")]
 position = Vector2(471, 236)
 
-[node name="GridContainer" parent="PlayedCardDisplays/PlayerPitchedCards" index="0"]
-offset_left = 152.0
-offset_top = 13.0
-offset_right = 398.0
-offset_bottom = 210.0
-columns = 5
-
 [node name="CombatUI" type="Node2D" parent="."]
 script = ExtResource("2_yieo8")
 

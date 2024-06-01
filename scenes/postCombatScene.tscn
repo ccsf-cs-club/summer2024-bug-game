@@ -1,13 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://wl3w05iheuuy"]
+[gd_scene load_steps=6 format=3 uid="uid://wl3w05iheuuy"]
 
-[ext_resource type="Script" path="res://scenes/Reward.gd" id="1_1fgqe"]
+[ext_resource type="Script" path="res://scripts/postCombatScene.gd" id="1_hwuxh"]
+[ext_resource type="Texture2D" uid="uid://diwjxbvsudcap" path="res://assets/Packs/postCombatBG.png" id="1_kshvk"]
+[ext_resource type="Texture2D" uid="uid://b6poeiloq65cm" path="res://assets/Packs/pack1.png" id="2_qfgiq"]
+[ext_resource type="Texture2D" uid="uid://ddvd8mwmeeuds" path="res://assets/Packs/pack2.png" id="3_yskgb"]
+[ext_resource type="Texture2D" uid="uid://5q8yyorawv1l" path="res://assets/Packs/pack3.png" id="4_j8h85"]
 
-[node name="PostCombatScene" type="Node2D"]
+[node name="PostCombatScene" type="Node2D" node_paths=PackedStringArray("pack1_button", "pack2_button", "pack3_button")]
+script = ExtResource("1_hwuxh")
+pack1_button = NodePath("postCombatPopup/Background/PostCombatBG/Pack1ButtOn")
+pack2_button = NodePath("postCombatPopup/Background/PostCombatBG/Pack2ButtOn")
+pack3_button = NodePath("postCombatPopup/Background/PostCombatBG/Pack3ButtOn")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="postCombatPopup" type="CanvasLayer" parent="."]
 layer = -7
 
-[node name="Background" type="Control" parent="CanvasLayer"]
+[node name="Background" type="Control" parent="postCombatPopup"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TempBG" type="ColorRect" parent="CanvasLayer/Background"]
+[node name="TempBG" type="ColorRect" parent="postCombatPopup/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,10 +32,57 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.164706, 0.164706, 0.172549, 1)
 
+[node name="PostCombatBG" type="TextureRect" parent="postCombatPopup/Background"]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("1_kshvk")
+
+[node name="Pack1ButtOn" type="Button" parent="postCombatPopup/Background/PostCombatBG"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 150.0
+offset_right = 381.0
+offset_bottom = 379.0
+
+[node name="PackWatch" type="TextureRect" parent="postCombatPopup/Background/PostCombatBG/Pack1ButtOn"]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 229.0
+texture = ExtResource("2_qfgiq")
+stretch_mode = 4
+
+[node name="Pack2ButtOn" type="Button" parent="postCombatPopup/Background/PostCombatBG"]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 150.0
+offset_right = 541.0
+offset_bottom = 379.0
+
+[node name="PackWatch2" type="TextureRect" parent="postCombatPopup/Background/PostCombatBG/Pack2ButtOn"]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 229.0
+texture = ExtResource("3_yskgb")
+stretch_mode = 4
+
+[node name="Pack3ButtOn" type="Button" parent="postCombatPopup/Background/PostCombatBG"]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 150.0
+offset_right = 701.0
+offset_bottom = 379.0
+
+[node name="PackWatch3" type="TextureRect" parent="postCombatPopup/Background/PostCombatBG/Pack3ButtOn"]
+layout_mode = 0
+offset_right = 122.0
+offset_bottom = 229.0
+texture = ExtResource("4_j8h85")
+stretch_mode = 4
+
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Reward" type="Node2D" parent="."]
-script = ExtResource("1_1fgqe")
 
 [node name="CardPackReward" type="Node2D" parent="Reward"]
 editor_description = "A pack of 5 cards, of which you can pick 3 to add to your deck"

@@ -27,7 +27,7 @@ func cue_pitch_hint(card: UnitCard):
 	HintText.set_text(center("Pitch %d big and %d small mana" % [card.costBigManaAmt, card.costSmallManaAmt]))
 	
 func cue_defend_hint():
-	HintText.set_text(center("Pick a card to defend with"))
+	HintText.set_text(center("Pick cards to defend with or pass"))
 
 func toggle_turn_panels(atk: bool, pitch: bool, def: bool):
 	$AttackPanel.set_texture(LIT_PANEL_TEXTURE if atk else UNLIT_PANEL_TEXTURE)

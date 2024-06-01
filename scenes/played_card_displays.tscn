@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/played_card_displays.gd" id="1_gca82"]
 
-[node name="PlayedCardDisplays" type="Node2D" node_paths=PackedStringArray("BossTexture", "PlayerTexture")]
+[node name="PlayedCardDisplays" type="Node2D" node_paths=PackedStringArray("BossTexture", "PlayerTexture", "PlayerPitchGrid")]
 script = ExtResource("1_gca82")
 BossTexture = NodePath("Boss/TextureRect")
-PlayerTexture = NodePath("Player/TextureRect")
+PlayerTexture = NodePath("PlayerPlayedCard/TextureRect")
+PlayerPitchGrid = NodePath("PlayerPitchedCards/GridContainer")
 
 [node name="Boss" type="Node2D" parent="."]
 position = Vector2(0, -207)
@@ -14,16 +15,28 @@ position = Vector2(0, -207)
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Boss" type="Node2D" parent="Boss"]
-position = Vector2(0, -207)
-
-[node name="TextureRect" type="TextureRect" parent="Boss/Boss"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Player" type="Node2D" parent="."]
+[node name="PlayerPlayedCard" type="Node2D" parent="."]
 position = Vector2(0, 13)
 
-[node name="TextureRect" type="TextureRect" parent="Player"]
+[node name="TextureRect" type="TextureRect" parent="PlayerPlayedCard"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="PlayerPitchedCards" type="Node2D" parent="."]
+
+[node name="GridContainer" type="GridContainer" parent="PlayerPitchedCards"]
+clip_contents = true
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="PlayerPitchedCards/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="PlayerPitchedCards/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="PlayerPitchedCards/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="PlayerPitchedCards/GridContainer"]
+layout_mode = 2

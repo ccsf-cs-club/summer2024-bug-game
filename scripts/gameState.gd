@@ -41,8 +41,9 @@ signal PLAYER_TURN_STARTED
 signal PASS_PLAYER_TURN
 signal ENEMY_TURN_STARTED
 signal STATE_CHANGED(current_state)
-signal DISPLAY_PLAYER_CARD(card, state: int) # state = 0 is for displaying a card, 1 is for clearing displayed card
-signal DISPLAY_BOSS_CARD(card, state: int)
+signal DISPLAY_PLAYER_CARD(card: Card, state: int) # state = 0 is for displaying a card, 1 is for clearing displayed card
+signal DISPLAY_BOSS_CARD(card: Card, state: int)
+signal DISPLAY_PITCHED_CARDS(cards: Array[Card], state: int)
 
 func start_game():
 	GAME_HAS_STARTED = true

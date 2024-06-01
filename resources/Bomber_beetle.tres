@@ -12,6 +12,6 @@ cardName = "Bomber Beetle"
 type = 0
 costBigManaAmt = 4
 costSmallManaAmt = 2
-loreString = "A few well place explosions will solve any problem"
+loreString = "A few well placed explosions will solve any problem"
 cardArtPath = "res://assets/Card_art/bomber_beetle_small.png"
 cardArtPathFullSize = "res://assets/Card_art/bomber_beetle.png"

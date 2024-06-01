@@ -89,15 +89,15 @@ Button/colors/font_color = Color(0.678431, 0.556863, 0.447059, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Button/colors/font_focus_color = Color(0.678431, 0.556863, 0.447059, 1)
 Button/colors/font_hover_color = Color(0.678431, 0.556863, 0.447059, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(1, 1, 1, 1)
-Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0.678431, 0.556863, 0.447059, 1)
+Button/colors/font_outline_color = Color(0.678431, 0.556863, 0.447059, 1)
+Button/colors/font_pressed_color = Color(0.678431, 0.556863, 0.447059, 1)
 Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
-Button/colors/icon_focus_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_normal_color = Color(1, 1, 1, 1)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_focus_color = Color(0.678431, 0.556863, 0.447059, 1)
+Button/colors/icon_hover_color = Color(0.678431, 0.556863, 0.447059, 1)
+Button/colors/icon_hover_pressed_color = Color(0.678431, 0.556863, 0.447059, 1)
+Button/colors/icon_normal_color = Color(0.678431, 0.556863, 0.447059, 1)
+Button/colors/icon_pressed_color = Color(0.678431, 0.556863, 0.447059, 1)
 Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
@@ -123,6 +123,13 @@ position = Vector2(58, 464)
 
 [node name="PlayedCardDisplays" parent="." instance=ExtResource("5_htc56")]
 position = Vector2(471, 236)
+
+[node name="GridContainer" parent="PlayedCardDisplays/PlayerPitchedCards" index="0"]
+offset_left = 152.0
+offset_top = 13.0
+offset_right = 398.0
+offset_bottom = 210.0
+columns = 5
 
 [node name="CombatUI" type="Node2D" parent="."]
 script = ExtResource("2_yieo8")
@@ -186,6 +193,7 @@ offset_left = 635.0
 offset_top = 201.0
 offset_right = 770.0
 offset_bottom = 236.0
+focus_mode = 0
 theme = SubResource("Theme_jakvw")
 keep_pressed_outside = true
 text = "Pass / End Turn"
@@ -232,13 +240,15 @@ position = Vector2(30, 313)
 HintText = NodePath("HintText2")
 
 [node name="HintText2" type="RichTextLabel" parent="CombatRoundStatusIndicator"]
-offset_left = -17.0
-offset_top = -110.0
-offset_right = 197.0
-offset_bottom = -62.0
+offset_left = 172.0
+offset_top = -98.0
+offset_right = 386.0
+offset_bottom = -50.0
 theme_override_colors/default_color = Color(0.678431, 0.556863, 0.447059, 1)
 theme_override_fonts/normal_font = ExtResource("5_e4vr5")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[center]Pick your attacking card[/center]"
 scroll_active = false
+
+[editable path="PlayedCardDisplays"]

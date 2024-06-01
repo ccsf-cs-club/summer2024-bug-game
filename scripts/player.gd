@@ -13,6 +13,9 @@ var cardsInDiscard: Array[Card] # An array of all the cards you've used
 #		in cardInHand, it should not move untill it is deleted because we use its index
 # We could also refactor card resource to have a Unique Identifier but bleh
 
+# Just used to show cards that have been pitched
+var pitchedCardsThisPhase: Array[Card]
+
 var healthPool: int = 20 # 20 for now?
 const maxCardHand: int = 5	# Making this const for now, might change later
 

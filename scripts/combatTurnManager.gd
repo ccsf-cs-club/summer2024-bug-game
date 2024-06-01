@@ -184,6 +184,8 @@ func _resolve_pitch_cards():
 			var pitchedCard: UnitCard = cardQueue.dequeue()
 			Player.removeCardWithIDFromHand(pitchedCard.cardID)
 			Player.addCardToDiscard(pitchedCard)
+			Player.pitchedCardsThisPhase.append(pitchedCard)
+			Gs.DISPLAY_PITCHED_CARDS.emit(Player.pitchedCardsThisPhase, 0)
 			
 			Player.increment_big_mana(pitchedCard.bigManaAmt)
 			Player.increment_small_mana(pitchedCard.smallManaAmt)
@@ -214,6 +216,10 @@ func _resolve_pitch_cards():
 
 func _resolve_go_again_or_end_turn():
 	print_rich("[color=orange][b]  Trying to resolve go again or end of turn")
+	
+	# Clearing Pitched Cards
+	Player.pitchedCardsThisPhase.clear()
+	Gs.DISPLAY_PITCHED_CARDS.emit(Player.pitchedCardsThisPhase, 1)
 	
 	# Player can technically play a card so don't end turn!
 	if _can_player_play_a_card():
@@ -313,6 +319,9 @@ func _resolve_player_blocking_card():
 	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)
 
 func _resolve_end_of_blocking_phase():
+	# Cleans out the display
+	Gs.DISPLAY_PITCHED_CARDS.emit(Player.pitchedCardsThisPhase, 1)
+	
 	#Player.drawRandomCards(Player.maxCardHand - Player.cardsInHand.size())
 	Player.resetAllManaPlayed()
 	Player.moveDiscardToDeck()

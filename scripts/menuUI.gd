@@ -58,13 +58,13 @@ func start_game():
 
 func toggle_settings_menu():
 	$SettingsMenuNode.visible = not $SettingsMenuNode.visible
-	if Gs.GAME_IS_RUNNING == false:
+	if Gs.GAME_HAS_STARTED == false:
 		$StartMenuNode.visible = not $StartMenuNode.visible
 
 
 func toggle_creditsroll():
 	$CreditsMenuNode.visible = not $CreditsMenuNode.visible
-	if Gs.GAME_IS_RUNNING == false:
+	if Gs.GAME_HAS_STARTED == false:
 		$StartMenuNode.visible = not $StartMenuNode.visible
 
 func return_to_main_menu():
@@ -72,7 +72,7 @@ func return_to_main_menu():
 	$SettingsMenuNode.visible = false
 	$MainBG.visible = true
 	main_menu_button.visible = false
-	Gs.GAME_IS_RUNNING = false
+	Gs.GAME_HAS_STARTED = false
 	Gs.GAME_PAUSE.emit()
 
 func close_game():

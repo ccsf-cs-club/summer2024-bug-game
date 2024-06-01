@@ -7,6 +7,8 @@ extends Node
 enum GameState {
 	GS_WAITING_FOR_GAME_START,
 	GS_POST_COMBAT_SCENE,
+	GS_NEW_COMBAT_SCENE,
+	GS_PLAYER_DIED,
 	### Player Gamestates
 	PL_WAITING_FOR_CARD,
 	PL_WAITING_FOR_PITCHED_CARDS,
@@ -33,7 +35,6 @@ enum GameState {
 }
 
 var GAME_HAS_STARTED: bool = false
-var GAME_IS_RUNNING: bool = false # Pink - equals true when you're not on the main menu
 var current_state = GameState.GS_WAITING_FOR_GAME_START
 signal GAME_START
 signal GAME_PAUSE
@@ -46,7 +47,6 @@ signal DISPLAY_BOSS_CARD(card, state: int)
 
 func start_game():
 	GAME_HAS_STARTED = true
-	GAME_IS_RUNNING = true
 	current_state = GameState.PL_WAITING_FOR_CARD
 	GAME_START.emit()
 	PLAYER_TURN_STARTED.emit()

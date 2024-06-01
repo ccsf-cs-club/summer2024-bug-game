@@ -27,7 +27,7 @@ func _ready():
 	music_bus_index = AudioServer.get_bus_index(music_bus_name)
 	sfx_bus_index = AudioServer.get_bus_index(sfx_bus_name)
 	AudioServer.set_bus_volume_db(master_bus_index, linear_to_db(0.5))
-	AudioServer.set_bus_volume_db(music_bus_index, linear_to_db(0.0))
+	AudioServer.set_bus_volume_db(music_bus_index, linear_to_db(0.5))
 	AudioServer.set_bus_volume_db(sfx_bus_index, linear_to_db(0.5))
 	
 	start_button.button_up.connect(start_game)

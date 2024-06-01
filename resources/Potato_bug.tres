@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_en3ft")
-bigManaAmt = 3
-smallManaAmt = 1
+bigManaAmt = 4
+smallManaAmt = 0
 attack = 2
 defence = 4
 cardName = "Potato Bug"

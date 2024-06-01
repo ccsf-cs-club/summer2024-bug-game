@@ -6,20 +6,21 @@ Made with love, by the [CS Club](https://ccsf-cs.club/) at City College of San F
 
 # Contributors
 
-| Person | Contribution |
-| ------ | ------------ |
-| Vena     | Game Designer + Game Logic Code + Tabletop/Ui Art  |
-| Jesse    | Technical Art Lead + Ui/Ux Display (Hand Spread)   |
-| Jason    | Ui Display (Hp Dynamic Updates) + Design           |
-| John     | Ui/Ux Interaction (Card Hand Clicks) + Ideas       |
-| Val      | Card Art                                           |
-| Niko     | Card Art                                           |
-| Gev      | Credits + Card Art                                 |
-| Pink     | Implimenting Audio and UI Code                     |
-| Citrine  | Math for card rotation                             |
-| Gabe     | Card hovering code                                 |
-| Kyle     | Music tracks, Main Menu and Angel Boss             |
-| Leo      | Music for Sanguine Mama                            |
+(Vena first, then alphabetical)
+| Person        | Contribution |
+| ------------- | ------------ |
+| Vena          | Lead Game Developer, game logic code, Tabletop/UI Art |
+| Citrine       | Math for card rotation |
+| @GabeMillikan | Card hovering, defense result indicator, deck inspection popup, debugging, wrote the readme |
+| Gev           | Credits + Card Art |
+| Jason         | Ui Display (Hp Dynamic Updates) + Design |
+| Jesse         | Technical Art Lead + UI/UX Display (Hand Spread) |
+| John          | UI/UX Interaction (Card Hand Clicks) + Ideas |
+| Kyle          | Music tracks, Main Menu and Angel Boss |
+| Leo           | Music for Sanguine Mama |
+| Niko          | Card Art |
+| Pink          | Implimenting Audio and UI Code |
+| Val           | Card Art |
 
 
 # Running the Game

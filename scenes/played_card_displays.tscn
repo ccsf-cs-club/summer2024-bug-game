@@ -28,6 +28,7 @@ offset_bottom = 40.0
 clip_contents = true
 offset_right = 40.0
 offset_bottom = 40.0
+columns = 4
 
 [node name="TextureRect" type="TextureRect" parent="PlayerPitchedCards/GridContainer"]
 layout_mode = 2

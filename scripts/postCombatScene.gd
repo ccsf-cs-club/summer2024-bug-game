@@ -5,6 +5,10 @@ extends Node2D
 @export var pack3_button: Button
 
 func _ready():
+	for card_entry in Player.card_inventory.card_hand:
+		var card_instances = card_entry.instantiate_cards()
+		Player.cardsInDeck += card_instances
+	
 	Gs.STATE_CHANGED.connect(check_game_state)
 	
 	pack1_button.button_up.connect(pick_pack1)
@@ -24,7 +28,7 @@ func money_function():
 	$postCombatPopup.visible = true
 
 func pick_pack1():
-	print("gex")
+	pass
 
 func pick_pack2():
 	pass

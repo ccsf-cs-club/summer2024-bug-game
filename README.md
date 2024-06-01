@@ -9,7 +9,7 @@ Made with love, by the [CS Club](https://ccsf-cs.club/) at City College of San F
 (Vena first, then alphabetical)
 | Person        | Contribution |
 | ------------- | ------------ |
-| Vena          | Lead Game Developer, game logic code, Tabletop/UI Art |
+| Vena          | Lead developer, most of the logical code, tabletop/UI art |
 | Citrine       | Math for card rotation |
 | [@GabeMillikan](https://github.com/GabeMillikan) | Card hovering, defense result indicator, deck inspection popup, debugging, wrote the readme |
 | Gev           | Credits + Card Art |

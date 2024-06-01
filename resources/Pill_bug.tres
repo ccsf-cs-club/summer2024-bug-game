@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://dpqkus1h8v65a"]
+[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://4ansh81g0n5m"]
 
 [ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_asm10"]
 
@@ -8,6 +8,7 @@ bigManaAmt = 1
 smallManaAmt = 1
 attack = 0
 defence = 5
+card_effect_name = ""
 cardName = "Pill Bug"
 type = 0
 costBigManaAmt = 0

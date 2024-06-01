@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="UnitCardEffects" load_steps=2 format=3 uid="uid://ku7catgi1eog"]
+
+[ext_resource type="Script" path="res://scripts/unitCardEffects.gd" id="1_5co3y"]
+
+[resource]
+script = ExtResource("1_5co3y")

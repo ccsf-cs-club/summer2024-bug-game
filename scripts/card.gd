@@ -36,3 +36,9 @@ func getCardTexture(big: bool = false) -> Texture:
 
 func hasManaCost() -> bool:
 	return costBigManaAmt > 0 or costSmallManaAmt > 0
+	
+func isAffordableToPlayer() -> bool:
+	return (costBigManaAmt <= Player.bigManaPayed and costSmallManaAmt <= Player.smallManaPayed)	
+	
+func isNotPlayableImmediately() -> bool:
+	return not isAffordableToPlayer() and hasManaCost()

@@ -10,6 +10,7 @@ var sfx_bus_index: int
 
 # Add exports for other two buttons
 @export var start_button: Button
+@export var tutorial_button: Button
 @export var start_settings_button: Button
 @export var start_credits_button: Button
 @export var start_quit_button: Button
@@ -21,6 +22,7 @@ var sfx_bus_index: int
 @export var main_menu_button: Button
 
 @export var credits_menu_node: Control
+@export var tutorial_menu_node: Control
 
 func _ready():
 	master_bus_index = AudioServer.get_bus_index(master_bus_name)
@@ -40,12 +42,21 @@ func _ready():
 	settings_display_mode_button.item_selected.connect(change_display_mode)
 	settings_back_button.button_up.connect(toggle_settings_menu)
 	main_menu_button.button_up.connect(return_to_main_menu)
+	
+	tutorial_button.button_up.connect(toggle_tutorial_screen)
+	tutorial_menu_node.get_child(1).button_up.connect(toggle_tutorial_screen)
 
 func _input(_event):
-	if Input.is_action_just_pressed("Escape") and credits_menu_node.visible == true:
-		toggle_creditsroll()
-	elif Input.is_action_just_pressed("Escape") and $StartMenuNode.visible == false:
-		toggle_settings_menu()
+	if Input.is_action_just_pressed("Escape") and Gs.GAME_HAS_STARTED == true: # when game has started
+		if tutorial_menu_node.visible == true:
+			toggle_tutorial_screen()
+		else:
+			toggle_settings_menu()
+	elif Input.is_action_just_pressed("Escape"):	# on menu screen
+		if credits_menu_node.visible == true:
+			toggle_creditsroll()
+		elif tutorial_menu_node.visible == true:
+			toggle_tutorial_screen()
 
 
 func start_game():
@@ -56,16 +67,21 @@ func start_game():
 	# Set the states to start!
 	Gs.start_game()
 
+func toggle_tutorial_screen():
+	$TutorialNode.visible = not $TutorialNode.visible
+	if Gs.GAME_HAS_STARTED == false:
+		$StartMenuNode.visible = not $StartMenuNode.visible
+
 func toggle_settings_menu():
 	$SettingsMenuNode.visible = not $SettingsMenuNode.visible
 	if Gs.GAME_HAS_STARTED == false:
 		$StartMenuNode.visible = not $StartMenuNode.visible
 
-
 func toggle_creditsroll():
 	$CreditsMenuNode.visible = not $CreditsMenuNode.visible
 	if Gs.GAME_HAS_STARTED == false:
 		$StartMenuNode.visible = not $StartMenuNode.visible
+
 
 func return_to_main_menu():
 	$StartMenuNode.visible = true

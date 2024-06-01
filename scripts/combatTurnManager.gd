@@ -343,6 +343,8 @@ func _resolve_end_of_blocking_phase():
 	Player.moveDiscardToDeck()
 	Player.shuffleDeck()
 	assert(cardQueue.is_empty())
+	Player.pitchedCardsThisPhase.clear()
+	Gs.DISPLAY_PITCHED_CARDS.emit(Player.pitchedCardsThisPhase, 1)
 	
 	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
 

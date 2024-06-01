@@ -20,6 +20,10 @@ func _ready():
 	Player.defense_card_applied.connect(defenseCardApplied)
 	Player.health_decreased.connect(displayDefensePhaseResult)
 
+func _input(event):
+	if Input.is_action_just_pressed("Pass"):
+		pass_phase()
+
 func pass_phase():
 	Gs.PASS_PLAYER_TURN.emit()
 	

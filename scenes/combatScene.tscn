@@ -1,18 +1,20 @@
-[gd_scene load_steps=21 format=3 uid="uid://vvsenribpq0e"]
+[gd_scene load_steps=23 format=3 uid="uid://vvsenribpq0e"]
 
 [ext_resource type="Script" path="res://scripts/combatLoop.gd" id="1_e17cm"]
 [ext_resource type="PackedScene" uid="uid://c20p7rgfp812b" path="res://scenes/cardInspector_node2D.tscn" id="2_6of2c"]
-[ext_resource type="PackedScene" uid="uid://1iiog8ful8l4" path="res://scenes/mana_display.tscn" id="2_r7dgv"]
+[ext_resource type="PackedScene" uid="uid://iakm55iawac5" path="res://scenes/mana_display.tscn" id="2_r7dgv"]
 [ext_resource type="PackedScene" uid="uid://cxrli4cp1k6yl" path="res://scenes/enemyCardHand.tscn" id="2_tnnes"]
 [ext_resource type="Script" path="res://scripts/combatUI.gd" id="2_yieo8"]
 [ext_resource type="FontFile" uid="uid://btey4qndck0lw" path="res://assets/FontRoboto/Roboto-Black.ttf" id="3_l755p"]
-[ext_resource type="PackedScene" uid="uid://barctvsuuw2t2" path="res://scenes/loreBlurbDisplay.tscn" id="4_bsgnj"]
+[ext_resource type="PackedScene" path="res://scenes/loreBlurbDisplay.tscn" id="4_bsgnj"]
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="5_e4vr5"]
 [ext_resource type="PackedScene" uid="uid://re6gb2jolng3" path="res://scenes/played_card_displays.tscn" id="5_htc56"]
 [ext_resource type="Texture2D" uid="uid://bmn6soyfw204t" path="res://assets/Ui_elements/tabletopBackground.png" id="5_txdtx"]
 [ext_resource type="PackedScene" uid="uid://bq8xt2utpun67" path="res://scenes/deckInspectorPopup.tscn" id="7_igcod"]
 [ext_resource type="Texture2D" uid="uid://b2h41lwnc4fxh" path="res://assets/Ui_elements/tabletopBackground_Final.png" id="8_gui6b"]
+[ext_resource type="Texture2D" uid="uid://dhxdx2e32wa4p" path="res://assets/Ui_elements/srhinked2xSword-export.png" id="9_b2y6e"]
 [ext_resource type="Texture2D" uid="uid://dfg250a2tl0mq" path="res://assets/Boss_art/AmbigousAngel.png" id="9_dss3q"]
+[ext_resource type="Texture2D" uid="uid://banvas2cbiinh" path="res://assets/Ui_elements/srhinked2xShield-export.png" id="10_kmc5l"]
 [ext_resource type="PackedScene" uid="uid://dy743m4fh4gip" path="res://scenes/combatRoundStatusIndicator.tscn" id="13_umwxy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iaaas"]
@@ -190,6 +192,75 @@ focus_mode = 0
 theme = SubResource("Theme_jakvw")
 keep_pressed_outside = true
 text = "Pass / End Turn"
+
+[node name="defensePhaseOutcome" type="Control" parent="CombatUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 800.0
+offset_top = 200.0
+offset_right = 939.0
+offset_bottom = 238.0
+
+[node name="attack" type="Control" parent="CombatUI/defensePhaseOutcome"]
+anchors_preset = 0
+offset_left = 26.0
+offset_top = 2.0
+offset_right = 66.0
+offset_bottom = 36.0
+
+[node name="icon" type="TextureRect" parent="CombatUI/defensePhaseOutcome/attack"]
+layout_mode = 2
+offset_right = 17.0
+offset_bottom = 31.0
+texture = ExtResource("9_b2y6e")
+stretch_mode = 3
+
+[node name="value" type="RichTextLabel" parent="CombatUI/defensePhaseOutcome/attack"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 47.0
+offset_bottom = 34.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.827451, 0.643137, 0.435294, 1)
+theme_override_fonts/normal_font = ExtResource("5_e4vr5")
+theme_override_font_sizes/normal_font_size = 29
+bbcode_enabled = true
+text = "[center]9[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="defense" type="Control" parent="CombatUI/defensePhaseOutcome"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 74.0
+offset_top = 2.0
+offset_right = 114.0
+offset_bottom = 36.0
+
+[node name="icon" type="TextureRect" parent="CombatUI/defensePhaseOutcome/defense"]
+layout_mode = 2
+offset_right = 17.0
+offset_bottom = 31.0
+texture = ExtResource("10_kmc5l")
+stretch_mode = 3
+
+[node name="value" type="RichTextLabel" parent="CombatUI/defensePhaseOutcome/defense"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 47.0
+offset_bottom = 34.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.827451, 0.643137, 0.435294, 1)
+theme_override_fonts/normal_font = ExtResource("5_e4vr5")
+theme_override_font_sizes/normal_font_size = 29
+bbcode_enabled = true
+text = "[center]9[/center]"
+fit_content = true
+scroll_active = false
 
 [node name="EnemyCardHand" parent="." instance=ExtResource("2_tnnes")]
 

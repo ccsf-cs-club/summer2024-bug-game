@@ -45,6 +45,7 @@ signal cant_draw_to_full
 signal increased_money
 signal money_change
 signal out_of_money
+signal defense_card_applied(damage: int, defense: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

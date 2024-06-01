@@ -62,6 +62,9 @@ func _on_game_state_changed(state):
 		Gs.GameState.PL_BLOCKING_PHASE_FINISHED:
 			print("Blocking Phase Finished")
 			_resolve_end_of_blocking_phase()
+		Gs.GameState.GS_POST_COMBAT_SCENE:
+			print("Go to post combat scene!!")
+			Gs.set_scene(Gs.Scene.POST_COMBAT_SCENE)
 		_:
 			print("\t\tUNHANDLED GAMESTATE!!!")
 
@@ -211,6 +214,10 @@ func _resolve_pitch_cards():
 				Player.spend_big_mana(currentlyResolvingCard.costBigManaAmt)
 				Player.spend_small_mana(currentlyResolvingCard.costSmallManaAmt)
 				
+				# Clearing Pitched Cards, have to clear after every pitch finialization
+				Player.pitchedCardsThisPhase.clear()
+				Gs.DISPLAY_PITCHED_CARDS.emit(Player.pitchedCardsThisPhase, 1)
+				
 				# For now reset to next player attack, later defence or boss ai
 				Gs.set_state(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
 			
@@ -323,12 +330,18 @@ func _resolve_player_blocking_card():
 		await await_state_change(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
 	
 	
-	var damageChunk = damageQueue.dequeue()
-	damageChunk -= blockingCard.defence
-	if damageChunk < 0:
-		damageChunk = 0
+	var damage = damageQueue.dequeue()
+	var defense = blockingCard.defence
 	
-	damageQueue.enqueue(damageChunk)
+	# you can only defend the entire amount of damage
+	# (i.e. defending cannot allow you to heal)
+	if defense > damage:
+		defense = damage
+	
+	damageQueue.enqueue(damage - defense)
+	
+	Player.defense_card_applied.emit(damage, defense)
+	
 	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 1)
 	print_rich("[color=purple]\tCurrent damage that will be delt = ", damageQueue.peek())
 	
@@ -343,6 +356,8 @@ func _resolve_end_of_blocking_phase():
 	Player.moveDiscardToDeck()
 	Player.shuffleDeck()
 	assert(cardQueue.is_empty())
+	Player.pitchedCardsThisPhase.clear()
+	Gs.DISPLAY_PITCHED_CARDS.emit(Player.pitchedCardsThisPhase, 1)
 	
 	Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)
 
@@ -359,7 +374,7 @@ func _resolve_enemy_attack():
 ######################################## Combat end states
 
 func _resolve_win_combat():
-	print("Enemy defeated! Switching to post combat scene")
+	print("\n\n\nEnemy defeated! Switching to post combat scene")
 	#reset stats
 	Player.resetStatsPostGame()
 	

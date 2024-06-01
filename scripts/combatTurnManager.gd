@@ -111,8 +111,9 @@ func _player_card_played():
 			#Gs.set_state(Gs.GameState.PL_NOT_ENOUGH_MANA_FOR_CARD)
 		else:
 			Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_CARD)
-	else:
+#	else:
 		# should always be handled above ^
+		
 
 			# Provide option to pass turn and draw up to full?
 

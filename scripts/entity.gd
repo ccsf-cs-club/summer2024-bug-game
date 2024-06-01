@@ -4,7 +4,8 @@ class_name Entity
 
 @export var healthPool: int
 @export var name: String
-@export var cardInventoryResource: CardInventory
+@export var cardInventoryResource: String
+@export var inventory: Resource
 signal health_increased # Sent when health increases (UI effect?)
 signal health_decreased # Sent when health decreases (Again effect?)
 signal health_zero # Sent when health gets to zero (Use for game loss?)
@@ -15,9 +16,12 @@ signal health_change
 var card_inventory: CardInventory = null
 var cardsInDeck: Array[Card]
 
-func _ready():
+# init is stupid, make ur own :3
+#func _init():
+	
+func _load_inventory():
 			#CHANGE THIS!!!!
-	card_inventory = cardInventoryResource as CardInventory
+	card_inventory = load(inventory.resource_path)		# load("res://resources/BossInventory.tres") as CardInventory
 	
 			# FUTURE VENA NOTE, FIX CARD ID FOR BOSSES!!!
 			# Set to the highest id not being used in player!!!

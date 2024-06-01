@@ -323,7 +323,7 @@ func _resolve_end_of_blocking_phase():
 ######################################## Enemy
 
 func _resolve_enemy_attack():
-	damageQueue.enqueue(Em.currentCard)
+	damageQueue.enqueue(Em.currentCard.attack)
 	Gs.DISPLAY_BOSS_CARD.emit(Em.currentCard, 0) # 0 means display card
 	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)
 	#Gs.set_state(Gs.GameState.PL_WAITING_FOR_CARD)

@@ -2,6 +2,8 @@ extends Node
 # This is auto loaded and stores gamestate!!
 # Loaded as Gs
 
+
+
 enum GameState {
 	GS_WAITING_FOR_GAME_START,
 	GS_POST_COMBAT_SCENE,

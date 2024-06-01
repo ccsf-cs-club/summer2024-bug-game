@@ -5,7 +5,7 @@ extends Node
 
 @onready var angel_theme: AudioStreamPlayer = $AmbiguousAngelTheme
 @onready var tick_theme: AudioStreamPlayer = $SanguineMamaTheme
-@onready var slug_theme: AudioStreamPlayer = $BananaSlugTheme
+@onready var slug_theme: AudioStreamPlayer = $BananaQueenTheme
 
 var current_player = null
 var level_theme = null

@@ -39,6 +39,7 @@ You pick the card that you want to attack with. You may only pick a card which y
 <img src=".github/readme-images/bomber-beetle.png" height="200px"/>
 
 It deals 4 damage (bottom left) but costs 4 big mana and 2 small mana to cast (top right). The game will only allow you to use this card if you have enough mana in your hand (something you'll deal with in the next phase). If you don't have any usable cards, you must "pass" the attack phase:
+
 <img src=".github/readme-images/pass.png" width="200px"/>
 
 ### 2. Pitch Attack

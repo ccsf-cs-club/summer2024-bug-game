@@ -49,6 +49,13 @@ texture = ExtResource("4_1c24v")
 [node name="ManaIcon" type="Sprite2D" parent="PitchPanel"]
 texture = ExtResource("5_0ykod")
 
+[node name="PitchPanel2" type="Sprite2D" parent="."]
+position = Vector2(0, 96)
+texture = ExtResource("4_1c24v")
+
+[node name="ManaIcon2" type="Sprite2D" parent="PitchPanel2"]
+texture = ExtResource("5_0ykod")
+
 [node name="DefensePanel" type="Sprite2D" parent="."]
 position = Vector2(0, 48)
 texture = ExtResource("4_1c24v")

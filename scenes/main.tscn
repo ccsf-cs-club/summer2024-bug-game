@@ -10,6 +10,7 @@
 script = ExtResource("1_ogom7")
 
 [node name="PostCombatScene" parent="." instance=ExtResource("3_c0go4")]
+visibility_layer = 512
 
 [node name="CombatScene" parent="." instance=ExtResource("2_nkoi4")]
 

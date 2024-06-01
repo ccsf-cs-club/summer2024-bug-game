@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardInventory" load_steps=21 format=3 uid="uid://bnxv6ya0em0uf"]
 
-[ext_resource type="Resource" uid="uid://brtvfly1o7fou" path="res://resources/Ant_guy.tres" id="1_foi2g"]
+[ext_resource type="Resource" path="res://resources/Ant_guy.tres" id="1_foi2g"]
 [ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_dklt8"]
 [ext_resource type="Resource" uid="uid://koego70ahnt1" path="res://resources/Crazed_axe_fly.tres" id="3_tg5fq"]
 [ext_resource type="Resource" uid="uid://nh7yckyt7236" path="res://resources/Eyepede.tres" id="3_ub3cc"]

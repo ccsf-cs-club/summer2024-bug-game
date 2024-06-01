@@ -40,45 +40,45 @@ texture = ExtResource("1_kshvk")
 
 [node name="Pack1ButtOn" type="Button" parent="postCombatPopup/Background/PostCombatBG"]
 layout_mode = 0
-offset_left = 259.0
-offset_top = 150.0
-offset_right = 381.0
-offset_bottom = 379.0
+offset_left = 260.0
+offset_top = 152.0
+offset_right = 380.0
+offset_bottom = 377.0
 
 [node name="PackWatch" type="TextureRect" parent="postCombatPopup/Background/PostCombatBG/Pack1ButtOn"]
 layout_mode = 0
-offset_right = 122.0
-offset_bottom = 229.0
+offset_right = 120.0
+offset_bottom = 225.0
 texture = ExtResource("2_qfgiq")
-stretch_mode = 4
+stretch_mode = 2
 
 [node name="Pack2ButtOn" type="Button" parent="postCombatPopup/Background/PostCombatBG"]
 layout_mode = 0
-offset_left = 419.0
-offset_top = 150.0
-offset_right = 541.0
-offset_bottom = 379.0
+offset_left = 420.0
+offset_top = 152.0
+offset_right = 540.0
+offset_bottom = 377.0
 
 [node name="PackWatch2" type="TextureRect" parent="postCombatPopup/Background/PostCombatBG/Pack2ButtOn"]
 layout_mode = 0
-offset_right = 122.0
-offset_bottom = 229.0
+offset_right = 120.0
+offset_bottom = 225.0
 texture = ExtResource("3_yskgb")
-stretch_mode = 4
+stretch_mode = 2
 
 [node name="Pack3ButtOn" type="Button" parent="postCombatPopup/Background/PostCombatBG"]
 layout_mode = 0
-offset_left = 579.0
-offset_top = 150.0
-offset_right = 701.0
-offset_bottom = 379.0
+offset_left = 580.0
+offset_top = 152.0
+offset_right = 700.0
+offset_bottom = 377.0
 
 [node name="PackWatch3" type="TextureRect" parent="postCombatPopup/Background/PostCombatBG/Pack3ButtOn"]
 layout_mode = 0
-offset_right = 122.0
-offset_bottom = 229.0
+offset_right = 120.0
+offset_bottom = 225.0
 texture = ExtResource("4_j8h85")
-stretch_mode = 4
+stretch_mode = 2
 
 [node name="Map" type="Node2D" parent="."]
 

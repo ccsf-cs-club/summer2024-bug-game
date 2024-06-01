@@ -7,7 +7,6 @@ extends Node2D
 func _ready():
 	Gs.STATE_CHANGED.connect(check_game_state)
 	
-	# Connects the ui input signal!
 	pack1_button.button_up.connect(pick_pack1)
 	pack2_button.button_up.connect(pick_pack2)
 	pack3_button.button_up.connect(pick_pack3)
@@ -22,8 +21,6 @@ func _input(_event):
 
 func money_function():
 	print('"Error at (7, 24): Assignment is not allowed inside an expression", 🤓☝')
-	get_parent().get_child(1).visible = false
-	get_parent().get_child(2).visible = false
 	$postCombatPopup.visible = true
 
 func pick_pack1():

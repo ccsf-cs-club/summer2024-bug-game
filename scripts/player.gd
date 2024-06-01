@@ -16,7 +16,8 @@ var cardsInDiscard: Array[Card] # An array of all the cards you've used
 # Just used to show cards that have been pitched
 var pitchedCardsThisPhase: Array[Card]
 
-var healthPool: int = 20 # 20 for now?
+var healthPool: int = 25 # 20 for now?
+var maxHealthPool: int = 25
 const maxCardHand: int = 5	# Making this const for now, might change later
 
 var bigManaPayed = 0
@@ -216,7 +217,7 @@ func spend_small_mana(amount: int):
 
 
 func resetStatsPostGame():
-	healthPool = 20
+	healthPool = maxHealthPool
 	bigManaPayed = 0
 	smallManaPayed = 0
 	bigManaNeeded = 0

@@ -7,3 +7,5 @@ extends Node2D
 func _ready():
 	#Gs.STATE_CHANGED.connect(switch_scenes)
 	pass
+
+#Rats rats we are the rats

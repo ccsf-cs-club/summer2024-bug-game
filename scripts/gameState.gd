@@ -36,6 +36,8 @@ enum Scene {
 	MAIN_MENU,
 	COMBAT_SCENE,
 	POST_COMBAT_SCENE,
+	TO_BE_CONTINUED,
+	TO_BE_CONTINUED_YOU_WIN,
 }
 
 enum BossLevel {
@@ -47,7 +49,9 @@ enum BossLevel {
 var scene_paths = {
 	Scene.MAIN_MENU: "res://scenes/menuUI.tscn",
 	Scene.COMBAT_SCENE: "res://scenes/combatScene.tscn",
-	Scene.POST_COMBAT_SCENE: "res://scenes/postCombatScene.tscn"
+	Scene.POST_COMBAT_SCENE: "res://scenes/postCombatScene.tscn",
+	Scene.TO_BE_CONTINUED: "res://scenes/toBeContinued.tscn",
+	Scene.TO_BE_CONTINUED_YOU_WIN: "res://scenes/toBeContinued_YouWin.tscn"
 }
 
 var GAME_HAS_STARTED: bool = false
@@ -107,6 +111,7 @@ func continue_game():
 		Em.bossChanged.emit()
 	elif(current_level == BossLevel.AMBIGUOUS_ANGEL):
 		print("Uh, you won the game!!!")
+		set_scene(Gs.Scene.TO_BE_CONTINUED_YOU_WIN)
 
 func set_state(new_state: GameState):
 	current_state = new_state

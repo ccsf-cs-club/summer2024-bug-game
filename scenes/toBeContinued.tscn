@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgswq4xfpg7np"]
+
+[ext_resource type="Texture2D" uid="uid://62dpa1napr4n" path="res://assets/Ui_elements/CardUiBg.png" id="1_mgqwa"]
+[ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="2_c88a5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mw41o"]
+bg_color = Color(0.164706, 0.164706, 0.172549, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bimfi"]
+texture = ExtResource("1_mgqwa")
+
+[sub_resource type="Theme" id="Theme_23s17"]
+Panel/styles/panel = SubResource("StyleBoxTexture_bimfi")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = -30
+
+[node name="ToBeContinued" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ToBeContinued"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mw41o")
+
+[node name="MarginContainer" type="MarginContainer" parent="ToBeContinued/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="ToBeContinued/Panel/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_23s17")
+
+[node name="Label" type="Label" parent="ToBeContinued/Panel/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.847059, 0.8, 0.717647, 1)
+theme_override_fonts/font = ExtResource("2_c88a5")
+theme_override_font_sizes/font_size = 60
+text = "Thanks for playing
+
+To be continued..."
+horizontal_alignment = 1

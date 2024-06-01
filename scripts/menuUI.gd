@@ -24,6 +24,8 @@ var sfx_bus_index: int
 @export var credits_menu_node: Control
 @export var tutorial_menu_node: Control
 
+@export var easy_mode: CheckBox
+
 func _ready():
 	master_bus_index = AudioServer.get_bus_index(master_bus_name)
 	music_bus_index = AudioServer.get_bus_index(music_bus_name)
@@ -45,6 +47,17 @@ func _ready():
 	
 	tutorial_button.button_up.connect(toggle_tutorial_screen)
 	tutorial_menu_node.get_child(1).button_up.connect(toggle_tutorial_screen)
+	
+	easy_mode.toggled.connect(toggle_easy_mode)
+
+# lmao code
+func toggle_easy_mode(easy_mode: bool):
+	if easy_mode:
+		Player.maxHealthPool = 25
+	else:
+		Player.maxHealthPool = 20
+		if(Player.healthPool > Player.maxHealthPool):
+			Player.decrease_health(Player.healthPool - Player.maxHealthPool)
 
 func _input(_event):
 	if Input.is_action_just_pressed("Escape") and Gs.GAME_HAS_STARTED == true: # when game has started

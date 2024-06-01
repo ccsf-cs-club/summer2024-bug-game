@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq8xt2utpun67"]
+[gd_scene load_steps=5 format=3 uid="uid://bq8xt2utpun67"]
 
 [ext_resource type="Script" path="res://scripts/deckInspectorPopup.gd" id="1_lq32m"]
+[ext_resource type="Texture2D" uid="uid://62dpa1napr4n" path="res://assets/Ui_elements/CardUiBg.png" id="2_3hap7"]
+[ext_resource type="FontFile" uid="uid://btey4qndck0lw" path="res://assets/FontRoboto/Roboto-Black.ttf" id="3_vb1wj"]
 [ext_resource type="Texture2D" uid="uid://dy1ahn72r3qke" path="res://assets/Card_art/Bishop_mantis.png" id="3_xwb67"]
 
 [node name="DeckInspectorPopup" type="CanvasLayer"]
@@ -18,12 +20,28 @@ offset_top = 80.0
 offset_right = 810.0
 offset_bottom = 460.0
 
+[node name="TextureRect" type="TextureRect" parent="overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -80.0
+offset_right = 150.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3hap7")
+
 [node name="title" type="RichTextLabel" parent="overlay"]
 layout_mode = 0
 offset_right = 660.0
 offset_bottom = 30.0
+theme_override_colors/default_color = Color(0.678431, 0.556863, 0.447059, 1)
+theme_override_fonts/normal_font = ExtResource("3_vb1wj")
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "[center]Your Cards (todo: make this UI not look like garbage)[center]"
+text = "[center]Your Deck of Cards[center]"
 fit_content = true
 scroll_active = false
 
@@ -39,7 +57,7 @@ columns = 3
 layout_mode = 0
 offset_top = 30.0
 offset_right = 660.0
-offset_bottom = 380.0
+offset_bottom = 359.0
 
 [node name="grid" type="GridContainer" parent="overlay/cards"]
 layout_mode = 2

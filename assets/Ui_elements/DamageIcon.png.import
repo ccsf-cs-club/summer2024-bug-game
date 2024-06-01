@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxqujv3fwyisi"
-path="res://.godot/imported/8bitCSCLUBLogo.png-48329ba9921fd7e271b37567f92c929e.ctex"
+uid="uid://b3cr6d8tccanl"
+path="res://.godot/imported/DamageIcon.png-f00245bb484f5040c72bfed1f5a06b76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Themes/8bitCSCLUBLogo.png"
-dest_files=["res://.godot/imported/8bitCSCLUBLogo.png-48329ba9921fd7e271b37567f92c929e.ctex"]
+source_file="res://assets/Ui_elements/DamageIcon.png"
+dest_files=["res://.godot/imported/DamageIcon.png-f00245bb484f5040c72bfed1f5a06b76.ctex"]
 
 [params]
 

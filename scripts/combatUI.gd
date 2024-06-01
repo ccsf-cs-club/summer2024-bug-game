@@ -14,6 +14,7 @@ func _ready():
 
 func pass_phase():
 	Gs.PASS_PLAYER_TURN.emit()
+	
 
 func playerHpUpdate():
 	$PlayerHpUiElement.text = "[center]" + str(Player.healthPool) + "[/center]"

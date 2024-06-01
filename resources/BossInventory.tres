@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardInventory" load_steps=23 format=3 uid="uid://c1m8846org6l"]
+[gd_resource type="Resource" script_class="CardInventory" load_steps=23 format=3 uid="uid://dnw7q3kauh52m"]
 
 [ext_resource type="Resource" uid="uid://2unus82c4i73" path="res://resources/BossCards/Attack1.tres" id="1_uw6bg"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="1_xiona"]

@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="BossEntity" load_steps=3 format=3 uid="uid://dluko5gkm7ffd"]
 
-[ext_resource type="Resource" uid="uid://c1m8846org6l" path="res://resources/BossInventory.tres" id="1_4mrjm"]
+[ext_resource type="Resource" uid="uid://dnw7q3kauh52m" path="res://resources/BossInventory.tres" id="1_4mrjm"]
 [ext_resource type="Script" path="res://scripts/bossEntity.gd" id="1_t2vpw"]
 
 [resource]
 script = ExtResource("1_t2vpw")
 healthPool = 30
 name = "Ambigous Angel"
-cardInventoryResource = ExtResource("1_4mrjm")
+cardInventoryResource = ""
+inventory = ExtResource("1_4mrjm")
 entityArtPath = "res://assets/Boss_art/AmbigousAngel.png"

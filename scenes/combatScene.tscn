@@ -10,7 +10,7 @@
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="5_e4vr5"]
 [ext_resource type="PackedScene" uid="uid://re6gb2jolng3" path="res://scenes/played_card_displays.tscn" id="5_htc56"]
 [ext_resource type="Texture2D" uid="uid://bmn6soyfw204t" path="res://assets/Ui_elements/tabletopBackground.png" id="5_txdtx"]
-[ext_resource type="PackedScene" path="res://scenes/deckInspectorPopup.tscn" id="7_igcod"]
+[ext_resource type="PackedScene" uid="uid://bq8xt2utpun67" path="res://scenes/deckInspectorPopup.tscn" id="7_igcod"]
 [ext_resource type="Texture2D" uid="uid://b2h41lwnc4fxh" path="res://assets/Ui_elements/tabletopBackground_Final.png" id="8_gui6b"]
 [ext_resource type="Texture2D" uid="uid://dfg250a2tl0mq" path="res://assets/Boss_art/AmbigousAngel.png" id="9_dss3q"]
 [ext_resource type="PackedScene" uid="uid://dy743m4fh4gip" path="res://scenes/combatRoundStatusIndicator.tscn" id="13_umwxy"]

@@ -18,7 +18,9 @@ func _ready():
 	if entityListResource:
 		entityList = entityListResource.enemies
 		for entity in entityList:
-			entityDictionary[entity.name] = entity
+			entity._load_inventory()
+			var instanced_entity = entity
+			entityDictionary[entity.name] = instanced_entity
 	else:
 		print("Failed to load entities it's jover")
 	

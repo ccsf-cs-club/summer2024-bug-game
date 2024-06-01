@@ -8,8 +8,12 @@ class_name BossEntity
 var move_set_functions = {}
 
 func _init():
+#	super() # Call the parent's constructor
 	if move_set:
 		move_set_functions = move_set.init_moves()
+
+func _ready():
+	print("boss entity ready called")
 
 func preform_move(move_name: String):
 	if move_name in move_set_functions:

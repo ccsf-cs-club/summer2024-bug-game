@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b3cr6d8tccanl" path="res://assets/Ui_elements/DamageIcon.png" id="8_qlgt2"]
 [ext_resource type="Script" path="res://scripts/FloatingDamageDisplay.gd" id="9_7oajb"]
 [ext_resource type="FontFile" uid="uid://5wmjt7drp5ue" path="res://assets/FontRoboto/Roboto-Medium.ttf" id="9_ley5y"]
-[ext_resource type="AudioStream" uid="uid://cngekj41k2cqb" path="res://assets/Music/osrs_hit.mp3" id="11_er4xl"]
+[ext_resource type="AudioStream" uid="uid://duuhg8sc2rg71" path="res://assets/Music/thump1.mp3" id="11_0qnyk"]
 
 [node name="CombatRoundStatusIndicator" type="Node2D"]
 script = ExtResource("1_4ge8m")
@@ -84,4 +84,6 @@ scroll_active = false
 wait_time = 0.35
 
 [node name="CardPlayEffect" type="AudioStreamPlayer" parent="FloatingDamageDisplay"]
-stream = ExtResource("11_er4xl")
+stream = ExtResource("11_0qnyk")
+volume_db = 10.0
+bus = &"SFX"

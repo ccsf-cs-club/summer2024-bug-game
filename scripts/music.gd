@@ -1,14 +1,20 @@
 extends Node
 
-@onready var menu_music: AudioStreamPlayer = $main_menu_by_kyle
-@onready var game_music: AudioStreamPlayer = $main_menu_by_kyle
+@onready var menu_music: AudioStreamPlayer = $MainMenuTheme
+@onready var game_music: AudioStreamPlayer = $MainMenuTheme
+
+@onready var angel_theme: AudioStreamPlayer = $AmbiguousAngelTheme
+@onready var tick_theme: AudioStreamPlayer = $SanguineMamaTheme
+@onready var slug_theme: AudioStreamPlayer = $BananaSlugTheme
 
 var current_player = null
+var level_theme = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Gs.GAME_START.connect(_on_game_start)
 	Gs.GAME_PAUSE.connect(_on_game_pause)
+	Em.bossChanged.connect(new_boss_theme_change)
 	
 	print("START PRINTING MONEY?????!!! ")
 	for audio_node in get_children():
@@ -17,12 +23,13 @@ func _ready():
 			audio_node.finished.connect(_on_stream_finished)
 	
 	current_player = menu_music
+	level_theme = slug_theme
 	play_music()
 
 
 func _on_game_start():
 	current_player.stop()
-	current_player = game_music
+	current_player = level_theme
 	play_music()
 
 func _on_game_pause():
@@ -38,4 +45,18 @@ func play_music():
 func _on_stream_finished():
 	#print("Raaa audio finished")
 	#print("money finished printing smhh my head ")
+	play_music()
+	
+func new_boss_theme_change():
+	current_player.stop()
+	match Em.currentBoss.name:
+		"Banana Queen":
+			level_theme = slug_theme
+		"Sanguine Mama":
+			level_theme = tick_theme
+		"Ambiguous Angel":
+			level_theme = angel_theme
+		_:
+			level_theme = angel_theme
+	current_player = level_theme
 	play_music()

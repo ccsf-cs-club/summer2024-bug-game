@@ -30,6 +30,7 @@ func set_pitched_cards_display(cardArray: Array, state: int):
 			if i < cardArray.size() and PlayerPitchGrid.get_children()[i] is TextureRect:
 				var PitchedCardDisplay: TextureRect = PlayerPitchGrid.get_children()[i]
 				PitchedCardDisplay.texture = cardArray[i].getCardTexture(true)
+		$CardPitchedSound.play()
 
 
 func set_boss_display(card: Card, state: int):

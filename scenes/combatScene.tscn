@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://vvsenribpq0e"]
+[gd_scene load_steps=25 format=3 uid="uid://vvsenribpq0e"]
 
 [ext_resource type="Script" path="res://scripts/combatLoop.gd" id="1_e17cm"]
 [ext_resource type="PackedScene" uid="uid://c20p7rgfp812b" path="res://scenes/cardInspector_node2D.tscn" id="2_6of2c"]
@@ -10,11 +10,13 @@
 [ext_resource type="FontFile" uid="uid://cuhsatigs30dl" path="res://assets/feronia/Feronia.ttf" id="5_e4vr5"]
 [ext_resource type="PackedScene" uid="uid://re6gb2jolng3" path="res://scenes/played_card_displays.tscn" id="5_htc56"]
 [ext_resource type="Texture2D" uid="uid://bmn6soyfw204t" path="res://assets/Ui_elements/tabletopBackground.png" id="5_txdtx"]
+[ext_resource type="AudioStream" uid="uid://f1c735kejif7" path="res://assets/Music/thump2.mp3" id="6_y5bgh"]
 [ext_resource type="PackedScene" uid="uid://bq8xt2utpun67" path="res://scenes/deckInspectorPopup.tscn" id="7_igcod"]
 [ext_resource type="Texture2D" uid="uid://b2h41lwnc4fxh" path="res://assets/Ui_elements/tabletopBackground_Final.png" id="8_gui6b"]
 [ext_resource type="Texture2D" uid="uid://dhxdx2e32wa4p" path="res://assets/Ui_elements/srhinked2xSword-export.png" id="9_b2y6e"]
 [ext_resource type="Texture2D" uid="uid://dfg250a2tl0mq" path="res://assets/Boss_art/AmbigousAngel.png" id="9_dss3q"]
 [ext_resource type="Texture2D" uid="uid://banvas2cbiinh" path="res://assets/Ui_elements/srhinked2xShield-export.png" id="10_kmc5l"]
+[ext_resource type="AudioStream" uid="uid://cpwgrotil41dd" path="res://assets/Music/thump3.mp3" id="11_sqvw7"]
 [ext_resource type="PackedScene" uid="uid://dy743m4fh4gip" path="res://scenes/combatRoundStatusIndicator.tscn" id="13_umwxy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iaaas"]
@@ -131,6 +133,12 @@ offset_left = 152.0
 offset_top = 13.0
 offset_right = 398.0
 offset_bottom = 210.0
+
+[node name="CardPitchedSound" type="AudioStreamPlayer" parent="PlayedCardDisplays"]
+stream = ExtResource("6_y5bgh")
+volume_db = -4.0
+pitch_scale = 1.2
+bus = &"SFX"
 
 [node name="CombatUI" type="Node2D" parent="."]
 script = ExtResource("2_yieo8")
@@ -267,6 +275,11 @@ bbcode_enabled = true
 text = "[center]9[/center]"
 fit_content = true
 scroll_active = false
+
+[node name="PlayerDefendingSound" type="AudioStreamPlayer" parent="CombatUI/defensePhaseOutcome"]
+stream = ExtResource("11_sqvw7")
+volume_db = 10.0
+bus = &"SFX"
 
 [node name="EnemyCardHand" parent="." instance=ExtResource("2_tnnes")]
 

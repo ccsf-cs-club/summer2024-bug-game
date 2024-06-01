@@ -138,8 +138,9 @@ func _resolve_attack_card():
 	
 	print_rich("[color=#b44c02]Trying to attack with: ", attackingCard.cardName)
 	
-	if currentlyResolvingCard.hasManaCost():
+	if currentlyResolvingCard.isNotPlayableImmediately():
 		# Store requirements to offer a hint to player for mana cost
+		print_rich("[color=#b44c02]\tYou need to pay for: ", attackingCard.cardName)
 		Player.announcePitchManaHint(currentlyResolvingCard)
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 		# maybe make a new gamestate that is finished resolving pitched cards
@@ -203,8 +204,7 @@ func _resolve_pitch_cards():
 			Player.increment_big_mana(pitchedCard.bigManaAmt)
 			Player.increment_small_mana(pitchedCard.smallManaAmt)
 			
-			if currentlyResolvingCard.costBigManaAmt > Player.bigManaPayed or \
-				currentlyResolvingCard.costSmallManaAmt > Player.smallManaPayed:
+			if not currentlyResolvingCard.isAffordableToPlayer():
 				print("You have to pitch more cards!!! Current Small: ", Player.smallManaPayed, " Current Big: ", Player.bigManaPayed)
 				
 				Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
@@ -260,8 +260,9 @@ func _can_player_play_a_card() -> bool:
 
 # This function checks if player has enough potential mana to play a card
 func _enough_mana_for(card: Card) -> bool:
-	var totalPossibleBigMana = 0
-	var totalPossibleSmallMana = 0
+	# Use banked mana on board for calculation, and all cards in hand
+	var totalPossibleBigMana = Player.bigManaPayed
+	var totalPossibleSmallMana = Player.smallManaPayed
 	
 	# sum up total possible mana
 	for cardInHand in Player.cardsInHand:
@@ -323,7 +324,7 @@ func _resolve_player_blocking_card():
 	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 0)
 	
 	# Pitch for the blocking card
-	if currentlyResolvingCard.hasManaCost():
+	if currentlyResolvingCard.isNotPlayableImmediately():
 		Player.announcePitchManaHint(currentlyResolvingCard)
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 		# maybe make a new gamestate that is finished resolving pitched cards

@@ -169,6 +169,8 @@ func announcePitchManaHint(card: UnitCard):
 	resolving_card.emit(card)
 
 func decrease_health(amount: int):
+	assert(amount >= 0)
+	
 	healthPool -= amount
 	if healthPool <= 0:
 		healthPool = 0
@@ -177,6 +179,8 @@ func decrease_health(amount: int):
 	emit_signal("health_decreased")
 	emit_signal("health_change")
 func increase_health(amount: int):
+	assert(amount >= 0)
+	
 	healthPool += amount
 	emit_signal("health_increased")
 	emit_signal("health_change")

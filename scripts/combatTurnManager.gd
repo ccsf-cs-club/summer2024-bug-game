@@ -315,6 +315,9 @@ func _resolve_player_blocking_card():
 	
 	var damageChunk = damageQueue.dequeue()
 	damageChunk -= blockingCard.defence
+	if damageChunk < 0:
+		damageChunk = 0
+	
 	damageQueue.enqueue(damageChunk)
 	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 1)
 	print_rich("[color=purple]\tCurrent damage that will be delt = ", damageQueue.peek())
@@ -335,6 +338,7 @@ func _resolve_end_of_blocking_phase():
 ######################################## Enemy
 
 func _resolve_enemy_attack():
+	assert(Em.currentCard.attack >= 0)
 	damageQueue.enqueue(Em.currentCard.attack)
 	Gs.DISPLAY_BOSS_CARD.emit(Em.currentCard, 0) # 0 means display card
 	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)

@@ -10,7 +10,7 @@ var currentBoss: BossEntity 	# key val pairs, key = name, val = entity
 var currentCard: Card
 signal bossChanged
 
-var attackAmountPerTurn = 5
+var attackAmountPerTurn = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

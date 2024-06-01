@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://nh7yckyt7236" path="res://resources/Eyepede.tres" id="3_ub3cc"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_b63lt"]
 [ext_resource type="Resource" uid="uid://882owao32mw7" path="res://resources/Bomber_beetle.tres" id="6_m0hpg"]
-[ext_resource type="Resource" path="res://resources/Pill_bug.tres" id="6_q0we8"]
+[ext_resource type="Resource" uid="uid://4ansh81g0n5m" path="res://resources/Pill_bug.tres" id="6_q0we8"]
 [ext_resource type="Resource" uid="uid://c7ruw02hy6u5r" path="res://resources/Fire_fly.tres" id="7_waiuc"]
 [ext_resource type="Resource" uid="uid://57wa7cx8hti7" path="res://resources/Footsoldier_fly.tres" id="8_4m463"]
 [ext_resource type="Resource" uid="uid://yrlp7duue5xy" path="res://resources/Moth.tres" id="9_41q7h"]

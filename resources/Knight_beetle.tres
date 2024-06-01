@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://buq32nwojqj65"]
+[gd_resource type="Resource" script_class="UnitCard" load_steps=3 format=3 uid="uid://cdrfvb7ngxpun"]
 
+[ext_resource type="Script" path="res://scripts/unitCardEffects.gd" id="1_e8x2u"]
 [ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_ywrfx"]
 
 [resource]
@@ -8,6 +9,8 @@ bigManaAmt = 1
 smallManaAmt = 1
 attack = 4
 defence = 4
+spellIdentifier = 0
+effects = ExtResource("1_e8x2u")
 cardName = "Knight Beetle"
 type = 0
 costBigManaAmt = 3

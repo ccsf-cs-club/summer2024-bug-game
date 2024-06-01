@@ -156,6 +156,15 @@ func _resolve_attack_card():
 	print_rich("[color=blue]\tSuccessful Pitch, ", currentlyResolvingCard.cardName, "'s attack is being resolved!!!")
 	# change state to enemy ai defense
 	Em.currentBoss.decrease_health(attackingCard.attack)
+	
+	# Vena's goofy spell effects
+	attackingCard.initSpells()
+	attackingCard.play_card("mantis_heal_three")
+	attackingCard.play_card("bard_draw_2_cards")
+	attackingCard.play_card("knight_plus_1_attack_and_defence")
+	
+	
+	
 	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 1) # 1 means clear card
 	print("Player hp: ", Player.healthPool)
 	print("Boss hp: ", Em.currentBoss.healthPool)
@@ -340,6 +349,12 @@ func _resolve_player_blocking_card():
 	
 	var damage = damageQueue.dequeue()
 	var defense = blockingCard.defence
+	
+	# Vena's goofy spell effects
+	blockingCard.initSpells()
+	blockingCard.play_card("mantis_heal_three")
+	blockingCard.play_card("bard_draw_2_cards")
+	blockingCard.play_card("knight_plus_1_attack_and_defence")
 	
 	# you can only defend the entire amount of damage
 	# (i.e. defending cannot allow you to heal)

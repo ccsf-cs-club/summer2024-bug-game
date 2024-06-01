@@ -8,7 +8,6 @@ bigManaAmt = 1
 smallManaAmt = 1
 attack = 0
 defence = 5
-card_effect_name = ""
 cardName = "Pill Bug"
 type = 0
 costBigManaAmt = 0

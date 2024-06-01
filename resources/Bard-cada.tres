@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitCard" load_steps=2 format=3 uid="uid://b4eys6ef277g6"]
+[gd_resource type="Resource" script_class="UnitCard" load_steps=3 format=3 uid="uid://b4eys6ef277g6"]
 
+[ext_resource type="Script" path="res://scripts/unitCardEffects.gd" id="1_6vq5b"]
 [ext_resource type="Script" path="res://scripts/unitCard.gd" id="1_fu2dy"]
 
 [resource]
@@ -8,6 +9,8 @@ bigManaAmt = 2
 smallManaAmt = 2
 attack = 2
 defence = 2
+spellIdentifier = 0
+effects = ExtResource("1_6vq5b")
 cardName = "Bard-cada"
 type = 0
 costBigManaAmt = 3

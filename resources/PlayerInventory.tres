@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardInventory" load_steps=23 format=3 uid="uid://bnxv6ya0em0uf"]
+[gd_resource type="Resource" script_class="CardInventory" load_steps=29 format=3 uid="uid://bnxv6ya0em0uf"]
 
 [ext_resource type="Resource" path="res://resources/Ant_guy.tres" id="1_foi2g"]
 [ext_resource type="Script" path="res://scripts/cardAndAmt.gd" id="2_dklt8"]
@@ -7,11 +7,14 @@
 [ext_resource type="Resource" uid="uid://nh7yckyt7236" path="res://resources/Eyepede.tres" id="3_ub3cc"]
 [ext_resource type="Script" path="res://scripts/cardInventory.gd" id="4_b63lt"]
 [ext_resource type="Resource" uid="uid://882owao32mw7" path="res://resources/Bomber_beetle.tres" id="6_m0hpg"]
-[ext_resource type="Resource" path="res://resources/Pill_bug.tres" id="6_q0we8"]
+[ext_resource type="Resource" uid="uid://4ansh81g0n5m" path="res://resources/Pill_bug.tres" id="6_q0we8"]
 [ext_resource type="Resource" uid="uid://c7ruw02hy6u5r" path="res://resources/Fire_fly.tres" id="7_waiuc"]
 [ext_resource type="Resource" uid="uid://57wa7cx8hti7" path="res://resources/Footsoldier_fly.tres" id="8_4m463"]
 [ext_resource type="Resource" uid="uid://yrlp7duue5xy" path="res://resources/Moth.tres" id="9_41q7h"]
 [ext_resource type="Resource" path="res://resources/Potato_bug.tres" id="10_vbxvd"]
+[ext_resource type="Resource" uid="uid://cr2twdcr3p0qm" path="res://resources/Bishop_mantis.tres" id="12_vr752"]
+[ext_resource type="Resource" uid="uid://b4eys6ef277g6" path="res://resources/Bard-cada.tres" id="13_oym3v"]
+[ext_resource type="Resource" path="res://resources/Knight_beetle.tres" id="14_lub8h"]
 
 [sub_resource type="Resource" id="Resource_aycmq"]
 script = ExtResource("2_dklt8")
@@ -63,6 +66,21 @@ script = ExtResource("2_dklt8")
 card_template = ExtResource("10_vbxvd")
 amt = 2
 
+[sub_resource type="Resource" id="Resource_mobrh"]
+script = ExtResource("2_dklt8")
+card_template = ExtResource("12_vr752")
+amt = 10
+
+[sub_resource type="Resource" id="Resource_8bx2b"]
+script = ExtResource("2_dklt8")
+card_template = ExtResource("13_oym3v")
+amt = 10
+
+[sub_resource type="Resource" id="Resource_n8a41"]
+script = ExtResource("2_dklt8")
+card_template = ExtResource("14_lub8h")
+amt = 10
+
 [resource]
 script = ExtResource("4_b63lt")
-card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_aycmq"), SubResource("Resource_7b5cy"), SubResource("Resource_b41a6"), SubResource("Resource_relby"), SubResource("Resource_v6141"), SubResource("Resource_7xntf"), SubResource("Resource_2txnd"), SubResource("Resource_6j4r6"), SubResource("Resource_qx6st"), SubResource("Resource_huxnj")])
+card_hand = Array[ExtResource("2_dklt8")]([SubResource("Resource_aycmq"), SubResource("Resource_7b5cy"), SubResource("Resource_b41a6"), SubResource("Resource_relby"), SubResource("Resource_v6141"), SubResource("Resource_7xntf"), SubResource("Resource_2txnd"), SubResource("Resource_6j4r6"), SubResource("Resource_qx6st"), SubResource("Resource_huxnj"), SubResource("Resource_mobrh"), SubResource("Resource_8bx2b"), SubResource("Resource_n8a41")])

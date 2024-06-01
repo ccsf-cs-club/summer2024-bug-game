@@ -108,7 +108,7 @@ func addCardToDiscard(card: Card):
 	cardsInDiscard.append(card)
 	
 	var total = cardsInDiscard.size() + cardsInHand.size() + cardsInDeck.size()
-	assert(total <= 32)
+#	assert(total <= 32)
 
 # These Four were written with Ai ... not my fault if they break! I'm lazy :3
 func moveDiscardToHand():

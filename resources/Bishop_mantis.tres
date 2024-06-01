@@ -14,6 +14,6 @@ cardName = "Bishop Mantis"
 type = 0
 costBigManaAmt = 0
 costSmallManaAmt = 3
-loreString = "By the grace of the giants!"
+loreString = "By the grace of the giants! When played, heal 3"
 cardArtPath = "res://assets/Card_art/Bishop_mantis_small.png"
 cardArtPathFullSize = "res://assets/Card_art/Bishop_mantis.png"

@@ -95,11 +95,13 @@ func continue_game():
 	
 	if(current_level == BossLevel.BANANA_QUEEN):
 		Em.attackAmountPerTurn = 5
+		Em.link_BossAtt_to_Card(Em.attackAmountPerTurn)
 		current_level = BossLevel.SANGUINE_MAMA
 		Em.changeBoss(Em.entityDictionary["Sanguine Mama"])
 		Em.bossChanged.emit()
 	elif(current_level == BossLevel.SANGUINE_MAMA):
 		Em.attackAmountPerTurn = 6
+		Em.link_BossAtt_to_Card(Em.attackAmountPerTurn)
 		current_level = BossLevel.AMBIGUOUS_ANGEL
 		Em.changeBoss(Em.entityDictionary["Ambiguous Angel"])
 		Em.bossChanged.emit()

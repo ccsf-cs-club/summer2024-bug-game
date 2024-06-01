@@ -112,7 +112,7 @@ func _player_card_played():
 		else:
 			Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_CARD)
 	else:
-		assert(false) # should always be handled above ^
+		# should always be handled above ^
 
 			# Provide option to pass turn and draw up to full?
 
@@ -137,7 +137,6 @@ func _resolve_not_enough_mana():
 
 func _resolve_attack_card():
 	var attackingCard: UnitCard = cardQueue.dequeue()
-	assert(attackingCard.type == Card.CardType.Unit)
 	currentlyResolvingCard = attackingCard
 	Player.removeCardWithIDFromHand(attackingCard.cardID)
 	Player.addCardToDiscard(attackingCard)
@@ -164,7 +163,6 @@ func _resolve_attack_card():
 
 func _resolve_spell_card():
 	var castingCard: SpellCard = cardQueue.dequeue()
-	assert(castingCard.type == Card.CardType.Spell)
 	currentlyResolvingCard = castingCard
 	Player.removeCardWithIDFromHand(castingCard.cardID)
 	Player.addCardToDiscard(castingCard)
@@ -200,8 +198,6 @@ func _resolve_pitch_cards():
 		
 			print("Paying for cost with: ", cardQueue.peek().cardName)
 			var pitchedCard: UnitCard = cardQueue.dequeue()
-			
-			assert(Player.getCardInHandByID(pitchedCard.cardID) != null)
 			
 			Player.removeCardWithIDFromHand(pitchedCard.cardID)
 			Player.addCardToDiscard(pitchedCard)
@@ -289,7 +285,6 @@ func _enough_mana_for(card: Card) -> bool:
 		return false
 
 func addCardToPlayerQueue(card: Card):
-	assert(cardQueue._queue.find(card) == -1)
 	
 	cardQueue.enqueue(card)
 	_player_card_played()
@@ -363,7 +358,6 @@ func _resolve_end_of_blocking_phase():
 	Player.resetAllManaPlayed()
 	Player.moveDiscardToDeck()
 	Player.shuffleDeck()
-	assert(cardQueue.is_empty())
 	Player.pitchedCardsThisPhase.clear()
 	Gs.DISPLAY_PITCHED_CARDS.emit(Player.pitchedCardsThisPhase, 1)
 	
@@ -372,7 +366,6 @@ func _resolve_end_of_blocking_phase():
 ######################################## Enemy
 
 func _resolve_enemy_attack():
-	assert(Em.currentCard.attack >= 0)
 	damageQueue.enqueue(Em.currentCard.attack)
 	Gs.DISPLAY_BOSS_CARD.emit(Em.currentCard, 0) # 0 means display card
 	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)

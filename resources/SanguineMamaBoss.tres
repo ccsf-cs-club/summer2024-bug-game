@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="BossEntity" load_steps=3 format=3 uid="uid://dkgoxc7q0kd7v"]
 
+[ext_resource type="Resource" uid="uid://c1m8846org6l" path="res://resources/BossInventory.tres" id="1_2a38y"]
 [ext_resource type="Script" path="res://scripts/bossEntity.gd" id="1_h52g4"]
-[ext_resource type="Resource" uid="uid://dnw7q3kauh52m" path="res://resources/BossInventory.tres" id="1_j2h22"]
 
 [resource]
 script = ExtResource("1_h52g4")
 healthPool = 20
 name = "Sanguine Mama"
 cardInventoryResource = ""
-inventory = ExtResource("1_j2h22")
+inventory = ExtResource("1_2a38y")
 entityArtPath = "res://assets/Boss_art/SanguineMama.png"

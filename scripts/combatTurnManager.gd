@@ -330,12 +330,18 @@ func _resolve_player_blocking_card():
 		await await_state_change(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
 	
 	
-	var damageChunk = damageQueue.dequeue()
-	damageChunk -= blockingCard.defence
-	if damageChunk < 0:
-		damageChunk = 0
+	var damage = damageQueue.dequeue()
+	var defense = blockingCard.defence
 	
-	damageQueue.enqueue(damageChunk)
+	# you can only defend the entire amount of damage
+	# (i.e. defending cannot allow you to heal)
+	if defense > damage:
+		defense = damage
+	
+	damageQueue.enqueue(damage - defense)
+	
+	Player.defense_card_applied.emit(damage, defense)
+	
 	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 1)
 	print_rich("[color=purple]\tCurrent damage that will be delt = ", damageQueue.peek())
 	

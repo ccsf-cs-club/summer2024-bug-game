@@ -12,6 +12,6 @@ cardName = "Baby Fly"
 type = 0
 costBigManaAmt = 1
 costSmallManaAmt = 1
-loreString = "Not a single though lies behind those eyes"
+loreString = "Not a single thought lies behind those eyes"
 cardArtPath = "res://assets/Card_art/Baby_fly_small.png"
 cardArtPathFullSize = "res://assets/Card_art/Baby_fly.png"

@@ -152,6 +152,9 @@ func _resolve_attack_card():
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 		# maybe make a new gamestate that is finished resolving pitched cards
 		await await_state_change(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
+	else:
+		Player.spend_big_mana(currentlyResolvingCard.costBigManaAmt)
+		Player.spend_small_mana(currentlyResolvingCard.costSmallManaAmt)
 	
 	print_rich("[color=blue]\tSuccessful Pitch, ", currentlyResolvingCard.cardName, "'s attack is being resolved!!!")
 	# change state to enemy ai defense
@@ -332,7 +335,9 @@ func _resolve_player_blocking_card():
 		Gs.set_state(Gs.GameState.PL_WAITING_FOR_PITCHED_CARDS)
 		# maybe make a new gamestate that is finished resolving pitched cards
 		await await_state_change(Gs.GameState.PL_PITCHING_PHASE_FINISHED)
-	
+	else:
+		Player.spend_big_mana(currentlyResolvingCard.costBigManaAmt)
+		Player.spend_small_mana(currentlyResolvingCard.costSmallManaAmt)
 	
 	var damage = damageQueue.dequeue()
 	var defense = blockingCard.defence
@@ -348,6 +353,7 @@ func _resolve_player_blocking_card():
 	
 	Gs.DISPLAY_PLAYER_CARD.emit(currentlyResolvingCard, 1)
 	print_rich("[color=purple]\tCurrent damage that will be delt = ", damageQueue.peek())
+	
 	
 	Gs.set_state(Gs.GameState.PL_RESOLVING_BLOCKING_PHASE)
 

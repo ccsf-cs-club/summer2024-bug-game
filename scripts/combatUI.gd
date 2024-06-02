@@ -40,21 +40,17 @@ func playerHpUpdate():
 	
 func bossHpUpdate():
 	if Em.currentBoss:
-		print("\t\tMAKING BANANA QUEEN HP DISPLAY!!!")
 		$BossHpUiElement.text = "[center]" + str(Em.currentBoss.healthPool) + "[/center]"
-	else:
-		print("THERE IS NO CURRENT BOSS TO UPDATE HEALTH OF")
 
 func players_money():
 	$PlayerMoneyUpdate.text = "$" + str(Player.money) 
-	print("jhksojfghsljkghlakjshfdlakjshfalkjsfhalkjsdfhalsjkfh")
 
 func defenseCardApplied(damage: int, defense: int):
 	maxDamageSinceLastDisplay = max(damage, maxDamageSinceLastDisplay)
 	accumulatingDefenseSinceLastDisplay += defense
 
-func displayDefensePhaseResult():
-	$defensePhaseOutcome/attack/value.text = "[center]%d[/center]" % maxDamageSinceLastDisplay
+func displayDefensePhaseResult(dmg_amount: int):
+	$defensePhaseOutcome/attack/value.text = "[center]%d[/center]" % max(dmg_amount, maxDamageSinceLastDisplay)
 	$defensePhaseOutcome/defense/value.text = "[center]%d[/center]" % accumulatingDefenseSinceLastDisplay
 	$defensePhaseOutcome/PlayerDefendingSound.play()
 	maxDamageSinceLastDisplay = 0

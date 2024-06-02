@@ -32,7 +32,7 @@ var currentDefence = 0
 var money: int = 10 # Players cash 
 
 signal health_increased # Sent when health increases (UI effect?)
-signal health_decreased # Sent when health decreases (Again effect?)
+signal health_decreased(int) # Sent when health decreases (Again effect?)
 signal health_zero # Sent when health gets to zero (Use for game loss?)
 signal health_change
 signal big_mana_changed # Sent when health increases (UI effect?)
@@ -179,7 +179,7 @@ func decrease_health(amount: int):
 		healthPool = 0
 		emit_signal("health_zero")
 		
-	emit_signal("health_decreased")
+	health_decreased.emit(amount)
 	emit_signal("health_change")
 func increase_health(amount: int):
 	
@@ -225,6 +225,12 @@ func resetStatsPostGame():
 	currentAttack = 0
 	currentDefence = 0
 
+func decayManaPlayed():
+	# Experimenting with a ruleset that rewards good defense
+	smallManaPayed = bigManaPayed
+	bigManaPayed = 0
+	big_mana_changed.emit()
+	small_mana_changed.emit()
 
 func resetAllManaPlayed():
 	bigManaPayed = 0
